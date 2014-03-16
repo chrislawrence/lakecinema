@@ -15,6 +15,9 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 Capybara.javascript_driver = :webkit
 
+FactoryGirl.definition_file_paths = %w(../factories)
+FactoryGirl.find_definitions
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.treat_symbols_as_metadata_keys_with_true_values = true

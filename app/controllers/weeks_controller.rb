@@ -3,10 +3,11 @@ class WeeksController < ApplicationController
     @week = Week.new
     2.times do
       movie = @week.movies.build
-      ['Fri' 'Sat' 'Sun'].each do |w|
+      %w[Fri Sat Sun].each do |w|
         movie.showings.build(day: w)
       end
     end
+    @week.build_holiday
   end
 
   def show
@@ -25,6 +26,6 @@ class WeeksController < ApplicationController
   private
 
   def week_params
-    params.require(:week).permit(:title, :start_date, :end_date, :movies_attributes => [:title, :rating, :overview, :poster_url, :sessions_attributes => [:day, :times]])
+    params.require(:week).permit(:title, :start_date, :end_date, :movies_attributes => [:title, :rating, :overview, :poster_url, :showings_attributes=> [:day, :times]], :holiday_attributes => [:preamble, :body])
   end
 end

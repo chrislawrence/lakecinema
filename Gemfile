@@ -12,10 +12,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'rspec-rails', group: [:test, :development]
-gem 'pry', group: [:test, :development]
 
-group :test do
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'pry'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'capybara-webkit'

@@ -4,9 +4,23 @@
   <%= f.label :end_date %>
   <%= f.text_field :end_date, placeholder: "YYYY-MM-DD" %>
 
+  <%= label_tag 'holiday_check_box', "Holidays" %>
+  <%= check_box_tag 'holiday_check_box', "Holidays" %>
+
+  <div id="movie_fields">
     <%= f.fields_for :movies do |movie_fields| %>
       <div class="movie <%= cycle 'one', 'two' %>">
         <%= render 'movie_fields', f: movie_fields %>
+      </div>
+    <% end %>
+  </div>
+
+    <%= f.fields_for :holiday do |holiday_fields| %>
+      <div id="holiday_fields">
+        <%= holiday_fields.label :preamble %>
+        <%= holiday_fields.text_area :preamble %>
+        <%= holiday_fields.label :body %>
+        <%= holiday_fields.text_area :body %>
       </div>
     <% end %>
 

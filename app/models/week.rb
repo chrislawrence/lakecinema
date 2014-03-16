@@ -3,9 +3,19 @@ class Week < ActiveRecord::Base
   validates :end_date, presence: true
   before_save :generate_title
 
-  has_many :movies
+  has_many :movies, dependent: :destroy
   accepts_nested_attributes_for :movies
-  accepts_nested_attributes_for :showings
+
+  has_one :holiday, dependent: :destroy
+  accepts_nested_attributes_for :holiday, reject_if: :all_blank
+
+  def to_partial_path
+    if self.holiday
+      'weeks/week_with_holidays' 
+    else
+      'weeks/week_with_movies'
+    end
+  end
 
   private
 

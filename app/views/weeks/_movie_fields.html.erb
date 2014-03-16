@@ -11,6 +11,7 @@
 <%= f.text_field :poster_url, class: 'poster_url' %>
 
 <%= f.fields_for :showings do |s| %>
+  <%= s.hidden_field :day, value: s.object.day %>
   <%= s.label :times, s.object.day %>
   <%= s.text_field :times %>
 <% end %>

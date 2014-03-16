@@ -24,10 +24,20 @@ feature "Admin adds a programme" do
     fill_week_fields
     within('.movie.one') do
       fill_in 'Title', with: 'The Godfather'
-      fill_in 'Fri', with: '5pm'
+     fill_in 'Fri', with: '5pm'
     end
     click_button 'Save'
-    expect(page).to have_content('5pm')
+    expect(page).to have_content('Fri: 5pm')
+  end
+
+  scenario "User adds a holiday programme" do
+    holiday = build(:holiday)
+    fill_week_fields
+    page.check('Holidays')
+    fill_in 'Preamble', with: holiday.preamble
+    fill_in 'Body', with: holiday.body
+    click_button 'Save'
+    expect(page).to have_content(holiday.preamble)
   end
 
   def fill_week_fields
