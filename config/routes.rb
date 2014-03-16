@@ -1,6 +1,6 @@
 Lakecinema::Application.routes.draw do
 
-  get '/', to: 'dashboard#index', constraints: {subdomain: 'admin'}
+  get '/', to: 'dashboard#index', as: 'dashboard', constraints: {subdomain: 'admin'}
   root to: 'static#index'
 
   resources :weeks

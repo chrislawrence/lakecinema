@@ -1,4 +1,5 @@
 <%= form_for @newsletter do |f| %>
+  <%= f.hidden_field :week_id, value: f.object.week_id %>
   <%= f.label :introduction %>
   <%= f.text_area :introduction %>
   <%= f.object.body %>
