@@ -5,6 +5,7 @@ class Week < ActiveRecord::Base
 
   has_many :movies
   accepts_nested_attributes_for :movies
+  accepts_nested_attributes_for :showings
 
   private
 

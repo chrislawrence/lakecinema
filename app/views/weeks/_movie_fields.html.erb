@@ -1,0 +1,18 @@
+<%= f.label :title %>
+<%= f.text_field :title, class: 'movie_title' %>
+
+<%= f.label :rating %>
+<%= f.text_field :rating, class: 'rating' %>
+
+<%= f.label :overview %>
+<%= f.text_field :overview, class: 'overview' %>
+
+<%= f.label :poster_url %>
+<%= f.text_field :poster_url, class: 'poster_url' %>
+
+<%= f.fields_for :showings do |s| %>
+  <%= s.label :times, s.object.day %>
+  <%= s.text_field :times %>
+<% end %>
+
+

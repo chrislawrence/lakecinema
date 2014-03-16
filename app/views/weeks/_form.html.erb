@@ -6,8 +6,7 @@
 
     <%= f.fields_for :movies do |movie_fields| %>
       <div class="movie <%= cycle 'one', 'two' %>">
-      <%= movie_fields.label :title %>
-      <%= movie_fields.text_field :title, class: 'movie_title' %>
+        <%= render 'movie_fields', f: movie_fields %>
       </div>
     <% end %>
 

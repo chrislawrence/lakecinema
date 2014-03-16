@@ -1,6 +1,16 @@
 class Search
-  API_KEY = ENV['TMDB_KEY']
+  include ActiveModel::Serializers::JSON
+  API_KEY = APP_CONFIG['tmdb_key']
   attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url
+
+  def attributes
+    {'id' => @id,
+      'title' => @title,
+      'release_date' => @release_date,
+      'poster_url' => @poster_url,
+      'overview' => @overview
+    }
+  end
 
   def self.by_title term
     response = get 'search/movie', {query: term}
