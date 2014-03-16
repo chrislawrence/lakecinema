@@ -9,7 +9,7 @@ class Week < ActiveRecord::Base
   has_one :holiday, dependent: :destroy
   accepts_nested_attributes_for :holiday, reject_if: :all_blank
 
-  def to_partial_path
+  def nested_partial_path
     if self.holiday
       'weeks/week_with_holidays' 
     else
