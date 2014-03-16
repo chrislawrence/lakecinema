@@ -1,0 +1,15 @@
+<%= form_for @week do |f| %>
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date, placeholder: "YYYY-MM-DD" %>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date, placeholder: "YYYY-MM-DD" %>
+
+    <%= f.fields_for :movies do |movie_fields| %>
+      <div class="movie <%= cycle 'one', 'two' %>">
+      <%= movie_fields.label :title %>
+      <%= movie_fields.text_field :title, class: 'movie_title' %>
+      </div>
+    <% end %>
+
+  <%= f.submit "Save" %>
+<% end %>
