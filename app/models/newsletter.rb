@@ -4,7 +4,7 @@ class Newsletter < ActiveRecord::Base
   def set_content date, movies = []
     self.send_time = (date - 1.day).to_time + 8 * 60 * 60
     self.body = ""
-    movies.inject { |movie| self.body += render(movie) }
+    movies.map{ |movie| self.body += render(movie) }
   end
 
   private
