@@ -1,6 +1,8 @@
 <% week.movies.each do |movie| %>
-  <%= movie.title %>
-  <% movie.showings.each do |showing| %>
-    <%= showing.day %>: <%=showing.times%>
-  <% end %>
+  <div class="movie <%= cycle 'one', 'two' %>" %>
+    <%= movie.title %>
+    <% movie.showings.each do |showing| %>
+      <%= showing.day %>: <%=showing.times%>
+    <% end %>
+  </div>
 <% end %>

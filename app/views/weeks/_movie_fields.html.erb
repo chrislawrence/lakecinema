@@ -12,6 +12,7 @@
 
 <%= f.fields_for :showings do |s| %>
   <%= s.hidden_field :day, value: s.object.day %>
+  <%= s.hidden_field :view_index, value: s.object.view_index %>
   <%= s.label :times, s.object.day %>
   <%= s.text_field :times %>
 <% end %>
