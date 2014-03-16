@@ -1,0 +1,6 @@
+<%= form_for @newsletter do |f| %>
+  <%= f.label :introduction %>
+  <%= f.text_area :introduction %>
+  <%= f.object.body %>
+  <%= f.submit "Save" %>
+<% end %>

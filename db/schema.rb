@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316101440) do
+ActiveRecord::Schema.define(version: 20140316103049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140316101440) do
     t.string   "overview"
     t.string   "poster_url"
     t.string   "week_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "newsletters", force: true do |t|
+    t.string   "subject"
+    t.string   "introduction"
+    t.string   "body"
+    t.integer  "campaign_id"
+    t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,5 @@
+<% @weeks.each do |week| %>
+  <div class="week">
+    <%= link_to "Write Newsletter", edit_newsletter_path(week) %>
+  </div>
+<% end %>
