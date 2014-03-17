@@ -1,5 +1,13 @@
 <% @weeks.each do |week| %>
   <div class="week">
+    <h3><%= week.title %></h3>
+    <div class="details">
+      <% week.movies.each do |movie| %>
+        <%= content_tag :span, movie.title %>
+      <% end %>
+    </div>
     <%= link_to "Write Newsletter", edit_newsletter_path(week) %>
+    <%= link_to "Edit", edit_week_path(week) %>
+    <%= link_to "Destroy", week, method: :delete, data: { confirm: 'Remove week?'} %>
   </div>
 <% end %>
