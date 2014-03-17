@@ -18,4 +18,9 @@ describe Week do
     expect(week.nested_partial_path).to eq('weeks/week_with_movies')
   end
 
+  it 'returns a new newsletter if does not exist' do
+    week  = create(:week)
+    expect(week.get_or_build_newsletter).to be_a(Newsletter)
+  end
+
 end

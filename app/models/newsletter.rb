@@ -7,6 +7,10 @@ class Newsletter < ActiveRecord::Base
     movies.map{ |movie| self.body += render(movie) }
   end
 
+  def sent
+    true if self.send_time < Time.zone.now
+  end
+
   private
 
   def render movie
@@ -14,8 +18,14 @@ class Newsletter < ActiveRecord::Base
   end
 
   def send_to_mailchimp
-    sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id)
+    update_send_time
+    sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
-    update_attributes(campaign_id: sender.campaign_id, sent: sender.sent)
+    self.campaign_id = sender.campaign_id
   end
+
+  def update_send_time
+    self.send_time = (Time.zone.now + 5.minutes) if self.send_time < Time.zone.now
+  end
+
 end

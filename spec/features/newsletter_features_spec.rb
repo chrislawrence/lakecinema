@@ -13,10 +13,4 @@ feature "Newsletter features" do
     expect(week.newsletter).to_not be_nil
   end
 
-  scenario "An existing newsletter is edited" do
-    week = create(:week_with_movies_and_showings)
-    week.create_newsletter(introduction: 'Welcome to the newsletter')
-    visit edit_newsletter_path(week)
-    expect(page).to have_content('Welcome to the newsletter')
-  end
 end

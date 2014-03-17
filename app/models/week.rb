@@ -19,6 +19,14 @@ class Week < ActiveRecord::Base
     end
   end
 
+  def get_or_build_newsletter 
+    if !self.newsletter
+      self.build_newsletter
+      self.newsletter.set_content(start_date, movies)
+    end
+    self.newsletter 
+  end
+
   private
 
   def generate_title

@@ -1,5 +1,5 @@
 class Chimp 
-  attr_accessor :title, :body, :send_time, :campaign_id, :sender, :sent
+  attr_accessor :title, :body, :send_time, :campaign_id, :sender
   API_KEY = APP_CONFIG['mailchimp_key']
 
   def initialize attributes={}
@@ -17,8 +17,7 @@ class Chimp
     else
       self.update_campaign
     end
-    self.schedule_or_deliver
-
+    self.schedule_campaign
     @campaign_id
   end
 
@@ -48,25 +47,12 @@ class Chimp
     })
   end
 
-  def schedule_or_deliver
-    if @send_time > Time.zone.now
-      schedule_campaign
-    else
-      deliver_campaign
-    end
-  end
-
   def schedule_campaign
     @sender.campaign_schedule(
       cid: @campaign_id,
       schedule_time: @send_time.strftime("%Y-%m-%d %H:%M:%S")
     )
     send_test
-  end
-
-  def deliver_campaign
-    @sender.campaign_send(cid: @campaign_id)
-    @sent = true
   end
 
   def send_test
@@ -76,8 +62,4 @@ class Chimp
       format: 'html'
     )
   end
-
-
-
-
 end

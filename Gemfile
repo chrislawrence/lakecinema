@@ -22,6 +22,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'webmock'
   gem 'sinatra'
+  gem 'timecop'
 end
 
 group :development do

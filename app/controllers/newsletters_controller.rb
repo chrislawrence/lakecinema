@@ -4,7 +4,7 @@ class NewslettersController < ApplicationController
 
   def edit
     week = Week.find(params[:id])
-    @newsletter = week.newsletter || week.build_newsletter
+    @newsletter = week.get_or_build_newsletter
   end
 
   def create
@@ -19,6 +19,6 @@ class NewslettersController < ApplicationController
   private
 
   def newsletter_params
-    params.require(:newsletter).permit(:week_id, :introduction, :body)
+    params.require(:newsletter).permit(:week_id, :introduction, :body, :send_time)
   end
 end
