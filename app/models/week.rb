@@ -4,7 +4,7 @@ class Week < ActiveRecord::Base
   before_save :generate_title
 
   has_many :movies, dependent: :destroy
-  accepts_nested_attributes_for :movies
+  accepts_nested_attributes_for :movies, reject_if: proc {|a| a['title'].blank?}
 
   has_one :holiday, dependent: :destroy
   accepts_nested_attributes_for :holiday, reject_if: :all_blank

@@ -1,6 +1,7 @@
-<div class="film newsletter">
+<div class="film <%=cycle 'one', 'two', name: 'divs'%>">
   <h2><%= movie.title %> (<%=movie.rating=%>)</h2>
   <% movie.showings.each do |s| %>
     <b><%= s.day.upcase %>:</b> <%= s.times %>
   <% end %>
 </div>
+<% reset_cycle 'divs' %>
