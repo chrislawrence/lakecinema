@@ -1,0 +1,26 @@
+<%= form_for @message do |f| %>
+  <% if @message.errors.any? %>
+    <div class="form_errors">
+      <h2>The following errors permitted the message from being sent:</h2>
+      <ul>
+        <% @message.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+      </ul>
+    </div>
+  <% end %>
+          
+  <%= f.select :nature, Message::NATURES, {include_blank: 'Select One...'} %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :organisation %>
+  <%= f.text_field :organisation %>
+
+  <%= f.label :body, "Your Message" %>
+  <%= f.text_area :body %>
+
+  <%= f.submit "Send Message" %>
+  
+<% end %>

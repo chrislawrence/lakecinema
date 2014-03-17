@@ -35,6 +35,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-email (2.3.0)
+      capybara (~> 2.2.0)
+      mail
     capybara-webkit (1.1.0)
       capybara (~> 2.0, >= 2.0.2)
       json
@@ -86,6 +89,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.9.0)
     multi_xml (0.5.5)
+    newrelic_rpm (3.7.2.192)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     paperclip (3.5.3)
@@ -186,6 +190,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
+  capybara-email
   capybara-webkit
   coffee-rails (~> 4.0.0)
   database_cleaner
@@ -194,6 +199,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mailchimp
+  newrelic_rpm
   paperclip
   pg
   pry

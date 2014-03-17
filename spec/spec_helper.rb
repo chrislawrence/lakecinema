@@ -1,6 +1,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'capybara/email/rspec'
 # require 'rspec/autorun'
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
