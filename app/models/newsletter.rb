@@ -14,7 +14,8 @@ class Newsletter < ActiveRecord::Base
   end
 
   def send_to_mailchimp
-    sender = Chimp.new(subject: self.subject, body: self.body, campaign_id: self.campaign_id)
-    self.campaign_id = sender.send
+    sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id)
+    sender.send
+    update_attributes(campaign_id: sender.campaign_id, sent: sender.sent)
   end
 end

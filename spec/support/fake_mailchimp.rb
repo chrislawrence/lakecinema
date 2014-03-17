@@ -1,12 +1,8 @@
 require 'sinatra/base'
 
 class FakeMailchimp < Sinatra::Base
-  get '/creatCampaign' do
-    json_response 200, 'caasdf23'
-  end
-
-  get 'updateCampaign' do
-    json_response 200, 'asdfasdf'
+  post '/1.3/' do
+    json_response 200, 'mailchimp.json'
   end
 
   private
