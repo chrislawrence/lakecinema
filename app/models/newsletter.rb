@@ -10,13 +10,11 @@ class Newsletter < ActiveRecord::Base
   private
 
   def render movie
-    ApplicationController.new.render_to_string(
-      partial: 'movies/movie',
-      locals: { :movie => movie }
-    )
+    ApplicationController.new.render_to_string(partial: 'movies/movie', locals: { movie: movie })
   end
 
   def send_to_mailchimp
-    self.campaign_id = MailchimpCampaign.send(campaign_id)
+    sender = Chimp.new(subject: self.subject, body: self.body, campaign_id: self.campaign_id)
+    self.campaign_id = sender.send
   end
 end

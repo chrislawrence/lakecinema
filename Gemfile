@@ -31,3 +31,4 @@ end
 gem 'paperclip'
 gem 'redcarpet'
 gem 'rest-client'
+gem 'mailchimp'

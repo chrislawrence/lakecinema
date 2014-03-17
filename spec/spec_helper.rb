@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
   config.before(:each) do
     stub_request(:any, /api.themoviedb.org/).to_rack(FakeTmdb)
+    stub_request(:any, /api.mailchimp.com/).to_rack(FakeMailchimp)
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

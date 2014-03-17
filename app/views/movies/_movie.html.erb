@@ -1,1 +1,6 @@
-<h2><%= movie.title %></h2>
+<div class="film newsletter">
+  <h2><%= movie.title %> (<%=movie.rating=%>)</h2>
+  <% movie.showings.each do |s| %>
+    <b><%= s.day.upcase %>:</b> <%= s.times %>
+  <% end %>
+</div>
