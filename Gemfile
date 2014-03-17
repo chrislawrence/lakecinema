@@ -12,7 +12,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
@@ -21,9 +20,12 @@ group :test, :development do
   gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'database_cleaner'
-  gem 'webmock'
   gem 'sinatra'
   gem 'timecop'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 group :development do

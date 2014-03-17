@@ -1,5 +1,6 @@
 <div class="film <%=cycle 'one', 'two', name: 'divs'%>">
   <h2><%= movie.title %> (<%=movie.rating=%>)</h2>
+  <%= image_tag movie.poster.url(:poster) %>
   <% movie.showings.each do |s| %>
     <b><%= s.day.upcase %>:</b> <%= s.times %>
   <% end %>
