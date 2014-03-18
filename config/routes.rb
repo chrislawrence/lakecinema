@@ -11,5 +11,7 @@ Lakecinema::Application.routes.draw do
   resources :searches, only: [:index, :show], constraints: {subdomain: 'admin'}
   controller :static do
     get :index
+    get :about
+    get :subscribe
   end
 end

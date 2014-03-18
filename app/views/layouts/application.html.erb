@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Lakecinema</title>
+	<title>Lake Cinema, Boolaroo &mdash; Movie session times for the Newcastle movie theatre</title>
+	<meta name="description" content="Newcastle cinema session times for the latest movies at Lake Cinema, Boolaroo. Independent movie theatre located in Newcastle, Australia showing blockbuster, kids, and arthouse movies. Accurate and up to date information." />
+	
+  <meta name="viewport" content="user-scalable=0, initial-scale=1.0" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: "flash #{name}"%>
-  <% end %>
+  <%= render 'layouts/header' %>
 
-<%= yield %>
+  <div id="wrapper">
+
+    <% flash.each do |name, msg| %>
+      <div class="flash #{name}">
+        <div class="content"><%= msg %></div>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <footer>
+      <div class="content">
+        &copy; <%= Date.today.strftime("%Y") %> Lake Cinema. Designed and developed by <%= link_to 'Chris Lawrence', 'http://whittled.net' %>
+      </div>
+
+  </div>
 
 </body>
 </html>
