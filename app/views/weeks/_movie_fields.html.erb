@@ -1,8 +1,12 @@
-<%= f.label :title %>
-<%= f.text_field :title, class: 'movie_title' %>
+<div class="movie_title">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'movie_title_input' %>
+</div>
 
-<%= f.label :rating %>
-<%= f.text_field :rating, class: 'rating' %>
+<div class="movie_rating">
+  <%= f.label :rating %>
+  <%= f.text_field :rating, class: 'rating' %>
+</div>
 
 <%= f.label :overview %>
 <%= f.text_field :overview, class: 'overview' %>

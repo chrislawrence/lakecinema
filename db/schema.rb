@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317095128) do
+ActiveRecord::Schema.define(version: 20140318045139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20140317095128) do
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
     t.text     "overview"
+    t.string   "extra"
   end
 
   create_table "newsletters", force: true do |t|

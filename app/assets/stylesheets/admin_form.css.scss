@@ -1,0 +1,63 @@
+/* Form inputs */
+
+label {
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+input {
+  width: 96%;
+  padding: 0.5em 2%;
+  margin-bottom: 1em;
+  border: 1px solid #F2F1ED;
+  background: #fcfcfc;
+}
+
+.loading {
+  display: block;
+  clear: both;
+  width: 0%;
+  margin-top: -1.2em;
+  margin-bottom: 1em;
+  height: 0.2em;
+  background: green;
+}
+
+.input_date {
+  width: 30%;
+  float: left;
+  margin-right: 3em;
+}
+
+.holiday_check {
+  label {
+    display: inline;
+    font-size: 0.8em;
+  }
+  input {
+    width: auto;
+  }
+}
+
+.movie {
+  width: 46%;
+}
+
+.one {
+  float: left;
+}
+  
+.two {
+  float: right;
+}
+
+.movie_title {
+  width: 70%;
+  float: left;
+}
+
+.movie_rating {
+  width: 20%;
+  float: right;
+}
+

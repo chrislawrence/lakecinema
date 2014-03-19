@@ -1,8 +1,10 @@
 <div class="film <%=cycle 'one', 'two', name: 'divs'%>">
-  <h2><%= movie.title %> (<%=movie.rating=%>)</h2>
-  <%= image_tag movie.poster.url(:poster) %>
+  <%= image_tag asset_path(movie.poster.url(:'poster@2x') %>
+  <h3><%= movie.title %> (<%=movie.rating=%>)</h3>
+  <% if movie.extra? %><p class="extra"><%= movie.extra %></p><% end %>
+
   <% movie.showings.each do |s| %>
-    <b><%= s.day.upcase %>:</b> <%= s.times %>
+    <p><b><%= s.day.upcase %>:</b> <%= s.times %></p>
   <% end %>
 </div>
 <% reset_cycle 'divs' %>
