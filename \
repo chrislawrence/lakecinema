@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :header_path
 
   def header_path
-    @header_path = 'layouts/header'
+    @header_path 'layouts/header'
+    yield
   end
 end

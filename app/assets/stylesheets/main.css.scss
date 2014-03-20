@@ -76,6 +76,18 @@ header {
   }
 }
 
+.logo {
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  margin-right: -45px;
+  margin-top: 6px;
+  float: left;
+  border-radius: 100%;
+  background: #1e3e57;
+  color: #eee;
+}
+
 .info {
   background: #1D3344;
   text-align: center;
