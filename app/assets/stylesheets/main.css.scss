@@ -20,7 +20,6 @@ body {
 
 a {
   color: #1E3E57;
-  text-decoration: none;
   &:hover {
     color: #757C82;
   }
@@ -159,6 +158,15 @@ footer {
   a {
     color: #A7B6C1;
   }
+}
+
+blockquote {
+	font-style: italic;
+	color: #555;
+	line-height: 1.8;
+  border-left: 4px solid #efefef;
+  margin-left: 0;
+  padding-left: 2em;
 }
 
 /* Messages */

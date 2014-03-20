@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_filter :header_path
 
   def header_path
-    @header_path = 'layouts/header'
+    if request.subdomain == 'admin'
+      @header_path = 'layouts/admin_header'
+    else
+      @header_path = 'layouts/header'
+    end
   end
 end
