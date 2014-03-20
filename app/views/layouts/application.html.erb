@@ -17,7 +17,7 @@
   <div id="wrapper">
 
     <% flash.each do |name, msg| %>
-      <div class="flash #{name}">
+      <div class="flash <%= name %>"> 
         <div class="content"><%= msg %></div>
       </div>
     <% end %>

@@ -11,15 +11,15 @@ describe Message do
 
   it 'sends the message to the mailer for organisation enquiries' do
     message = build(:message, nature: 'Organisations and Schools')
-    ContactMailer.stub_chain(:cinema, :deliver)
-    ContactMailer.should_receive(:cinema).with(message)
+    ContactMailer.stub_chain(:new_message, :deliver)
+    ContactMailer.should_receive(:new_message).with(message, Message::CINEMA_EMAIL)
     message.send_email
   end
 
   it 'sends the message to the mailer for website enquiries' do
     message = build(:message, nature: 'Website Issue')
-    ContactMailer.stub_chain(:website, :deliver)
-    ContactMailer.should_receive(:website).with(message)
+    ContactMailer.stub_chain(:new_message, :deliver)
+    ContactMailer.should_receive(:new_message).with(message, Message::WEBSITE_EMAIL)
     message.send_email
   end
 

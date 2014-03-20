@@ -22,6 +22,6 @@ feature "Contact form" do
     fill_in 'Your Message', with: message.body
     click_button 'Send'
     expect(page).to have_content(message.body)
-    expect(page).to have_content(message.errors.full_messages.first)
+    expect(page).to have_content("Please fill in all fields")
   end
 end

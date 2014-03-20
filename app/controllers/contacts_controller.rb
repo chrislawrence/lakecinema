@@ -1,6 +1,7 @@
-class MessagesController < ApplicationController
-  def new
-    @header_path = 'layouts/small_header'
+class ContactsController < ApplicationController
+  before_filter :header_path
+
+  def new 
     @message = Message.new
   end
 
@@ -10,10 +11,16 @@ class MessagesController < ApplicationController
       @message.send_email
       redirect_to root_path, notice: 'Your message has been delivered. Thankyou.'
     else 
-      render action: 'new', notice: 'Nope'
+      flash[:alert] = "Please fill in all fields"
+      render 'new'
     end
   end
+
   private
+
+  def header_path
+    @header_path = 'layouts/small_header'
+  end
   
   def message_params
     params.require(:message).permit(:nature, :name, :email, :organisation, :body)
