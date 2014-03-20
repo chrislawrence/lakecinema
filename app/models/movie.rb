@@ -3,11 +3,12 @@ class Movie < ActiveRecord::Base
   has_many :showings, -> { order "view_index ASC"} 
   accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}
   has_attached_file :poster, styles: {
-    :poster => ["200x296#", :jpg],
-    :'poster@2x' => ["400x592#", :jpg]
+    normal: ["200x296#", :jpg],
+    retina: ["400x592#", :jpg]
     },
-    url: "/assets/photos/:id/:style/:basename.:extension",
-    path: ":rails_root/public/assets/photos/:id/:style/:basename.:extension"
+    url: "/assets/posters/:id/:style/:basename.:extension",
+    path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
+    default_url: '/assets/posters/missing.jpg'
   before_save :download_poster
 
   private

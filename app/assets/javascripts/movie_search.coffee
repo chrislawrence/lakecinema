@@ -15,11 +15,12 @@ $ ->
             # populate fields with movie data
             finishLoad()
             $(self).val(data.title)
-            $(self).nextAll('.overview').val(data.overview)
-            $(self).nextAll('.poster_url').val(data.poster_url)
+            fields = $(self).parent().nextAll('.movie_details')
+            fields.children('.overview').val(data.overview)
+            fields.children('.poster_url').val(data.poster_url)
+            fields.nextAll('.poster_preview').children('img').attr('src', data.poster_thumb)
 
     load = (item)->
-      debugger
       $(item).after("<div class='loading'></div>").nextAll('.loading').animate({width: '80%'}, 5000)
 
     finishLoad = (item) ->

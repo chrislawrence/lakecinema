@@ -1,14 +1,15 @@
 class Search
   include ActiveModel::Serializers::JSON
   API_KEY = APP_CONFIG['tmdb_key']
-  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url
+  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb
 
   def attributes
     {'id' => @id,
       'title' => @title,
       'release_date' => @release_date,
       'poster_url' => @poster_url,
-      'overview' => @overview
+      'overview' => @overview,
+      'poster_thumb' => @poster_thumb
     }
   end
 
@@ -40,6 +41,10 @@ class Search
 
   def poster_url
     "http://image.tmdb.org/t/p/original#{@poster_path}"
+  end
+
+  def poster_thumb
+    "http://image.tmdb.org/t/p/w154#{@poster_path}"
   end
   
 

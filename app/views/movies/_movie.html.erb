@@ -1,5 +1,5 @@
-<div class="film <%=cycle 'one', 'two', name: 'divs'%>">
-  <%= image_tag asset_path(movie.poster.url(:'poster@2x') %>
+<div class="film <%=cycle 'one', 'two', name: 'divs' %>">
+  <%= image_tag asset_path(movie.poster.url(:normal)), 'data-at2x' => movie.poster.url(:retina)%>
   <h3><%= movie.title %> (<%=movie.rating=%>)</h3>
   <% if movie.extra? %><p class="extra"><%= movie.extra %></p><% end %>
 
@@ -7,4 +7,3 @@
     <p><b><%= s.day.upcase %>:</b> <%= s.times %></p>
   <% end %>
 </div>
-<% reset_cycle 'divs' %>

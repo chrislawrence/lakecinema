@@ -1,0 +1,36 @@
+.film {
+  p {
+    font-size: 0.9em;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+  margin-bottom: 2em;
+}
+
+/* Holidays */
+
+
+table.holidays {
+  table-layout: fixed;
+  width:100%;
+	margin: 0 auto;
+	font-size: 0.77777em; /* 14px / 18px */
+	clear: both;
+
+  tr td:first-child {
+    width: 5em;
+  }
+		
+	.times {
+  	font-weight: bold;
+  	background: #f7f7f4;
+  	color: #82827d;
+	}
+	
+	td {
+  	padding: 1em 0.5em;
+  	border: 1px solid #cfcfcf;
+  	text-align: center
+	}
+	
+}

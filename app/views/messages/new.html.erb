@@ -1,26 +1,27 @@
-<%= form_for @message do |f| %>
-  <% if @message.errors.any? %>
-    <div class="form_errors">
-      <h2>The following errors permitted the message from being sent:</h2>
-      <ul>
-        <% @message.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
-      </ul>
-    </div>
+<div class="margin content">
+
+  <h3>Contact the Cinema</h3>
+
+  <p>Most enquiries are most promptly answered by phoning the cinema on <strong>(02) 4958 5810</strong>, a 24 hour information line. Phones are answered after 5.30pm Fridays or 1pm Saturdays, Sundays and during School Holidays. Bookings can be made for sessions commencing after 7pm only by phoning the cinema.</p>
+
+  <%= form_for @message do |f| %>
+
+    <h4>What is the nature of your enquiry?</h4>
+            
+    <%= f.select :nature, Message::NATURES, {include_blank: 'Select One...'} %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+
+    <%= f.label :organisation %>
+    <%= f.text_field :organisation %>
+
+    <%= f.label :body, "Your Message" %>
+    <%= f.text_area :body %>
+
+    <%= f.submit "Send Message" %>
+    
   <% end %>
-          
-  <%= f.select :nature, Message::NATURES, {include_blank: 'Select One...'} %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :organisation %>
-  <%= f.text_field :organisation %>
-
-  <%= f.label :body, "Your Message" %>
-  <%= f.text_area :body %>
-
-  <%= f.submit "Send Message" %>
-  
-<% end %>
+</div>

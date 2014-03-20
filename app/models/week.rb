@@ -30,15 +30,15 @@ class Week < ActiveRecord::Base
   private
 
   def generate_title
-    if title.nil?
+    if title.blank?
       day = start_date
       new_title = "Weekend "
       while day <= end_date do
         new_title += DateString.new(day, end_date)
         day += 1
       end
+      self.title = new_title
     end
-    self.title = new_title
   end
 
 

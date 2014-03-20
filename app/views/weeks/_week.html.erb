@@ -1,6 +1,7 @@
 <div class="week">
-  <h2><%= week.title %></h2>
+  <h2><div class="content"><%= week.title %></div></h2>
   <div class="content">
     <%= render week.nested_partial_path, week: week %>
   </div>
+  <div class="clear"></div>
 </div>

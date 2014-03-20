@@ -12,11 +12,7 @@
 </head>
 <body>
 
-  <% if request.subdomain == 'admin' %>
-    <%= render 'dashboard/header' %>
-  <% else %>
-    <%= render 'layouts/header' %>
-  <% end %>
+  <%= render @header_path %>
 
   <div id="wrapper">
 
@@ -28,6 +24,7 @@
 
     <%= yield %>
 
+    <div class="clear"></div>
     <footer>
       <div class="content">
         &copy; <%= Date.today.strftime("%Y") %> Lake Cinema. Designed and developed by <%= link_to 'Chris Lawrence', 'http://whittled.net' %>

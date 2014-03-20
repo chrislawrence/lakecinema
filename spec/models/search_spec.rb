@@ -13,4 +13,8 @@ describe Search do
   it 'gets the poster url based on path given' do
     expect(Search.movie_by_id('256').poster_url).to eq('http://image.tmdb.org/t/p/original/d4KNaTrltq6bpkFS01pYtyXa09m.jpg')
   end
+
+  it 'sets the thumbnail url based on path given' do
+    expect(Search.movie_by_id('256').poster_thumb).to eq('http://image.tmdb.org/t/p/w154/d4KNaTrltq6bpkFS01pYtyXa09m.jpg')
+  end
 end

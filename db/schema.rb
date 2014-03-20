@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318045139) do
+ActiveRecord::Schema.define(version: 20140320001804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "holidays", force: true do |t|
-    t.string   "preamble"
-    t.string   "body"
     t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "preamble"
+    t.text     "body"
   end
 
   create_table "movies", force: true do |t|

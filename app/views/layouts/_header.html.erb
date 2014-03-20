@@ -3,7 +3,7 @@
     <%= nav_link 'Session Times', root_path %>
     <%= nav_link 'About', about_path %>
     <%= nav_link 'Contact', contact_path %>
-    <%= nav_link 'Newsletter', subscribe_path %>
+    <%= nav_link 'Newsletter', subscribe_path, class: 'last' %>
   </ul>
 </div>
 
@@ -13,8 +13,18 @@
 
 <div class="info">
   <div class="content">
-    <div class="info_panel" id="phone">(02) 4958-5810</div>
-    <div class="info_panel" id="address">62 Main Road<br />Boolaroo NSW</div>
-    <div class="info_panel" id="price">All tickets:<br />$7</div>
+    <div class="info_panel">
+      <%= retina_image_tag "phone.png" %> 
+      (02) 4958-5810
+    </div>
+    <div class="info_panel">
+      <%= retina_image_tag "map.png" %>
+      62 Main Road<br />Boolaroo NSW
+    </div>
+    <div class="info_panel">
+      <%= retina_image_tag "ticket.png" %>
+      All tickets:<br />$7
+    </div>
+    <div class="stretch"></div>
   </div>
 </div>
