@@ -23,4 +23,9 @@ describe Week do
     expect(week.get_or_build_newsletter).to be_a(Newsletter)
   end
 
+  it 'returns a string of movie titles' do
+    week = create(:week_with_two_movies)
+    expect(week.movie_titles).to eq('2001 & The Godfather')
+  end
+
 end

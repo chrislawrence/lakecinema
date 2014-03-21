@@ -1,15 +1,15 @@
-<div class="content">
+<div class="margin content">
+  <ul class="admin_week_list">
 <% @weeks.each do |week| %>
-  <div class="week">
+  <li>
     <h3><%= link_to week.title, week_path(week) %></h3>
     <div class="details">
-      <% week.movies.each do |movie| %>
-        <%= content_tag :span, movie.title %>
-      <% end %>
+      <%= week.movie_titles %>
     </div>
     <%= link_to "Write Newsletter", edit_newsletter_path(week) %>
     <%= link_to "Edit", edit_week_path(week) %>
     <%= link_to "Destroy", week, method: :delete, data: { confirm: 'Remove week?'} %>
-  </div>
+    </li>
 <% end %>
+</ul>
 </div>

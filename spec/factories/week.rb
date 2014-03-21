@@ -9,5 +9,12 @@ FactoryGirl.define do
        create(:movie_with_showings, week: week)
      end
    end
- end
+
+   factory :week_with_two_movies do
+     after :create do |week|
+       create(:movie, title: '2001', week: week)
+       create(:movie, week: week)
+     end
+    end
+  end
 end

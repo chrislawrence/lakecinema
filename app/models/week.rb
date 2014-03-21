@@ -27,6 +27,10 @@ class Week < ActiveRecord::Base
     self.newsletter 
   end
 
+  def movie_titles
+    self.movies.pluck(:title).join(" & ")
+  end
+
   private
 
   def generate_title

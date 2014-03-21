@@ -1,5 +1,12 @@
 <div class="admin_header">
   <div class="content">
-    <%= retina_image_tag asset_path('mobile_header.png') %>
+    <div class="admin_logo">
+      <%= link_to retina_image_tag('mobile_header.png'), dashboard_path %>
+  </div>
+    <div class="admin_nav">
+      <%= link_to "New week", new_week_path %>
+      <%= link_to "Back to main site", root_url(subdomain: false) %>
+    </div>
+    <div class="clear"></div>
   </div>
 </div>

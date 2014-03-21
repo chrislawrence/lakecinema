@@ -1,8 +1,10 @@
-<%= form_for @newsletter do |f| %>
-  <%= f.hidden_field :week_id, value: f.object.week_id %>
-  <%= f.hidden_field :send_time, value: f.object.send_time %>
-  <%= f.label :introduction %>
-  <%= f.text_area :introduction %>
-  <%= f.object.body %>
-  <%= f.submit "Save" %>
-<% end %>
+<div class="margin content">
+  <%= form_for @newsletter do |f| %>
+    <%= f.hidden_field :week_id, value: f.object.week_id %>
+    <%= f.hidden_field :send_time, value: f.object.send_time %>
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+    <%= raw f.object.body %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>
