@@ -23,6 +23,7 @@ class WeeksController < ApplicationController
     if @week.save
       redirect_to week_path(@week)
     else
+      flash[:alert] = 'There were errors'
       render action: 'new'
     end
   end
@@ -32,6 +33,7 @@ class WeeksController < ApplicationController
     if @week.update(week_params)
       redirect_to week_path(@week)
     else
+      flash[:alert] = 'There were errors'
       render action: 'edit'
     end
   end

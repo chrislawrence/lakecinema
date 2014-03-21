@@ -13,7 +13,7 @@ $ ->
         $.getJSON('/searches/' + ui.item.id)
           .done (data) ->
             # populate fields with movie data
-            finishLoad()
+            finishLoad(this)
             $(self).val(data.title)
             fields = $(self).parent().nextAll('.movie_details')
             fields.children('.overview').val(data.overview)

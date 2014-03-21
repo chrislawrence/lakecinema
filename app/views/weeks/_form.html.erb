@@ -22,9 +22,8 @@
 
   <hr />
 
-  <h4>Movies</h4>
-
   <div id="movie_fields">
+    <h4>Movies</h4>
     <%= f.fields_for :movies do |movie_fields| %>
       <div class="movie <%= cycle 'one', 'two' %>">
         <%= render 'movie_fields', f: movie_fields %>

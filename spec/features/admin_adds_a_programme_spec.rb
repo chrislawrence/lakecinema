@@ -41,7 +41,7 @@ feature "Admin adds a programme" do
   end
 
   def fill_week_fields
-    visit new_week_path
+    visit new_week_url(subdomain: 'admin')
     fill_in 'Start date', with: @week.start_date
     fill_in 'End date', with: @week.end_date
   end

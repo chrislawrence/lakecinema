@@ -4,7 +4,7 @@ feature "Newsletter features" do
   scenario "A newsletter is written from the dashboard page" do
     week = create(:week_with_movies_and_showings)
     visit dashboard_url
-    within('.week') do
+    within('.admin_week_list') do
       first(:link, "Write Newsletter").click 
     end
     fill_in "Introduction", with: "Welcome to the newsletter"

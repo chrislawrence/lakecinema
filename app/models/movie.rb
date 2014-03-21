@@ -14,9 +14,11 @@ class Movie < ActiveRecord::Base
   private
 
   def download_poster
-    if !self.poster_url.blank?
-      self.poster = URI.parse(self.poster_url)
-    end
+    save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
+  end
+
+  def save_poster_from_url url
+    self.poster = URI.parse(url)
   end
 
 end
