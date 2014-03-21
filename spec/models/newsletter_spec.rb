@@ -21,7 +21,7 @@ describe Newsletter do
     movies = [create(:movie)]
     newsletter = Newsletter.new
     newsletter.set_content(Date.today, movies)
-    expect(newsletter.body).to include("<h2>#{movies.first.title}")
+    expect(newsletter.body).to include("<h4>#{movies.first.title}")
   end
 
   it 'sets the send time to 5 minutes from now if in the past' do

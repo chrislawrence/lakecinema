@@ -27,7 +27,7 @@ feature "Admin adds a programme" do
      fill_in 'Fri', with: '5pm'
     end
     click_button 'Save'
-    expect(page).to have_content('Fri: 5pm')
+    expect(page).to have_content('FRI: 5pm')
   end
 
   scenario "User adds a holiday programme" do

@@ -1,6 +1,6 @@
 class Message 
   include ActiveModel::Model
-  NATURES = ['General Inquiry', 'Organisations and Schools', 'Website Issue']
+  NATURES = ['Booking/General Enquiry', 'Organisations and Schools', 'Website Issue']
   CINEMA_EMAIL = 'boblakec@hotmail.com'
   WEBSITE_EMAIL = 'c@chrislawrence.co'
 

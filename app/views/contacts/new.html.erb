@@ -7,21 +7,28 @@
   <%= form_for @message, url: contact_path  do |f| %>
 
     <h4>What is the nature of your enquiry?</h4>
-            
     <%= f.select :nature, Message::NATURES, {include_blank: 'Select One...'} %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <div id="contact_phone">
+      <h5>Phone: 4958 5810</h5>
+      <p>We are unable to answer these questions by email, please phone the cinema.</p>
+    </div>
 
-    <%= f.label :organisation %>
-    <%= f.text_field :organisation %>
+    <div id="contact_form_fields">            
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-    <%= f.label :body, "Your Message" %>
-    <%= f.text_area :body %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-    <%= f.submit "Send Message" %>
+      <%= f.label :organisation %>
+      <%= f.text_field :organisation %>
+
+      <%= f.label :body, "Your Message" %>
+      <%= f.text_area :body %>
+
+      <%= f.submit "Send Message" %>
+    </div>
     
   <% end %>
 </div>
