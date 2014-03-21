@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "User edits programme" do
+describe "Admin edits a programme" do
   before do
     login
   end

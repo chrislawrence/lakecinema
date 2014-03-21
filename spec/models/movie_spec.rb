@@ -26,4 +26,10 @@ describe Movie do
     movie = create(:movie, poster_url: "")
     expect(movie.poster.url).to eq('/assets/posters/missing.jpg')
   end
+  
+  it 'destroys the showings when destroying the movie' do
+    movie = create(:movie_with_showings)
+    movie.destroy
+    expect(Showing.count).to eq(0)
+  end
 end

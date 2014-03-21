@@ -1,8 +1,8 @@
 class WeeksController < ApplicationController
   def new
     @week = Week.new
-    2.times do
-      movie = @week.movies.build
+    2.times do |x|
+      movie = @week.movies.build(view_index: x)
       %w[Fri Sat Sun].each_with_index do |w, i|
         movie.showings.build(day: w, view_index: i)
       end

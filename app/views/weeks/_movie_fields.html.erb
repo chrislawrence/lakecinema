@@ -1,4 +1,5 @@
 <div class="movie_details">
+    <%= f.hidden_field :view_index, value: f.object.view_index %>
     <div class="movie_title">
       <%= f.label :title %>
       <%= f.text_field :title, class: 'movie_title_input' %>

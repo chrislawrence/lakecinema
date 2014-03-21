@@ -28,4 +28,17 @@ describe Week do
     expect(week.movie_titles).to eq('2001 & The Godfather')
   end
 
+  it 'orders the movies by view index' do
+    week = create(:week)
+    create(:movie, view_index: 1, week: week)
+    create(:movie, view_index: 0, week: week)
+    expect(week.movies.first.view_index).to eq(0)
+  end
+
+  it 'destroys the movies when destroying the week' do
+    week = create(:week_with_movies_and_showings)
+    week.destroy
+    expect(Movie.count).to eq(0)
+  end
+
 end
