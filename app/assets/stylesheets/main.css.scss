@@ -1,7 +1,13 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   font: 18px 'Verlag A', 'Verlag B', 'Avenir Next', 'Helvetica', 'Arial', sans-serif;
   color: #393939;
   background: #fefefe;
+  margin: 0 0 20em;
 }
 
 .content {
@@ -141,6 +147,12 @@ h3 {
   text-transform: uppercase;
 }
 
+h4 {
+  text-transform: uppercase;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 h5 {
   margin: 0 0 0.8em 0;
   padding-bottom: 0.8em;
@@ -148,9 +160,13 @@ h5 {
 }
 
 footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
   text-align: center;
-  height: 10em;
-  line-height: 10em;
+  height: 20em;
+  width: 100%;
+  line-height: 20em;
   background: #f7f7f4;
   color: #ccc;
   margin-top: 3em;

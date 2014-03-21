@@ -4,8 +4,10 @@ class StaticController < ApplicationController
   end
 
   def about
+    @header_path = 'layouts/small_header'
   end
 
   def subscribe
+    @header_path = 'layouts/small_header'
   end
 end
