@@ -6,6 +6,8 @@ Lakecinema::Application.routes.draw do
   resources :weeks, constraints: {subdomain: 'admin'}
   resources :newsletters, constraints: {subdomain: 'admin'}
   resources :searches, only: [:index, :show], constraints: {subdomain: 'admin'}
+  get :login, to: 'sessions#new', constraints: {subdomain: 'admin'}
+  post :login, to: 'sessions#create', constraints: {subdomain: 'admin'}
 
   controller :static do
     get :index

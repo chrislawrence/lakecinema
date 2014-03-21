@@ -3,6 +3,7 @@ require 'spec_helper'
 feature "Admin adds a programme" do
   before do
     @week = build(:week)
+    login
   end
 
   scenario "User fills out the form to add a new week" do

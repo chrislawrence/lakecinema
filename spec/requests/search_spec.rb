@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Search do
   before(:each) do
+    ApplicationController.any_instance.stub(:authorise).and_return(true)
     host! 'admin.example.com'
   end
   it 'returns a JSON array of results' do

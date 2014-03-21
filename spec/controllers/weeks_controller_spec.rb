@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe WeeksController do
+  before :each do
+    ApplicationController.any_instance.stub(:authorise).and_return(true)
+  end
 
   it 'accepts nested film attributes' do
     post 'create', week: attributes_for(:week).merge(:movies_attributes=> [attributes_for(:movie)])

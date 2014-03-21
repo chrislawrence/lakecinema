@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :header_path
+  before_filter :authorise
+
+  def authorise
+    current_user ||= User.find_by(token: cookies[:token])
+    redirect_to login_url unless current_user
+  end
 
   def header_path
     if request.subdomain == 'admin'

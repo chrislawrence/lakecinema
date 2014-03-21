@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe "User edits programme" do
+  before do
+    login
+  end
   it "edits the times and does not disrupt the order of things" do
     create(:week_with_movies_and_showings)
     visit dashboard_url

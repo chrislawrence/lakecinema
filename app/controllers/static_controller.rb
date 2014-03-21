@@ -1,4 +1,6 @@
 class StaticController < ApplicationController
+  skip_before_filter :authorise
+
   def index
     @weeks = Week.all
   end

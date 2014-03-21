@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  skip_before_filter :authorise
   before_filter :header_path
 
   def new 

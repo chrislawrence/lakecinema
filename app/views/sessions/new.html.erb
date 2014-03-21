@@ -1,0 +1,7 @@
+<div class="margin content">
+  <%= form_tag login_url do %>
+    <%= text_field_tag :email, placeholder: 'Email', type: 'email' %>
+    <%= password_field_tag :password, placeholder: 'Password' %>
+    <%= submit_tag 'Login' %>
+  <% end %>
+</div>
