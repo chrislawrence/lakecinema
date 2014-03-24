@@ -36,5 +36,5 @@ end
 gem 'paperclip'
 gem 'redcarpet'
 gem 'rest-client'
-gem 'mailchimp'
+gem 'mailchimp-api'
 gem 'newrelic_rpm'

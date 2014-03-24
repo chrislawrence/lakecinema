@@ -15,6 +15,7 @@ describe Newsletter do
     newsletter = Newsletter.new
     newsletter.set_content(Date.new(2014,04,02))
     expect(newsletter.send_time).to eq(Time.new(2014,04,01,8))
+    puts newsletter.send_time
   end
 
   it 'makes a body string given an array of movies' do

@@ -24,6 +24,7 @@ class Week < ActiveRecord::Base
     if !self.newsletter
       self.build_newsletter
       self.newsletter.set_content(start_date, movies)
+      self.save
     end
     self.newsletter 
   end

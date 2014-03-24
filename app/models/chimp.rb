@@ -1,4 +1,5 @@
 class Chimp 
+  require 'mailchimp'
   attr_accessor :title, :body, :send_time, :campaign_id, :sender
   API_KEY = APP_CONFIG['mailchimp_key']
 
@@ -17,14 +18,14 @@ class Chimp
     else
       self.update_campaign
     end
-    self.schedule_campaign
     @campaign_id
   end
 
   def create_campaign
-    @campaign_id = @sender.campaign_create(
-      type: 'regular',
-      options: {
+    Rails.logger.debug('Creating campaign...')
+    response = @sender.campaigns.create(
+      'regular',
+      {
         list_id: '36d417399b',
         template_id: '277625',
         subject: 'Lake Cinema Newsletter',
@@ -33,33 +34,43 @@ class Chimp
         from_email: 'admin@lakecinema.net.au',
         generate_text: true
     },
-    content: {
-      html_std_content00: @body
+    {
+      sections: {std_content00: @body}
     })
+
+    @campaign_id = response['id']
+    schedule_campaign(false)
   end
 
   def update_campaign
-    @sender.update_campaign(
-      cid: @campaign_id,
-      name: 'content',
-      value: {
-      html_std_content00: @body
+    Rails.logger.debug('Updating campaign...')
+    Rails.logger.debug("Body: #{@body}")
+    response =  @sender.campaigns.update(
+      @campaign_id,
+      'content',
+      {
+      'html_std_content00' => @body
     })
+    Rails.logger.debug("reponse: #{response}")
+    schedule_campaign(true)
   end
 
-  def schedule_campaign
-    @sender.campaign_schedule(
-      cid: @campaign_id,
-      schedule_time: @send_time.strftime("%Y-%m-%d %H:%M:%S")
+  def schedule_campaign(scheduled=false)
+    Rails.logger.debug('Scheduling campaign...')
+    @sender.campaigns.unschedule(@campaign_id) if scheduled
+    @sender.campaigns.schedule(
+      @campaign_id,
+      @send_time.utc.strftime("%Y-%m-%d %H:%M:%S")
     )
     send_test
   end
 
   def send_test
-    @sender.campaign_send_test(
-      cid: @campign_id,
-      test_emails: ['c@chrislawrence.co'],
-      format: 'html'
+    Rails.logger.debug('Sending test email...')
+    @sender.campaigns.send_test(
+      @campaign_id,
+      ['c@chrislawrence.co'],
+      'html'
     )
   end
 end

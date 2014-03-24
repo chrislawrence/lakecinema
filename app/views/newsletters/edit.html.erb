@@ -1,10 +1,2 @@
-<div class="margin content">
-  <%= form_for @newsletter do |f| %>
-    <%= f.hidden_field :week_id, value: f.object.week_id %>
-    <%= f.hidden_field :send_time, value: f.object.send_time %>
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction %>
-    <%= content_tag :div, raw(f.object.body), class: 'clearfix' %>
-    <%= f.submit "Save" %>
-  <% end %>
-</div>
+Scheduled to send: <%= @newsletter.send_time %>
+<%= render 'form' %>
