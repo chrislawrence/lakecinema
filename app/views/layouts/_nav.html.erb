@@ -1,0 +1,8 @@
+<%= content_tag :div, retina_image_tag("hamburger.png"), class: 'nav_toggle' %>
+
+<ul class="nav_list">
+  <%= nav_link 'Session Times', root_path %>
+  <%= nav_link 'About', about_path %>
+  <%= nav_link 'Contact', contact_path %>
+  <%= nav_link 'Newsletter', subscribe_path, class: 'last' %>
+</ul>

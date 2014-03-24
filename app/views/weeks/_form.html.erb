@@ -1,16 +1,17 @@
 <h3>New Programme</h3>
 
 <%= form_for @week do |f| %>
-  <div class="input_date">
-    <%= f.label :start_date %>
-    <%= f.text_field :start_date, placeholder: "YYYY-MM-DD" %>
-  </div>
-  <div class="input_date">
-    <%= f.label :end_date %>
-    <%= f.text_field :end_date, placeholder: "YYYY-MM-DD" %>
+  <div class="date_fields clearfix">
+    <div class="input_date">
+      <%= f.label :start_date %>
+      <%= f.text_field :start_date, placeholder: "YYYY-MM-DD" %>
+    </div>
+    <div class="input_date">
+      <%= f.label :end_date %>
+      <%= f.text_field :end_date, placeholder: "YYYY-MM-DD" %>
+    </div>
   </div>
 
-  <div class="clear"></div>
 
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Leave blank to set automatically" %>
@@ -22,14 +23,13 @@
 
   <hr />
 
-  <div id="movie_fields">
+  <div id="movie_fields" class="clearfix">
     <h4>Movies</h4>
     <%= f.fields_for :movies do |movie_fields| %>
       <div class="movie <%= cycle 'one', 'two' %>">
         <%= render 'movie_fields', f: movie_fields %>
       </div>
     <% end %>
-    <div class="clear"></div>
   </div>
 
     <%= f.fields_for :holiday do |holiday_fields| %>

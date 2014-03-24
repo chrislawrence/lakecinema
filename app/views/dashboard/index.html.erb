@@ -10,6 +10,10 @@
     <%= link_to "Write Newsletter", edit_newsletter_path(week) %>
     <%= link_to "Edit", edit_week_path(week) %>
     <%= link_to "Destroy", week, method: :delete, data: { confirm: 'Remove week?'} %>
+    <% if week.newsletter %>
+      <%= content_tag :div, "Newsletter scheduled: #{week.newsletter.send_time.strftime('%a %b %-d %Y, 8%P')}", class: 'newsletter_details' %>
+    <% end %>
+      
     </li>
 <% end %>
 </ul>

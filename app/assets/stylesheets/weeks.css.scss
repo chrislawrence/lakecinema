@@ -9,7 +9,6 @@
 
 /* Holidays */
 
-
 table.holidays {
   table-layout: fixed;
   width:100%;
@@ -33,4 +32,9 @@ table.holidays {
   	text-align: center
 	}
 	
+}
+
+@media (max-width: 500px)  {
+  .film img { display: none;}
+  table.holidays tr td:first-child { width: 3em}
 }

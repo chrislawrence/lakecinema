@@ -4,7 +4,7 @@
     <%= f.hidden_field :send_time, value: f.object.send_time %>
     <%= f.label :introduction %>
     <%= f.text_area :introduction %>
-    <%= raw f.object.body %>
+    <%= content_tag :div, raw(f.object.body), class: 'clearfix' %>
     <%= f.submit "Save" %>
   <% end %>
 </div>

@@ -90,6 +90,16 @@ input[type='submit'] {
   float: right;
 }
 
+@media (max-width: 680px) {
+  .movie, .one, .two {
+    width: 100%;
+    float: none;
+  }
+  .showing_details {
+    margin-bottom: 5em;
+  }
+}
+
 .showing_details {
   .showing_field {
     margin-bottom: 1em;
@@ -123,6 +133,10 @@ input[type='submit'] {
 
 .movie_details {
   float: left;
+  width: 60%;
+  input {
+    width: 100%;
+  }
 }
 
 .overview {

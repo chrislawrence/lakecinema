@@ -1,10 +1,5 @@
-<div class="nav">
-  <ul>
-    <%= nav_link 'Session Times', root_path %>
-    <%= nav_link 'About', about_path %>
-    <%= nav_link 'Contact', contact_path %>
-    <%= nav_link 'Newsletter', subscribe_path, class: 'last' %>
-  </ul>
+<div class="nav clearfix">
+  <%= render 'layouts/nav' %>
 </div>
 
 <header>
