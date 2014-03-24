@@ -3,7 +3,11 @@ lock '3.1.0'
 
 set :application, 'lakecinema'
 set :repo_url, 'https://github.com/chrislawrence/lakecinema'
+set :branch, '3.0'
 set :deploy_to, "/home/chris/apps/lakecinema_new"
+
+set :rbenv_type, :user
+set :rbenv_ruby, '2.1.1'
 
 namespace :deploy do
 
@@ -11,7 +15,8 @@ namespace :deploy do
   task :symlink_database do
     on roles(:app) do 
       execute "ln -fs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-      execute "ln -fs #{shared_path}/photos #{release_path}/public/assets/photos"
+      execute "ln -fs #{shared_path}/config/application.yml #{release_path}/config/application.yml"
+      execute "ln -fs #{shared_path}/posters #{release_path}/public/assets/posters"
     end
   end
 
