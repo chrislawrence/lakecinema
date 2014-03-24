@@ -1,21 +1,19 @@
 require 'spec_helper'
 
 describe Newsletter do
-  it 'creates a mailchimp_campaign after saving' do
-    Chimp.any_instance.should_receive(:send)
-    create(:newsletter)
-  end
 
-  it 'saves the campaign id after saving' do
+  it 'saves the campaign id after sending to mailchimp' do
     newsletter = create(:newsletter)
+    newsletter.send_to_mailchimp
     expect(newsletter.campaign_id).to_not be_nil
   end
 
   it 'receives a start_date and calculates a send date' do
     newsletter = Newsletter.new
-    newsletter.set_content(Date.new(2014,04,02))
-    expect(newsletter.send_time).to eq(Time.new(2014,04,01,8))
-    puts newsletter.send_time
+    Timecop.freeze Time.now do
+      newsletter.set_content(Date.today + 2.days)
+      expect(newsletter.send_time).to eq(Date.tomorrow + 8.hours)
+    end
   end
 
   it 'makes a body string given an array of movies' do
@@ -28,6 +26,7 @@ describe Newsletter do
   it 'sets the send time to 5 minutes from now if in the past' do
     Timecop.freeze Time.now do
       newsletter = create(:newsletter, send_time: Date.yesterday)
+      newsletter.send_to_mailchimp
       expect(newsletter.send_time).to eq(5.minutes.from_now)
     end
   end

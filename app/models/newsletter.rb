@@ -1,7 +1,7 @@
 class Newsletter < ActiveRecord::Base
 
   def set_content date, movies = []
-    self.send_time = (date - 1.day).to_time + 8 * 60 * 60
+    self.send_time = (date.to_time - 1.day) + 8.hours
     self.body = ""
     movies.map{ |movie| self.body += render(movie) }
   end
@@ -14,7 +14,7 @@ class Newsletter < ActiveRecord::Base
     update_send_time
     sender = Chimp.new(title: self.subject, body: combine_introduction_and_body, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
-    self.campaign_id = sender.campaign_id
+    self.update(campaign_id: sender.campaign_id)
   end
 
   private

@@ -3,12 +3,10 @@ class NewslettersController < ApplicationController
   def edit
     week = Week.find(params[:id])
     @newsletter = week.get_or_build_newsletter
-    Rails.logger.debug("Send time: #{@newsletter.send_time}")
   end
 
   def update
     @newsletter = Newsletter.find(params[:id])
-    Rails.logger.debug("Send time: #{@newsletter.send_time}")
     if @newsletter.update(newsletter_params)
       @newsletter.send_to_mailchimp
       redirect_to dashboard_path, notice: 'Newsletter sent to Mailchimp'

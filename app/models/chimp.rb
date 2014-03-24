@@ -45,32 +45,19 @@ class Chimp
   def update_campaign
     Rails.logger.debug('Updating campaign...')
     Rails.logger.debug("Body: #{@body}")
-    response =  @sender.campaigns.update(
-      @campaign_id,
-      'content',
-      {
-      'html_std_content00' => @body
-    })
-    Rails.logger.debug("reponse: #{response}")
+    @sender.campaigns.update(@campaign_id,'content', {sections: {std_content00: @body}})
     schedule_campaign(true)
   end
 
   def schedule_campaign(scheduled=false)
     Rails.logger.debug('Scheduling campaign...')
     @sender.campaigns.unschedule(@campaign_id) if scheduled
-    @sender.campaigns.schedule(
-      @campaign_id,
-      @send_time.utc.strftime("%Y-%m-%d %H:%M:%S")
-    )
+    @sender.campaigns.schedule(@campaign_id, @send_time.utc.strftime("%Y-%m-%d %H:%M:%S"))
     send_test
   end
 
   def send_test
     Rails.logger.debug('Sending test email...')
-    @sender.campaigns.send_test(
-      @campaign_id,
-      ['c@chrislawrence.co'],
-      'html'
-    )
+    @sender.campaigns.send_test(@campaign_id, ['c@chrislawrence.co'], 'html')
   end
 end
