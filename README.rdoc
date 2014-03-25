@@ -1,4 +1,3 @@
 == To do
 
 * Move image saving to background job
-* Add whenever tasks

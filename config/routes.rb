@@ -1,13 +1,16 @@
 Lakecinema::Application.routes.draw do
 
-  get '/', to: 'dashboard#index', as: 'dashboard', constraints: {subdomain: 'admin'}
-  root to: 'static#index'
 
-  resources :weeks, constraints: {subdomain: 'admin'}
-  resources :newsletters, constraints: {subdomain: 'admin'}
-  resources :searches, only: [:index, :show], constraints: {subdomain: 'admin'}
-  get :login, to: 'sessions#new', constraints: {subdomain: 'admin'}
-  post :login, to: 'sessions#create', constraints: {subdomain: 'admin'}
+  constraints(subdomain: 'admin') do
+    get '/', to: 'dashboard#index', as: 'dashboard'
+    resources :weeks
+    resources :newsletters
+    resources :searches, only: [:index, :show]
+    get :login, to: 'sessions#new'
+    post :login, to: 'sessions#create'
+  end
+
+  root to: 'static#index'
 
   controller :static do
     get :index
