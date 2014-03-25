@@ -1,5 +1,4 @@
 == To do
 
-* Cache database queries
 * Move image saving to background job
 * Add whenever tasks

@@ -33,17 +33,31 @@ class Week < ActiveRecord::Base
     self.movies.pluck(:title).join(" & ")
   end
 
+  def self.remove_old_weeks
+    Week.where('end_date <= ?', Date.today).destroy_all
+  end
+
+  def self.remind_to_write_newsletter
+    if !Week.first.newsletter || !Week.first.newsletter.introduction
+      AdminMailer.newsletter_reminder(Week.first)
+    end
+  end
+
   private
 
   def generate_title
     if title.blank?
-      day = start_date
-      new_title = "Weekend "
-      while day <= end_date do
-        new_title += DateString.new(day, end_date)
-        day += 1
+      if self.holiday
+        self.title = 'School Holiday Programme'
+      else
+        day = start_date
+        new_title = "Weekend "
+        while day <= end_date do
+          new_title += DateString.new(day, end_date)
+          day += 1
+        end
+        self.title = new_title
       end
-      self.title = new_title
     end
   end
 
