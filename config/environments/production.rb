@@ -7,8 +7,8 @@ Lakecinema::Application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
     port: 587,
-    user_name: APP_CONFIG['mandrill_username'],
-    password: APP_CONFIG['mandrill_password']
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_PASSWORD']
   }
 
   # Code is not reloaded between requests.
