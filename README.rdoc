@@ -1,3 +1,4 @@
 == To do
 
+* Add edit buttons to week view
 * Move image saving to background job
