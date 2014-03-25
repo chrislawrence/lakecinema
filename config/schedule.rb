@@ -5,5 +5,5 @@ every 1.day, :at => '9:10 pm' do
 end
 
 every :wednesday, :at => '12:00 pm' do
-  command "cd /home/chris/apps/lakecinema/current && rails r -e production 'Newsletter.remind_to_write'"
+  command "cd /home/chris/apps/lakecinema/current && rails r -e production 'Week.remind_to_write_newsletter'"
 end
