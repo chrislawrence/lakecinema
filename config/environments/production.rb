@@ -2,6 +2,14 @@ Lakecinema::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   
   config.action_dispatch.tld_length = 2
+  config.asset_host = 'http://lakecinema.net.au'
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mandrillapp.com',
+    port: 587,
+    user_name: APP_CONFIG['mandrill_username'],
+    password: APP_CONFIG['mandrill_password']
+  }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
