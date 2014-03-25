@@ -1,2 +1,9 @@
-Scheduled to send: <%= @newsletter.send_time %>
-<%= render 'form' %>
+<div class="margin content">
+  <p class="newsletter_schedule">Scheduled to send: <%= time_tag @newsletter.send_time %></p>
+  <%= form_for @newsletter do |f| %>
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+    <%= content_tag :div, raw(f.object.body), class: 'clearfix' %>
+    <%= f.submit "Save" %>
+  <% end %>
+</div>

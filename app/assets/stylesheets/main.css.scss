@@ -147,11 +147,11 @@ header {
   width: 100%;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 400px) {
   .info_panel {
-    width: 60px;
+    width: 30%;
     img {
-      width: 100%;
+      max-width: 100%;
     }
   }
 }
