@@ -30,4 +30,6 @@ namespace :deploy do
     end
   end
 
+  after :publishing, :restart
+
 end
