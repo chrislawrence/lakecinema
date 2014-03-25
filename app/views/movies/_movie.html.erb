@@ -1,5 +1,5 @@
 <div class="film <%=cycle 'one', 'two', name: 'divs' %>">
-  <%= image_tag asset_path(movie.poster.url(:normal)), 'data-at2x' => movie.poster.url(:retina)%>
+  <%= image_tag URI.join(config.asset_host, asset_path(movie.poster.url(:normal))), 'data-at2x' => movie.poster.url(:retina)%>
   <h4><%= movie.title %> (<%=movie.rating=%>)</h4>
   <% if movie.extra? %><p class="extra"><%= movie.extra %></p><% end %>
 

@@ -25,7 +25,7 @@ class Newsletter < ActiveRecord::Base
 
 
   def combine_introduction_and_body
-    "Welcome #{markdown(self.introduction)} #{self.body}"
+    "#{markdown(self.introduction)} #{self.body}"
   end
 
   def update_send_time
