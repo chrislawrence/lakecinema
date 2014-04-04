@@ -1,5 +1,6 @@
 == To do
 
 * Add edit buttons to week view
-* Move the scheduled to send in newsletters/_edit
 * Move image saving to background job
+* Style the autocomplete dropdown.
+* Fix the missing poster image in production.
