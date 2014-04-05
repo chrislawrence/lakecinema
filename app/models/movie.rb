@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
     },
     url: "/assets/posters/:id/:style/:basename.:extension",
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
-    default_url: '/assets/missing_poster.jpg'
+    default_url: '/assets/posters/missing.jpg'
   before_save :download_poster
 
   private
