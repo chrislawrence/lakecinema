@@ -30,6 +30,17 @@ input[type='submit'] {
   color: #bbb;
 }
 
+.ui-autocomplete {
+  font-family: 'Verlag A', 'Verlag B';
+  border-color: #efefef;
+}
+
+.ui-menu-item a:hover {
+  background: #D4E5F3;
+  border-radius: 0;
+  border: none;
+}
+
 .ui-autocomplete-loading {
   background: #ddd;
 }
