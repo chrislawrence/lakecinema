@@ -3,7 +3,6 @@ lock '3.1.0'
 
 set :application, 'lakecinema'
 set :repo_url, 'https://github.com/chrislawrence/lakecinema'
-set :branch, '3.0'
 set :deploy_to, "/home/chris/apps/lakecinema"
 
 set :rbenv_type, :user

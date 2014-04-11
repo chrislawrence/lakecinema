@@ -9,6 +9,8 @@
     <%= f.label :rating %>
     <%= f.text_field :rating, class: 'rating' %>
   </div>
+  
+
 
   <div class="movie_details">
     <%= f.label :overview %>
@@ -18,11 +20,15 @@
     <%= f.text_field :poster_url, class: 'poster_url' %>
   </div>
 
+
   <div class="poster_preview ">
     <%= label_tag "Poster" %>
     <%= image_tag f.object.poster.url(:normal) %>
   </div>
 </div>
+
+  <%= f.label :extra %>
+  <%= f.text_field :extra %>
 
 <div class="showing_details">
   <h5>Sessions</h5>
