@@ -1,3 +1,5 @@
+@import 'colours';
+
 html {
   position: relative;
   min-height: 100%;
@@ -54,9 +56,12 @@ body {
 /* Typography */
 
 a {
-  color: #1E3E57;
+  color: $light-blue;
+  font-weight: bold;
+  text-decoration: none;
+  
   &:hover {
-    color: #757C82;
+    color: $dark-blue;
   }
 }
 
@@ -65,7 +70,7 @@ h1, h2, h3 {
 }
 
 h2 {
-  background: #EDEBE4;
+  background: $beige;
   font-weight: normal;
   text-transform: uppercase;
   margin-top: 0;
@@ -121,11 +126,11 @@ header {
 
 
 .info {
-  background: #1D3344;
+  background: $dark-blue;
   text-align: center;
   color: #9BC9AB;
   font-weight: bold;
-  border-bottom: 8px solid #13212B;
+  border-bottom: 8px solid $dark-blue - 20;
 
   .content {
     text-align: justify;
@@ -168,7 +173,7 @@ footer {
   height: 20em;
   width: 100%;
   line-height: 20em;
-  background: #f7f7f4;
+  background: $beige;
   color: #ccc;
   margin-top: 3em;
   font-size: 0.9em;

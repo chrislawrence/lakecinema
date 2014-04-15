@@ -1,5 +1,7 @@
+@import 'colours';
+
 .admin_header {
-  background: #1d3344;
+  background: $dark-blue;
   padding: 0.3em 0;
   height: 54px;
 }
@@ -30,10 +32,8 @@
     border-bottom: 1px solid #efefef;
   }
   a {
-    color: #516B7F;
     margin-right: 1em;
     font-size: 0.9em;
-    font-weight: bold;
   }
 }
 

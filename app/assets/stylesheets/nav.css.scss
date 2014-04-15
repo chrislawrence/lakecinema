@@ -1,10 +1,12 @@
+@import 'colours';
+
 .nav {
-  border-top: 7px solid #ECD76F;
+  border-top: 7px solid $yellow;
   font-family: 'Tungsten A', 'Tungsten B', 'Tungsten', sans-serif;
   font-size: 1.8em;
   text-transform: uppercase;
   text-align: center;
-  background: #f4f4f4;
+  background: $beige;
 }
 
 .nav_list {
@@ -24,16 +26,12 @@
 
   a {
     color: #4d4d4d;
-    text-decoration: none;
+    font-weight: normal;
 
-    &:hover li {
-      color: #1E3E57;
-      background: #ECD76F;
-    }
-
-    &.current li{
-      color: #1E3E57;
-      background: #ECD76F;
+    &:hover li,
+    &.current li {
+      color: $dark-blue;
+      background: $yellow;
     }
   }
 }
