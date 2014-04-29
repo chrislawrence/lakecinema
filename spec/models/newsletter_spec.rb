@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe Newsletter do
 
-  it 'saves the campaign id after sending to mailchimp' do
-    newsletter = create(:newsletter)
-    newsletter.send_to_mailchimp
-    expect(newsletter.campaign_id).to_not be_nil
-  end
-
   it 'receives a start_date and calculates a send date' do
     newsletter = Newsletter.new
     Timecop.freeze Time.now do
