@@ -12,6 +12,10 @@ class Movie < ActiveRecord::Base
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
   before_save :download_poster
 
+  def tmdb_url
+    "http://themoviedb.org/movie/#{self.tmdb_id}"
+  end
+
   private
 
   def download_poster

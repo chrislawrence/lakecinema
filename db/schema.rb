@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140504072301) do
+ActiveRecord::Schema.define(version: 20140518023118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140504072301) do
     t.text     "overview"
     t.string   "extra"
     t.integer  "view_index"
+    t.integer  "tmdb_id"
   end
 
   create_table "newsletters", force: true do |t|

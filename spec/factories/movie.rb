@@ -1,6 +1,7 @@
 FactoryGirl.define do
  factory :movie do
    title 'The Godfather'
+   overview 'An offer you can refuse' 
    
    factory :movie_with_showings do
      after :create do |movie|

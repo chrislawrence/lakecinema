@@ -7,11 +7,22 @@
     margin-bottom: 0.5em;
   }
   margin-bottom: 2em;
+  width: 50%;
 }
 
 .extra {
   font-style: italic;
   color: #999;
+}
+
+.film h4 {margin-bottom: 0; }
+
+.toggle-overview { margin-bottom: 1em }
+
+.movie-overview {
+  display: none;
+  color: #aaa;
+  margin-bottom: 1em;
 }
 
 /* Three movies in one week! */

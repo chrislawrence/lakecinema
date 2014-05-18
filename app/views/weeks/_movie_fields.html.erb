@@ -1,5 +1,6 @@
 <div class="clearfix">
   <%= f.hidden_field :view_index, value: f.object.view_index %>
+
   <div class="movie_title">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'movie_title_input' %>
@@ -13,6 +14,8 @@
 
 
   <div class="movie_details">
+    <%= f.hidden_field :tmdb_id, class: 'tmdb_id', value: f.object.tmdb_id %>
+
     <%= f.label :overview %>
     <%= f.text_area :overview, class: 'overview' %>
 

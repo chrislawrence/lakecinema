@@ -1,7 +1,17 @@
 <div class="film <%=cycle 'one', 'two', name: 'divs' %>">
-  <%= image_tag URI.join(config.asset_host, asset_path(movie.poster.url(:normal))), 'data-at2x' => movie.poster.url(:retina)%>
-  <h4><%= movie.title %> (<%=movie.rating=%>)</h4>
-  <% if movie.extra? %><p class="extra"><%= movie.extra %></p><% end %>
+    <%= image_tag asset_host_url(movie.poster.url(:normal)), class: 'poster', 'data-at2x' => asset_host_url(movie.poster.url(:retina)) %>
+    <h4><%= movie.title %> (<%=movie.rating=%>)</h4>
+
+  <%= content_tag :p, movie.extra, class: 'extra' %>
+
+  <p>
+    <%= link_to 'More info...', '#', class: 'toggle-overview' %>
+  </p>
+
+  <div class="movie-overview">
+    <%= movie.overview %>
+    <%= link_to 'The Movie DB', movie.tmdb_url, target: "_blank" %>
+  </div>
 
   <% movie.showings.each do |s| %>
     <p><b><%= s.day.upcase %>:</b> <%= s.times %></p>

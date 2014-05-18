@@ -18,6 +18,7 @@ $ ->
             fields = $(self).parent().nextAll('.movie_details')
             fields.children('.overview').val(data.overview)
             fields.children('.poster_url').val(data.poster_url)
+            fields.children('.tmdb_id').val(data.id)
             fields.nextAll('.poster_preview').children('img').attr('src', data.poster_thumb)
 
     load = (item)->
