@@ -52,15 +52,6 @@ ActiveRecord::Schema.define(version: 20140518023118) do
     t.datetime "send_time"
   end
 
-  create_table "pomodoros", force: true do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "tag"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "showings", force: true do |t|
     t.string   "day"
     t.string   "times"
