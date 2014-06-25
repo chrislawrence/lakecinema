@@ -4,9 +4,11 @@
 
   <%= content_tag :p, movie.extra, class: 'extra' %>
 
+  <% if newsletter.nil? %>
   <p>
     <%= link_to 'More info...', '#', class: 'toggle-overview' %>
   </p>
+  <% end %>
 
   <div class="movie-overview">
     <%= movie.overview %>

@@ -44,3 +44,4 @@ gem 'rest-client'
 gem 'mailchimp-api'
 gem 'newrelic_rpm'
 gem 'whenever'
+gem "spring-commands-rspec", group: :development

@@ -20,7 +20,7 @@ class Newsletter < ActiveRecord::Base
   private
 
   def render movie
-    ApplicationController.new.render_to_string(partial: 'movies/movie', locals: { movie: movie })
+    ApplicationController.new.render_to_string(partial: 'movies/movie', locals: { movie: movie, newsletter: true })
   end
 
 

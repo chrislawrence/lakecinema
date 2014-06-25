@@ -32,4 +32,10 @@ describe Newsletter do
     end
   end
 
+  it 'does not include more info in body' do
+    newsletter = create(:newsletter)
+    newsletter.set_content(Date.today, [build(:movie)])
+    expect(newsletter.body).to_not include('More info...')
+  end
+
 end

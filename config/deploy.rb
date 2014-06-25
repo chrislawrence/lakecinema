@@ -19,7 +19,7 @@ namespace :deploy do
     end
   end
 
-  before "deploy:assets:precompile", "deploy:symlink_database"
+  before "deploy:migrate", "deploy:symlink_database"
   after :publishing, "deploy:assets:precompile"
 
   desc 'Restart application'
