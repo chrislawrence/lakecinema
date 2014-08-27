@@ -153,6 +153,17 @@ header {
   width: 100%;
 }
 
+.facebook {
+  background: $beige;
+  padding: 1em 0;
+  p {
+    font-size: 0.9em;
+    text-align: center;
+    color: $beige - 100;
+    margin: 0;
+  }
+}
+
 @media (max-width: 400px) {
   .info_panel {
     width: 30%;
