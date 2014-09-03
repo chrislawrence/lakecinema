@@ -13,4 +13,7 @@ class StaticController < ApplicationController
   def subscribe
     @header_path = 'layouts/small_header'
   end
+
+  def announcement
+  end
 end
