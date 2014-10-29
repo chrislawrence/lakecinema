@@ -1,1 +1,4 @@
 <%= render @week %>
+    <%= link_to "Write Newsletter", edit_newsletter_path(@week) %>
+    <%= link_to "Edit", edit_week_path(@week) %>
+    <%= link_to "Destroy", @week, method: :delete, data: { confirm: 'Remove week?'} %>

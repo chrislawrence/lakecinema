@@ -43,6 +43,18 @@ class Week < ActiveRecord::Base
     end
   end
 
+  def holiday?
+    true if self.category == 'holiday'
+  end
+
+  def announcement?
+    true if self.category == 'announcement'
+  end
+
+  def standard_week?
+    ['holiday', 'announcement'].include?(self.category) == false
+  end
+
   private
 
   def generate_title

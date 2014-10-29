@@ -28,6 +28,11 @@ input[type='submit'] {
   border-radius: 5px;
 }
 
+input[type='radio'] {
+  width: auto;
+  display: inline;
+}
+
 ::-webkit-input-placeholder {
   color: #bbb;
 }
@@ -185,3 +190,14 @@ input[type='submit'] {
   font-family: 'PT Sans', courier, monospace;
 }
 
+/* Week type */
+
+.week_type {
+  font-size: 0.9em;
+}
+
+.week_type label {
+  display: inline;
+  margin-left: 0.5em;
+  margin-right: 1.5em;
+}

@@ -78,4 +78,21 @@ describe Week do
     Week.remind_to_write_newsletter
   end
 
+  it 'is a holiday programme' do
+    week = build(:week, category: 'holiday')
+    expect(week.holiday?).to eq(true)
+    expect(week.standard_week?).to eq(false)
+  end
+
+  it 'is an announcement' do
+    week = build(:week, category: 'announcement')
+    expect(week.announcement?).to eq(true)
+    expect(week.standard_week?).to eq(false)
+  end
+
+  it 'is a standard week' do
+    week = build(:week)
+    expect(week.standard_week?).to eq(true)
+  end
+
 end

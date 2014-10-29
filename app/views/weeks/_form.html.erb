@@ -16,9 +16,10 @@
   <%= f.label :title %>
   <%= f.text_field :title, placeholder: "Leave blank to set automatically" %>
 
-  <div class="holiday_check">
-    <%= check_box_tag 'holiday_check_box', "Holidays" %>
-    <%= label_tag 'holiday_check_box', "Holidays" %>
+  <%= label_tag "Programme Type" %>
+
+  <div class="week_type">
+    <%= f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize  %>
   </div>
 
   <hr />
@@ -40,6 +41,11 @@
         <%= holiday_fields.text_area :body %>
       </div>
     <% end %>
+
+  <div id="announcement_fields" %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
 
   <%= f.submit "Save" %>
 <% end %>

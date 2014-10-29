@@ -60,6 +60,12 @@ table.holidays {
 	
 }
 
+/* Announcement */
+
+.announcement {
+  margin-bottom: 2em;
+}
+
 @media (max-width: 500px)  {
   .film img { display: none;}
   table.holidays tr td:first-child { width: 3em}
