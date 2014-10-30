@@ -34,9 +34,8 @@ feature "Admin adds a programme" do
   scenario "User adds a holiday programme" do
     holiday = build(:holiday)
     fill_week_fields
-    page.check('Holidays')
+    choose 'Holiday'
     fill_in 'Preamble', with: holiday.preamble
-    fill_in 'Body', with: holiday.body
     click_button 'Save'
     expect(page).to have_content(holiday.preamble)
   end
