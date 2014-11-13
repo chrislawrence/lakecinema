@@ -1,4 +1,5 @@
 class Newsletter < ActiveRecord::Base
+  belongs_to :week
 
   def set_content date, movies = []
     self.send_time = (date.to_time - 1.day) + 8.hours

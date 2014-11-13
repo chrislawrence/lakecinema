@@ -30,6 +30,7 @@ group :test do
 end
 
 group :development do
+  gem 'spring-commands-rspec'
   gem 'quiet_assets'
   gem 'capistrano', '~>3.1.0'
   gem 'capistrano-rails', '~>1.1'
@@ -44,4 +45,3 @@ gem 'rest-client'
 gem 'mailchimp-api'
 gem 'newrelic_rpm'
 gem 'whenever'
-gem "spring-commands-rspec", group: :development
