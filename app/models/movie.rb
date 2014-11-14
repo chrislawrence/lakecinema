@@ -10,13 +10,26 @@ class Movie < ActiveRecord::Base
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
     default_url: '/assets/posters/missing.jpg'
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  before_save :download_poster
+  before_save :get_metadata
 
   def tmdb_url
     "http://themoviedb.org/movie/#{self.tmdb_id}"
   end
 
+  def backdrop_url
+    "http://image.tmdb.org/t/p/w780#{backdrop}"
+  end
+
+
   private
+
+  def get_metadata
+    @search = Search.movie_by_id(self.tmdb_id)
+    download_poster
+    self.backdrop ||= @search.backdrop_path
+    self.director ||= @search.director
+    self.cast ||= @search.cast
+  end
 
   def download_poster
     save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?

@@ -9,6 +9,10 @@ class FakeTmdb < Sinatra::Base
     json_response 200, 'movie.json'
   end
 
+  get '/3/movie/:id/credits' do
+    json_response 200, 'credits.json'
+  end
+
   private
 
   def json_response(response_code, file_name)

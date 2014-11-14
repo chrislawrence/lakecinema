@@ -1,7 +1,7 @@
 class Search
   include ActiveModel::Serializers::JSON
   API_KEY = APP_CONFIG['tmdb_key']
-  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb
+  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb, :backdrop_path, :director, :cast
 
   def attributes
     {'id' => @id,
@@ -9,7 +9,8 @@ class Search
       'release_date' => @release_date,
       'poster_url' => @poster_url,
       'overview' => @overview,
-      'poster_thumb' => @poster_thumb
+      'poster_thumb' => @poster_thumb,
+      'backdrop_path' => @backdrop_path,
     }
   end
 
@@ -24,8 +25,17 @@ class Search
   end
 
   def self.movie_by_id id
-    self.new get "movie/#{id}"
+    search = self.new get "movie/#{id}"
+    search.get_credits
+    search
   end
+
+  def get_credits
+    response = Search.get "movie/#{id}/credits"
+    @director = response['crew'].map { |c| c['name'] if c['job'] == 'Director'}.compact.first
+    @cast = response['cast'][0..3].map{|c| c['name']}.compact
+  end
+
 
   def initialize attributes={}
     attributes.each do |key, value|

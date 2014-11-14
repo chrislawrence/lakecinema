@@ -3,7 +3,6 @@ class Week < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   before_save :generate_title
-  before_save :generate_newsletter
 
   has_many :movies, -> {order "view_index ASC"}, dependent: :destroy
   accepts_nested_attributes_for :movies, reject_if: proc {|a| a['title'].blank?}
@@ -73,11 +72,5 @@ class Week < ActiveRecord::Base
       end
     end
   end
-
-  def generate_newsletter
-    self.newsletter = Newsletter.new
-    self.newsletter.set_content(self.start_date, self.movies)
-  end
-
 
 end

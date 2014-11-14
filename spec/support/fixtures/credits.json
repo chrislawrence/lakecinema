@@ -1,0 +1,363 @@
+
+{
+  "id": 550,
+  "cast": [
+    {
+      "cast_id": 4,
+      "character": "The Narrator",
+      "credit_id": "52fe4250c3a36847f80149f3",
+      "id": 819,
+      "name": "Edward Norton",
+      "order": 0,
+      "profile_path": "/iUiePUAQKN4GY6jorH9m23cbVli.jpg"
+    },
+    {
+      "cast_id": 5,
+      "character": "Tyler Durden",
+      "credit_id": "52fe4250c3a36847f80149f7",
+      "id": 287,
+      "name": "Brad Pitt",
+      "order": 1,
+      "profile_path": "/kc3M04QQAuZ9woUvH3Ju5T7ZqG5.jpg"
+    },
+    {
+      "cast_id": 6,
+      "character": "Marla Singer",
+      "credit_id": "52fe4250c3a36847f80149fb",
+      "id": 1283,
+      "name": "Helena Bonham Carter",
+      "order": 2,
+      "profile_path": "/58oJPFG1wefMC0Vj7sFzHPrm67J.jpg"
+    },
+    {
+      "cast_id": 7,
+      "character": "Robert 'Bob' Paulson",
+      "credit_id": "52fe4250c3a36847f80149ff",
+      "id": 7470,
+      "name": "Meat Loaf",
+      "order": 3,
+      "profile_path": "/pwNyXgegO1nlZ8uWT847JM8EjGj.jpg"
+    },
+    {
+      "cast_id": 30,
+      "character": "Angel Face",
+      "credit_id": "52fe4250c3a36847f8014a51",
+      "id": 7499,
+      "name": "Jared Leto",
+      "order": 4,
+      "profile_path": "/msugySeTCyCmlRWtyB6sMixTQYY.jpg"
+    },
+    {
+      "cast_id": 31,
+      "character": "Richard Chesler",
+      "credit_id": "52fe4250c3a36847f8014a55",
+      "id": 7471,
+      "name": "Zach Grenier",
+      "order": 5,
+      "profile_path": "/jghYiKdNkVehKpiVyE97AWrU9KQ.jpg"
+    },
+    {
+      "cast_id": 32,
+      "character": "The Mechanic",
+      "credit_id": "52fe4250c3a36847f8014a59",
+      "id": 7497,
+      "name": "Holt McCallany",
+      "order": 6,
+      "profile_path": "/hQBfcw9KVszdenlTZTR8AIrSpex.jpg"
+    },
+    {
+      "cast_id": 33,
+      "character": "Ricky",
+      "credit_id": "52fe4250c3a36847f8014a5d",
+      "id": 7498,
+      "name": "Eion Bailey",
+      "order": 7,
+      "profile_path": "/4MnRgrwuiJvHsfoiJrIUL4TkfoC.jpg"
+    },
+    {
+      "cast_id": 34,
+      "character": "Intern",
+      "credit_id": "52fe4250c3a36847f8014a61",
+      "id": 7472,
+      "name": "Richmond Arquette",
+      "order": 8,
+      "profile_path": "/xW4bb2qsPYilO27ex4Xoy2Ik1Ai.jpg"
+    },
+    {
+      "cast_id": 35,
+      "character": "Thomas",
+      "credit_id": "52fe4250c3a36847f8014a65",
+      "id": 7219,
+      "name": "David Andrews",
+      "order": 9,
+      "profile_path": "/pxmxn29UHW9r6uvLrd7bEwLswlQ.jpg"
+    },
+    {
+      "cast_id": 36,
+      "character": "Group Leader",
+      "credit_id": "52fe4250c3a36847f8014a69",
+      "id": 68277,
+      "name": "Christina Cabot",
+      "order": 10,
+      "profile_path": "/7UBTv5lW6apPdVLnOqTTBMTJWwY.jpg"
+    },
+    {
+      "cast_id": 37,
+      "character": "Inspector Bird",
+      "credit_id": "52fe4250c3a36847f8014a6d",
+      "id": 956719,
+      "name": "Tim De Zarn",
+      "order": 11,
+      "profile_path": "/bvj6Kaq1VzAEBkqCGVDvOaQKOhi.jpg"
+    },
+    {
+      "cast_id": 38,
+      "character": "Inspector Dent",
+      "credit_id": "52fe4250c3a36847f8014a71",
+      "id": 59285,
+      "name": "Ezra Buzzington",
+      "order": 12,
+      "profile_path": "/dl0SIqpOqS05UpJHKuDQqZTwUvP.jpg"
+    },
+    {
+      "cast_id": 39,
+      "character": "Airport Security Officer",
+      "credit_id": "52fe4250c3a36847f8014a75",
+      "id": 17449,
+      "name": "Bob Stephenson",
+      "order": 13,
+      "profile_path": "/BdlHJDys3K6tMKGR8zIB3QMw4o.jpg"
+    },
+    {
+      "cast_id": 40,
+      "character": "Walter",
+      "credit_id": "52fe4250c3a36847f8014a79",
+      "id": 56112,
+      "name": "David Lee Smith",
+      "order": 14,
+      "profile_path": "/xYkMA9AWtUN93KV5hWzlDkcnebB.jpg"
+    },
+    {
+      "cast_id": 41,
+      "character": "Detective Stern",
+      "credit_id": "52fe4250c3a36847f8014a7d",
+      "id": 1219497,
+      "name": "Thom Gossom Jr.",
+      "order": 15,
+      "profile_path": "/8je5ISnUinU4RfjRGqW0ktZLneX.jpg"
+    },
+    {
+      "cast_id": 42,
+      "character": "Lou's Body Guard",
+      "credit_id": "52fe4250c3a36847f8014a81",
+      "id": 42824,
+      "name": "Carl Ciarfalio",
+      "order": 16,
+      "profile_path": "/1JyIKBSkpK1tADOXpYYrO1khcQH.jpg"
+    },
+    {
+      "cast_id": 43,
+      "character": "Car Salesman",
+      "credit_id": "52fe4251c3a36847f8014a85",
+      "id": 40277,
+      "name": "Stuart Blumberg",
+      "order": 17,
+      "profile_path": "/nvHQBUin3CXD0kBsET1KBNaiekW.jpg"
+    },
+    {
+      "cast_id": 44,
+      "character": "Man #2 at Auto Shop",
+      "credit_id": "52fe4251c3a36847f8014a89",
+      "id": 122805,
+      "name": "Mark Fite",
+      "order": 18,
+      "profile_path": "/A46OLuNRFPu1NA61VQBf0NzQNFN.jpg"
+    },
+    {
+      "cast_id": 45,
+      "character": "Seminary Student",
+      "credit_id": "52fe4251c3a36847f8014a8d",
+      "id": 35521,
+      "name": "Matt Winston",
+      "order": 19,
+      "profile_path": "/8FQ6ef5Zjc9T8HsfMDRI3jhK2fV.jpg"
+    },
+    {
+      "cast_id": 46,
+      "character": "Channel 4 Reporter",
+      "credit_id": "52fe4251c3a36847f8014a91",
+      "id": 1224996,
+      "name": "Lauren Sánchez",
+      "order": 20,
+      "profile_path": "/iQ16P9a8TEzb4WsN8fjLsMCtvMA.jpg"
+    },
+    {
+      "cast_id": 47,
+      "character": "Policeman",
+      "credit_id": "52fe4251c3a36847f8014a95",
+      "id": 109100,
+      "name": "David Jean Thomas",
+      "order": 21,
+      "profile_path": "/f5YBSiswUU9rctXbJQoXi0CdJBn.jpg"
+    },
+    {
+      "cast_id": 48,
+      "character": "Salvator, Winking Bartender",
+      "credit_id": "52fe4251c3a36847f8014a99",
+      "id": 1221838,
+      "name": "Paul Carafotes",
+      "order": 22,
+      "profile_path": "/mZQtztyVeIWD7586FhvJLeVYNM3.jpg"
+    },
+    {
+      "cast_id": 49,
+      "character": "Proprietor of Dry Cleaners",
+      "credit_id": "52fe4251c3a36847f8014a9d",
+      "id": 145531,
+      "name": "Christopher John Fields",
+      "order": 23,
+      "profile_path": "/jTWw4B74VhrPo8AN6Q9jq31eYDD.jpg"
+    },
+    {
+      "cast_id": 50,
+      "character": "Bartender in Halo",
+      "credit_id": "52fe4251c3a36847f8014aa1",
+      "id": 9291,
+      "name": "Michael Shamus Wiles",
+      "order": 24,
+      "profile_path": "/upfSW6BGze446iqsZRehzcToNm8.jpg"
+    },
+    {
+      "cast_id": 51,
+      "character": "Detective Andrew",
+      "credit_id": "52fe4251c3a36847f8014aa5",
+      "id": 41352,
+      "name": "Van Quattro",
+      "order": 25,
+      "profile_path": "/kNmOCRKD6PyG8t9tcDOpBFOrast.jpg"
+    },
+    {
+      "cast_id": 52,
+      "character": "Detective Kevin",
+      "credit_id": "52fe4251c3a36847f8014aa9",
+      "id": 1226835,
+      "name": "Markus Redmond",
+      "order": 26,
+      "profile_path": "/yxMbPCGa8rMSrquc8v4UN7QLlWX.jpg"
+    }
+  ],
+  "crew": [
+    {
+      "credit_id": "52fe4250c3a36847f80149ef",
+      "department": "Writing",
+      "id": 7469,
+      "job": "Author",
+      "name": "Jim Uhls",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a05",
+      "department": "Production",
+      "id": 7474,
+      "job": "Producer",
+      "name": "Ross Grayson Bell",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a0b",
+      "department": "Production",
+      "id": 7475,
+      "job": "Producer",
+      "name": "Ceán Chaffin",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a11",
+      "department": "Production",
+      "id": 1254,
+      "job": "Producer",
+      "name": "Art Linson",
+      "profile_path": "/dEtVivCXxQBtIzmJcUNupT1AB4H.jpg"
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a17",
+      "department": "Sound",
+      "id": 7477,
+      "job": "Original Music Composer",
+      "name": "John King",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a1d",
+      "department": "Sound",
+      "id": 7478,
+      "job": "Original Music Composer",
+      "name": "Michael Simpson",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a23",
+      "department": "Camera",
+      "id": 7479,
+      "job": "Director of Photography",
+      "name": "Jeff Cronenweth",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a29",
+      "department": "Editing",
+      "id": 7480,
+      "job": "Editor",
+      "name": "James Haygood",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a2f",
+      "department": "Production",
+      "id": 7481,
+      "job": "Casting",
+      "name": "Laray Mayfield",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a35",
+      "department": "Art",
+      "id": 1303,
+      "job": "Production Design",
+      "name": "Alex McDowell",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a3b",
+      "department": "Sound",
+      "id": 7763,
+      "job": "Sound Editor",
+      "name": "Ren Klyce",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a41",
+      "department": "Sound",
+      "id": 7764,
+      "job": "Sound Editor",
+      "name": "Richard Hymns",
+      "profile_path": null
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a47",
+      "department": "Directing",
+      "id": 7467,
+      "job": "Director",
+      "name": "David Fincher",
+      "profile_path": "/dcBHejOsKvzVZVozWJAPzYthb8X.jpg"
+    },
+    {
+      "credit_id": "52fe4250c3a36847f8014a4d",
+      "department": "Writing",
+      "id": 7468,
+      "job": "Novel",
+      "name": "Chuck Palahniuk",
+      "profile_path": "/8nOJDJ6SqwV2h7PjdLBDTvIxXvx.jpg"
+    }
+  ]
+}

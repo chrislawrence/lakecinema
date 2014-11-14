@@ -32,4 +32,12 @@ describe Movie do
     movie.destroy
     expect(Showing.count).to eq(0)
   end
+
+  it 'gets the backdrop id when saving with a tmdb_id' do
+    movie = build(:movie)
+    movie.save
+    expect(movie.backdrop).to_not be_nil
+    expect(movie.cast).to_not be_nil
+  end
+
 end

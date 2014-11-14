@@ -17,4 +17,13 @@ describe Search do
   it 'sets the thumbnail url based on path given' do
     expect(Search.movie_by_id('256').poster_thumb).to eq('http://image.tmdb.org/t/p/w154/d4KNaTrltq6bpkFS01pYtyXa09m.jpg')
   end
+
+  it 'sets the director' do
+    expect(Search.movie_by_id('256').director).to eq('David Fincher')
+  end
+
+  it 'gets the first four actors' do
+    expect(Search.movie_by_id('256').actors).to eq(["Edward Norton", "Brad Pitt", "Helena Bonham Carter", "Meat Loaf"])
+  end
+
 end

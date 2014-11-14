@@ -1,0 +1,48 @@
+<header>
+  <div class="content">
+    <h1>Lake Cinema</h1>
+    <div class="date">
+      <span><%= newsletter.send_date.strftime("%B %-d, %Y") %></span>
+    </div>
+  </div>
+</header>
+
+<div id="preamble">
+  <div class="content">
+    <h2>At the cinema this weekend</h2>
+    <p><%= raw newsletter.dates %></p>
+  </div>
+</div>
+
+<% newsletter.movies.each do |movie| %>
+  <div class="film">
+    <div class="background-image" style="background-image: url(<%=movie.backdrop_url %>)"></div>
+    <div class="content">
+      <div class="column-one">
+        <img src="<%=movie.poster.url%>" class="poster">
+      </div>
+
+      <div class="column-two">
+        <h3><%=movie.title %> (<%=movie.rating%>)</h3>
+
+        <div class="times">
+          <ul>
+            <% movie.showings.each do |showing| %>
+              <li><b><%=showing.day%></b><br /><%=showing.times%></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="credits">
+          <p><b>Directed by</b> <%= movie.director %></p>
+          <p><b>Starring</b> <%= movie.cast.to_sentence %></p>
+        </div>
+      </div>
+
+      <div class="overview">
+        <%= movie.overview %>
+      </div>
+    </div>
+<% end %>
+        
+
