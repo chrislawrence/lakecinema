@@ -40,4 +40,10 @@ describe Movie do
     expect(movie.cast).to_not be_nil
   end
 
+  it 'does not get metadata if no tmdb_id supplied' do
+    movie = build(:movie, tmdb_id: nil)
+    movie.save
+    expect(movie.cast).to be_nil
+  end
+
 end

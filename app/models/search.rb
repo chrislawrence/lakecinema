@@ -59,7 +59,6 @@ class Search
   
 
   def self.get url, options={}
-    Rails.logger.debug("KEY: #{API_KEY}")
     response = RestClient.get("http://api.themoviedb.org/3/" + url, params: options.merge({api_key: API_KEY}))
     JSON.parse(response)
   end

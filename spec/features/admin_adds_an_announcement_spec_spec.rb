@@ -7,7 +7,11 @@ describe "Admin adds an announcement spec" do
     fill_in 'Start date', with: '2001-01-01'
     fill_in 'End date', with: '2001-01-02'
     choose 'Announcement'
+    within '#announcement_fields' do
+      fill_in 'Body', with: 'This is an announcement'
+    end
     click_button 'Save'
-    expect(Week.last.announcement?).to be_true
+    visit root_path
+    expect(page).to have_content('This is an announcement')
   end
 end

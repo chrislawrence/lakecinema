@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-describe "Admin edits a programme" do
+feature "Admin edits a programme" do
   before do
     login
   end
-  it "edits the times and does not disrupt the order of things" do
+
+  scenario "with different times" do
     create(:week_with_movies_and_showings)
     visit dashboard_url
     within('.admin_week_list') do
@@ -15,7 +16,7 @@ describe "Admin edits a programme" do
     expect(page).to have_content('FRI: 5pm SAT: 10pm')
   end
 
-  it "edits the movies and does not disrupt the order of things" do
+  scenario "with different movie" do
     week = create(:week_with_movies_and_showings)
     create(:movie_with_showings, title: "Godfather II", week: week)
     visit edit_week_url(week, subdomain: 'admin')

@@ -1,44 +1,39 @@
 require 'spec_helper'
 
 feature "Admin adds a programme" do
-  before do
+  before :each do
     @week = build(:week)
     login
   end
 
-  scenario "User fills out the form to add a new week" do
+  scenario "with basic week data" do
     fill_week_fields
     click_button 'Save'
+    visit root_path
     expect(page).to have_content(@week.title)
   end
 
-  scenario "User adds a movie" do
+  scenario "with a movie" do
     fill_week_fields
     within('.movie.one') do
       fill_in 'Title', with: 'The Godfather'
     end
     click_button 'Save'
+    visit root_path
     expect(page).to have_content('The Godfather')
   end
 
-  scenario "User adds times" do
+  scenario "with session times" do
     fill_week_fields
     within('.movie.one') do
       fill_in 'Title', with: 'The Godfather'
      fill_in 'Fri', with: '5pm'
     end
     click_button 'Save'
+    visit root_path
     expect(page).to have_content('FRI: 5pm')
   end
 
-  scenario "User adds a holiday programme" do
-    holiday = build(:holiday)
-    fill_week_fields
-    choose 'Holiday'
-    fill_in 'Preamble', with: holiday.preamble
-    click_button 'Save'
-    expect(page).to have_content(holiday.preamble)
-  end
 
   def fill_week_fields
     visit new_week_url(subdomain: 'admin')

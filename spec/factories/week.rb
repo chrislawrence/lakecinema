@@ -16,5 +16,11 @@ FactoryGirl.define do
        create(:movie, week: week)
      end
     end
+
+   factory :week_with_holidays do
+     after :create do |week|
+       create(:holiday, week: week)
+     end
+   end
   end
 end

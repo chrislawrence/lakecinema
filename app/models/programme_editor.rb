@@ -7,9 +7,11 @@ class ProgrammeEditor
   end
 
   def self.update week
-    week.newsletter.set_content(week.start_date, week.end_date, week.movies)
-    week.newsletter.save
-    send_to_mailchimp(week.newsletter)
+    if week.newsletter
+      week.newsletter.set_content(week.start_date, week.end_date, week.movies)
+      week.newsletter.save
+      send_to_mailchimp(week.newsletter)
+    end
   end
 
   def self.send_to_mailchimp newsletter

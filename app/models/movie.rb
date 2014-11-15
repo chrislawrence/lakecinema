@@ -24,11 +24,13 @@ class Movie < ActiveRecord::Base
   private
 
   def get_metadata
-    @search = Search.movie_by_id(self.tmdb_id)
-    download_poster
-    self.backdrop ||= @search.backdrop_path
-    self.director ||= @search.director
-    self.cast ||= @search.cast
+    if tmdb_id
+      @search = Search.movie_by_id(self.tmdb_id)
+      download_poster
+      self.backdrop ||= @search.backdrop_path
+      self.director ||= @search.director
+      self.cast ||= @search.cast
+    end
   end
 
   def download_poster
