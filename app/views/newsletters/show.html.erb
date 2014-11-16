@@ -17,7 +17,6 @@
 
 <% newsletter.movies.each do |movie| %>
   <div class="film">
-    <div class="background-image" style="background-image: url(<%=movie.backdrop_url %>)"></div>
     <div class="content">
       <div class="column-one">
         <%= image_tag asset_host_url(movie.poster.url(:normal)), class: 'poster' %>
@@ -46,6 +45,5 @@
     </div>
 <% end %>
 
-<a href="#" onClick="window.close()">Close</a>
         
 
