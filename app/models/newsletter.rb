@@ -24,7 +24,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def body
-    ApplicationController.new.render_to_string('newsletters/show', layout: 'newsletter', locals: { newsletter: self })
+    ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: { newsletter: self })
   end
 
   def send_to_mailchimp
