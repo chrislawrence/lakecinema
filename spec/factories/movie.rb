@@ -3,6 +3,8 @@ FactoryGirl.define do
    title 'The Godfather'
    overview 'An offer you can refuse' 
    tmdb_id '256'
+   director 'Francis Ford Copolla'
+   cast ['Marlin Brando']
    
    factory :movie_with_showings do
      after :create do |movie|

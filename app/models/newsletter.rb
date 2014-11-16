@@ -23,6 +23,10 @@ class Newsletter < ActiveRecord::Base
     start_date.strftime("%B %-d") + "&mdash;" + end_date.strftime("%B %-d")
   end
 
+  def body
+    ApplicationController.new.render_to_string('newsletters/show', layout: 'newsletter', locals: { newsletter: self })
+  end
+
   def send_to_mailchimp
     sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send

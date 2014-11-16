@@ -17,6 +17,12 @@ describe Newsletter do
     expect(newsletter.body).to include("<h4>#{movies.first.title}")
   end
 
+  it 'sends to mailchimp' do
+    newsletter = create(:newsletter)
+    newsletter.stub(:movies).and_return([build(:movie)])
+    expect(newsletter.send_to_mailchimp).to be_true
+  end
+
   it 'sets the send time to 5 minutes from now if in the past' do
     Timecop.freeze Time.now do
       newsletter = create(:newsletter, send_time: Date.yesterday)
