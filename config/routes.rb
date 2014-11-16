@@ -1,13 +1,15 @@
 Lakecinema::Application.routes.draw do
 
-  constraints(subdomain: 'admin') do
-    get '/', to: 'dashboard#index', as: 'dashboard'
+  scope '/admin' do
+    get '/' => 'dashboard#index', as: 'admin'
     resources :weeks
     resources :newsletters
-    resources :searches, only: [:index, :show]
-    get :login, to: 'sessions#new'
-    post :login, to: 'sessions#create'
   end
+  get :login, to: 'sessions#new'
+  post :login, to: 'sessions#create'
+  get :logout, to: 'sessions#destroy', action: :destroy
+  
+  resources :searches, only: [:index, :show]
 
   root to: 'static#index'
 

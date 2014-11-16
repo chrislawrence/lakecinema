@@ -1,4 +1,5 @@
 class WeeksController < ApplicationController
+  layout 'admin'
   def new
     @week = Week.new
     2.times do |x|

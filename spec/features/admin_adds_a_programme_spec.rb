@@ -4,7 +4,7 @@ feature "Admin adds a programme" do
   before :each do
     @week = build(:week)
     login
-  end
+end
 
   scenario "with basic week data" do
     fill_week_fields
@@ -34,9 +34,8 @@ feature "Admin adds a programme" do
     expect(page).to have_content('FRI: 5pm')
   end
 
-
   def fill_week_fields
-    visit new_week_url(subdomain: 'admin')
+    visit new_week_path
     fill_in 'Start date', with: @week.start_date
     fill_in 'End date', with: @week.end_date
   end

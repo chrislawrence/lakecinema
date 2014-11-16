@@ -7,7 +7,7 @@
     <div class="details">
       <%= week.movie_titles %>
     </div>
-    <%= link_to "Write Newsletter", edit_newsletter_path(week) %>
+    <%= link_to "Newsletter", newsletter_path(week), target: '_blank' %>
     <%= link_to "Edit", edit_week_path(week) %>
     <%= link_to "Destroy", week, method: :delete, data: { confirm: 'Remove week?'} %>
     <% if week.newsletter %>

@@ -1,19 +1,30 @@
 @import 'colours';
 
-html {
-  position: relative;
-  min-height: 100%;
-}
+html, body { height: 100%;}
 
 body {
   font-family: $sans;
   font-size: 18px;
   color: #393939;
   background: #fefefe;
-  margin: 0 0 20em;
+  margin: 0;
 }
 
 /* Grid */
+
+body {
+  display: table;
+  width: 100%;
+}
+
+.page-row {
+  display: table-row;
+  height: 1px;
+  width: 100%;
+}
+
+.page-row.expanded { height: 100%;}
+
 
 .content {
   width: 100%;
@@ -22,7 +33,7 @@ body {
 }
 
 .margin {
-  margin-top: 2em
+  margin-top: 2em;
 }
 
 @media (max-width: 800px) {
@@ -101,7 +112,7 @@ h5 {
 
 /* Header */
 
-header {
+.title {
   background: #1E3E57 image-url('header-bg.png');
   text-align: center;
   padding: 3em;
@@ -132,25 +143,18 @@ header {
   color: #9BC9AB;
   font-weight: bold;
   border-bottom: 8px solid $dark-blue - 20;
-
-  .content {
-    text-align: justify;
-  }
+  .content { display: table; }
+  padding-bottom: 1em;
 }
 
 .info_panel {
-  display: inline-block;
+  display:  table-cell;
   text-align: center;
   width: 125px;
-  vertical-align: top;
   img {
     display: block;
     margin: 1em auto;
   }
-}
-.stretch {
-  display: inline-block;
-  width: 100%;
 }
 
 .facebook {
@@ -178,13 +182,8 @@ header {
 /* Footer */
 
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  height: 15em !important;
   text-align: center;
-  height: 20em;
-  width: 100%;
-  line-height: 20em;
   background: $beige;
   color: #ccc;
   margin-top: 3em;
@@ -192,6 +191,11 @@ footer {
   a {
     color: #A7B6C1;
   }
+}
+
+.footer-inner { 
+  vertical-align: middle;
+  display: table-cell;
 }
 
 /* Common Elements */
@@ -203,9 +207,9 @@ hr {
 }
 
 blockquote {
-	font-style: italic;
-	color: #555;
-	line-height: 1.8;
+  font-style: italic;
+  color: #555;
+  line-height: 1.8;
   border-left: 4px solid #efefef;
   margin-left: 0;
   padding-left: 2em;
@@ -216,6 +220,7 @@ blockquote {
 .flash {
   display: none;
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
