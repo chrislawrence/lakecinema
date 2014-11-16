@@ -33,7 +33,7 @@ class WeeksController < ApplicationController
   def update
     @week = Week.find(params[:id])
     if @week.update(week_params)
-      ProgrammeEditor.update(@week)
+      ProgrammeEditor.new(@week)
       redirect_to week_path(@week)
     else
       flash[:alert] = 'There were errors'
