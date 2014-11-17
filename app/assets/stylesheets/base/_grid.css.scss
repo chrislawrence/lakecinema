@@ -1,0 +1,32 @@
+html, body { height: 100%; }
+
+body {
+  display: table;
+  width: 100%;
+}
+
+.page-row {
+  display: table-row;
+  height: 1px;
+  width: 100%;
+}
+
+.page-row.expanded { height: 100%;}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+  .content { 
+    width: 96%;
+    padding: 0 2%; 
+  }
+}
+
+@media (max-width: 600px) {
+  body { font-size: 0.9em}
+}
+
