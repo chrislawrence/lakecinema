@@ -1,15 +1,6 @@
-<div class="nav small">
+<div class="nav small clearfix">
   <div class="content">
-  
-  <%= link_to retina_image_tag('mobile_header.png'), root_path, class: 'logo' %>
-    
-  <ul class="nav-list">
-    <%= nav_link 'Session Times', root_path %>
-    <%= nav_link 'About', about_path %>
-    <%= nav_link 'Contact', contact_path %>
-    <%= nav_link 'Newsletter', subscribe_path, class: 'last' %>
-  </ul>
-  
-  <%= content_tag :div, retina_image_tag("hamburger.png"), class: 'nav-toggle' %>
-</div>
+    <%= link_to retina_image_tag('mobile_header.png'), root_path, class: 'logo' %>
+    <%= render 'layouts/nav' %>
+  </div>
 </div>

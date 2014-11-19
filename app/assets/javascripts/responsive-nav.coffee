@@ -1,6 +1,6 @@
 $ ->
-  $('.nav_toggle').click ->
-    if $('.nav_list').is(':visible')
-      $('.nav_list').slideUp()
+  $('.nav-toggle').click ->
+    if $('.nav-list').is(':visible')
+      $('.nav-list').slideUp()
     else
-      $('.nav_list').slideDown()
+      $('.nav-list').slideDown()
