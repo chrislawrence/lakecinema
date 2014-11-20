@@ -19,6 +19,8 @@
   <header class="page-row">
     <% if request.path == '/' %>
       <%= render 'layouts/header' %>
+    <% elsif request.path.include? 'admin' %>
+      <%= render 'layouts/admin_header' %>
     <% else %>
       <%= render 'layouts/small_header' %>
     <% end %>
