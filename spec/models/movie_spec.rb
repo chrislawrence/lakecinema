@@ -24,7 +24,7 @@ describe Movie do
 
   it 'does not die if no  url is given' do
     movie = create(:movie, poster_url: "")
-    expect(movie.poster.url).to eq('/assets/posters/missing.jpg')
+    expect(movie.poster.url).to eq('/assets/missing.png')
   end
   
   it 'destroys the showings when destroying the movie' do

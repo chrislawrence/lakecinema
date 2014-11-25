@@ -1,15 +1,13 @@
 class Newsletter < ActiveRecord::Base
   belongs_to :week
+  has_many :movies
   default_scope { order(:start_date) }
 
-  def set_content start_date, end_date, movies = []
+  def set_content start_date = self.week.start_date, end_date = self.week.end_date, movies = self.week.movies
     self.send_time = (start_date.to_time - 1.day) + 8.hours
     self.start_date = start_date
     self.end_date = end_date
-  end
-
-  def movies
-    self.week.movies
+    self.movies << movies
   end
 
   def sent
@@ -32,22 +30,6 @@ class Newsletter < ActiveRecord::Base
     sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
     self.update(campaign_id: sender.campaign_id)
-  end
-
-  private
-
-  def render movie
-    ApplicationController.new.render_to_string(partial: 'movies/movie', locals: { movie: movie, newsletter: true })
-  end
-
-
-  def combine_introduction_and_body
-    "#{markdown(self.introduction)} #{self.body}"
-  end
-
-  def markdown(text)
-    renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-    renderer.render(text) if text
   end
 
 end

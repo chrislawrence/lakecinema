@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
   belongs_to :week, touch: true
+  belongs_to :newsletter
   has_many :showings, -> { order "view_index ASC"}, dependent: :destroy
   accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}
   has_attached_file :poster, styles: {
