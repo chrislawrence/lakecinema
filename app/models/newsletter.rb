@@ -26,7 +26,14 @@ class Newsletter < ActiveRecord::Base
     ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: { newsletter: self })
   end
 
+  def update_send_time
+    if Time.now > self.send_time
+      self.send_time = 5.minutes.from_now
+    end
+  end
+
   def send_to_mailchimp
+    update_send_time
     sender = Chimp.new(title: self.subject, body: self.body, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
     self.update(campaign_id: sender.campaign_id)

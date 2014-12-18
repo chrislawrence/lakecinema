@@ -29,4 +29,12 @@ describe Newsletter do
     expect(newsletter.start_date).to eq(week.start_date)
   end
 
+  it 'updates send time to future if in past' do
+    Timecop.freeze do
+      newsletter = build(:newsletter, send_time: 5.minutes.ago)
+      newsletter.send_to_mailchimp
+      expect(newsletter.send_time).to eq(5.minutes.from_now)
+    end
+  end
+
 end
