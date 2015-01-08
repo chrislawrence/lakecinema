@@ -33,14 +33,15 @@
           </ul>
         </div>
 
-        <div class="credits">
-          <p><b>Directed by</b> <%= movie.director %></p>
-          <p><b>Starring</b> <%= movie.cast.to_sentence %></p>
-        </div>
       </div>
 
       <div class="overview">
         <%= movie.overview %>
+      </div>
+
+      <div class="credits">
+        <p><b>Directed by</b> <%= movie.director %></p>
+        <p><b>Starring</b> <%= movie.cast.to_sentence %></p>
       </div>
     </div>
   </div>
