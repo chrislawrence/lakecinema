@@ -1,0 +1,23 @@
+<%= form_for @newsletter do |f| %>
+  <%= f.label :send_time %>
+  <%= f.date_field :send_time %>
+  <%= f.label :start_date %>
+  <%= f.date_field :start_date %>
+  <%= f.label :end_date %>
+  <%= f.date_field :end_date %>
+  <%= f.fields_for :movies do |movie_fields| %>
+    <div class="film">
+      <%= movie_fields.label :title %>
+      <%= movie_fields.text_field :title %>
+      <%= movie_fields.label :rating %>
+      <%= movie_fields.text_field :rating %>
+      <%= movie_fields.label :overview %>
+      <%= movie_fields.text_field :overview %>
+      <%= movie_fields.label :cast %>
+      <%= movie_fields.text_field :cast %>
+      <%= movie_fields.label :director %>
+      <%= movie_fields.text_field :director %>
+    </div>
+  <% end %>
+  <%= f.submit 'Save' %>
+<% end %>

@@ -1,5 +1,26 @@
 class NewslettersController < ApplicationController
   layout 'newsletter'
+  
+  def index
+    @newsletters = Newsletter.all
+  end
+
+  def new
+    @newsletter = Newsletter.new
+    2.times do |x|
+      @newsletter.movies.build(view_index: x)
+    end
+  end
+
+  def create
+    @newsletter = Newsletter.new(newsletter_params)
+    if @newsletter.save
+      @newsletter.send_to_mailchimp
+      redirect_to admin_path, notice: 'Newsletter sent to Mailchimp'
+    else
+      render action: new
+    end
+  end
 
   def edit
     week = Week.find(params[:id])
@@ -10,14 +31,14 @@ class NewslettersController < ApplicationController
     @newsletter = Newsletter.find(params[:id])
     if @newsletter.update(newsletter_params)
       send_to_mailchimp @newsletter
-      redirect_to dashboard_path, notice: 'Newsletter sent to Mailchimp'
+      redirect_to admin_path, notice: 'Newsletter sent to Mailchimp'
     else
       render action: edit
     end
   end
 
   def show
-    @newsletter = Week.find(params[:id]).newsletter
+    @newsletter = Newsletter.find(params[:id])
   end
 
   def send_to_mailchimp newsletter
@@ -33,7 +54,7 @@ class NewslettersController < ApplicationController
   private
 
   def newsletter_params
-    params.require(:newsletter).permit(:introduction)
+    params.require(:newsletter).permit(:introduction, :send_time, :start_date, :end_date, :movie_attributes => [:title, :rating, :overview, :cast, :director])
   end
   
 end
