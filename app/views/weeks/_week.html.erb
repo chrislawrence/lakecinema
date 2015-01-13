@@ -8,7 +8,7 @@
         </div>
       </div>
     <% else %>
-      <h2><div class="content"><%= week.title %></div></h2>
+      <h2><div class="content"><%= raw week.title %></div></h2>
       <div class="content">
         <%= render week.nested_partial_path, week: week %>
       </div>
