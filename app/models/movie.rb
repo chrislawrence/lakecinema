@@ -25,7 +25,7 @@ class Movie < ActiveRecord::Base
   private
 
   def get_metadata
-    if tmdb_id
+    if self.tmdb_id
       @search = Search.movie_by_id(self.tmdb_id)
       download_poster
       self.backdrop ||= @search.backdrop_path

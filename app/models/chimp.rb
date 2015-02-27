@@ -44,8 +44,11 @@ class Chimp
 
   def update_campaign
     Rails.logger.debug('Updating campaign...')
-    Rails.logger.debug("Body: #{@body}")
+    begin
     @sender.campaigns.update(@campaign_id,'content', {sections: {std_content00: @body}})
+    rescue
+      return
+    end
     schedule_campaign(true)
   end
 
