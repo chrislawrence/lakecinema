@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125005022) do
+ActiveRecord::Schema.define(version: 20150317011601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "holidays", force: true do |t|
+  create_table "holidays", force: :cascade do |t|
     t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,63 +24,64 @@ ActiveRecord::Schema.define(version: 20141125005022) do
     t.text     "body"
   end
 
-  create_table "movies", force: true do |t|
-    t.string   "title"
-    t.string   "rating"
-    t.string   "poster_url"
-    t.string   "week_id"
+  create_table "movies", force: :cascade do |t|
+    t.string   "title",               limit: 255
+    t.string   "rating",              limit: 255
+    t.string   "poster_url",          limit: 255
+    t.string   "week_id",             limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "poster_file_name"
-    t.string   "poster_content_type"
+    t.string   "poster_file_name",    limit: 255
+    t.string   "poster_content_type", limit: 255
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
     t.text     "overview"
-    t.string   "extra"
+    t.string   "extra",               limit: 255
     t.integer  "view_index"
     t.integer  "tmdb_id"
-    t.string   "backdrop"
-    t.string   "cast",                array: true
-    t.string   "director"
+    t.string   "backdrop",            limit: 255
+    t.string   "cast",                            array: true
+    t.string   "director",            limit: 255
     t.integer  "newsletter_id"
+    t.text     "after"
   end
 
-  create_table "newsletters", force: true do |t|
-    t.string   "subject"
+  create_table "newsletters", force: :cascade do |t|
+    t.string   "subject",      limit: 255
     t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "campaign_id"
+    t.string   "campaign_id",  limit: 255
     t.text     "introduction"
     t.datetime "send_time"
     t.date     "start_date"
     t.date     "end_date"
   end
 
-  create_table "showings", force: true do |t|
-    t.string   "day"
-    t.string   "times"
+  create_table "showings", force: :cascade do |t|
+    t.string   "day",        limit: 255
+    t.string   "times",      limit: 255
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "view_index", default: 0
+    t.integer  "view_index",             default: 0
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email"
-    t.string   "password_digest"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",           limit: 255
+    t.string   "password_digest", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token"
+    t.string   "token",           limit: 255
   end
 
-  create_table "weeks", force: true do |t|
+  create_table "weeks", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "title"
+    t.string   "title",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",   default: "standard"
+    t.string   "category",   limit: 255, default: "standard"
     t.text     "body"
   end
 

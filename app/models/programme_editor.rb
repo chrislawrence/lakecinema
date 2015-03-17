@@ -1,6 +1,6 @@
 class ProgrammeEditor
   def self.new week
-    if week.holidays? == false
+    if week.holiday? == false
       week.build_newsletter unless week.newsletter
       newsletter = week.newsletter
       newsletter.set_content(week.start_date, week.end_date, week.movies)

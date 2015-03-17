@@ -19,9 +19,5 @@
   <% movie.showings.each do |s| %>
     <p><b><%= s.day.upcase %>:</b> <%= s.times %></p>
  <% end %>
-<% if movie.title == "The Second Best Exotic Marigold Hotel" %>
-  <p><i>Extra sessions: Avoid the crush</i><br />
-  <b>Monday 23rd March until Thursday  26th March</b><br />Daily at 11am and 2pm</b>
-  </p>
-<% end %>
+ <%= content_tag :p, sanitize(markdown(movie.after)) %>
 </div>
