@@ -19,5 +19,7 @@
   <% movie.showings.each do |s| %>
     <p><b><%= s.day.upcase %>:</b> <%= s.times %></p>
  <% end %>
- <%= content_tag :p, sanitize(markdown(movie.after)) %>
+ <% if movie.after %>
+  <%= content_tag :p, sanitize(markdown(movie.after)) %>
+ <% end %>
 </div>
