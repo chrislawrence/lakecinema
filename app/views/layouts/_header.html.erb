@@ -1,11 +1,29 @@
-<header>
-  <div class="logo">
-    <%= image_tag 'lc-logo.svg' %>
+<header class="clearfix">
+  <div class="content">
+    <div class="nav clearfix">
+      <div class="logo">
+        <%= image_tag 'lc-logo.svg' %>
+      </div>
+  
+      <%= render 'layouts/nav' %>
+    </div>
+    
+    <div class="big-header">
+      <h1>Lake Cinema</h1>
+      <p class="subtitle">The independent cinema in Boolaroo, New South Wales</p>
+      
+      <ul class="details">
+        <li>
+          <p>4958 5810</p>
+        </li>
+        <li>
+          <p>62 Main Road,<br />Boolaroo</p>
+        </li>
+        <li>
+          <p>$7 Tickets</p>
+        </li>
+      </ul>
+    </div>
+      
   </div>
-  
-  <%= render 'layouts/nav' %>
-  
-  <h1>Lake Cinema</h1>
-  <p class="description">The independent cinema in Boolaroo, New South Wales</p>
-  
 </header>

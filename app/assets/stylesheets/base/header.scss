@@ -1,0 +1,56 @@
+header {
+  padding-top: 1em; 
+  border-top: 8px solid $yellow;
+  background: $blue;
+  @include radial-gradient($blue 40%, adjust_hue($blue, -15));
+  color: $light-blue;
+}
+
+header.small { background: $blue;}
+
+.nav { margin-bottom: 3.5em; }
+
+.nav-list {
+	float: right;
+	list-style: none;
+	li {
+		display: inline-block;
+		margin-left: 1em;
+	}
+	
+	a {
+		color: $light-blue;
+		font-weight: bold;
+		text-decoration: none;
+    &:hover { color: #fff; };
+	}
+}
+
+.logo { 
+	float: left;
+  margin-top: 8px;
+  img { width: 38px;}
+}
+
+.subtitle {
+  font-family: $slab-serif;
+  font-weight: 100;
+  color: $yellow;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 3.5em;
+}
+
+.details {
+  list-style: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  li:nth-child(odd) { font-size: 1.3em;}
+  li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 32%;
+    text-align: center;
+  }
+}
