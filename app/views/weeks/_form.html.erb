@@ -1,6 +1,30 @@
 <h3>New Programme</h3>
 
 <%= form_for @week do |f| %>
+  <div class="fields">
+    <h3>Frontmatter</h3>
+
+    <div class="form-field top">
+      <%= f.label :title %>
+      <%= f.text_field :title, placeholder: "Leave blank to set automatically" %>
+    </div>
+
+    <div class="form-field gr50">
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date, class: 'date-field'%>
+    </div>
+
+    <div class="form-field right gr50">
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date, class: 'date-field'%>
+    </div>
+  </div>
+
+<% end %>
+
+
+<!-- 
+<%= form_for @week do |f| %>
   <div class="date_fields clearfix">
     <div class="input_date">
       <%= f.label :start_date %>
@@ -49,3 +73,4 @@
 
   <%= f.submit "Save" %>
 <% end %>
+-->

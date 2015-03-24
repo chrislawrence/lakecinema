@@ -1,0 +1,22 @@
+body {
+  -webkit-font-smoothing: anti-aliased;
+  font-size: 1.2em;
+}
+
+h1 {
+  font-family: $slab-serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 4em;
+  text-align: center;
+  margin: 0;
+}
+
+.description {
+  font-family: $slab-serif;
+  font-weight: 100;
+  color: $yellow;
+  font-size: 1.5em;
+  text-align: center;
+}

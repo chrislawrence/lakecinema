@@ -1,4 +1,14 @@
 $ ->
+  $('.date-field').datepicker({
+    prevText: "<"
+    nextText: ">"
+    minDate: 0
+    onSelect: (d) ->
+      d = new Date(d)
+      d.setDate(d.getDate() + 2)
+      $(this).parent().next('.form-field').children('.date-field').datepicker("setDate", d)
+  })
+    
   toggleFields = ->
     if $('#week_category_standard').is(':checked')
       $('#movie_fields').show()

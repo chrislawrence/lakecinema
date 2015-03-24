@@ -1,0 +1,11 @@
+body {
+  font-family: 'Open Sans';
+  background: $light-grey;
+  color: #565656;
+}
+
+header {
+  background: $blue;
+  @include radial-gradient($blue 50%, adjust_hue($blue, -15));
+  color: $light-blue;
+}

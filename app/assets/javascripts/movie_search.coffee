@@ -4,7 +4,7 @@ $ ->
       source: '/searches'
       search: ->
         load(this)
-      response: ->
+      response: (event, ui)->
         finishLoad(this)
       select: (event, ui)->
         # item is selected from list
