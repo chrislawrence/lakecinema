@@ -1,6 +1,6 @@
 body {
   -webkit-font-smoothing: anti-aliased;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 h1 {
@@ -20,6 +20,20 @@ header.small h1 {
 }
 
 h2 {
-  font-size: 1.5em;
+  font-weight: 600;
+  font-size: 1.3em;
   text-align: center;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+b, strong { font-weight: 600; }
+
+a {
+  color: $blue;
+  font-weight: normal;
+  text-decoration: underline;
+  &:hover { color: $light-blue; }
 }

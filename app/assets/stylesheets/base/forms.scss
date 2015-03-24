@@ -1,0 +1,109 @@
+/* Text Fields */
+
+input {
+  padding: 0.5em;
+  border: 1px solid $mid-grey;
+  border-radius: 0.3em;
+}
+
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: $blue;
+}
+
+/* Big forms */
+
+
+.form-field {
+  position: relative;
+  height: 4.5em;
+  background: #fff;
+  border: 1px solid $mid-grey;
+  border-top: none;
+  box-sizing: border-box;
+}
+
+.form-field.top { border-top: 1px solid $mid-grey; }
+.form-field.right { border-left: none; }
+.gr50 { width: 50%; float: left;}
+
+.form-field label {
+  position: absolute;
+  padding: 1em 0 0 2.4em;
+  display: inline-block;
+  font-size: 0.7em;
+  color: #bbb;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor-events: none;
+}
+
+.form-field input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  padding: 2em 2em 0 2em;
+  transition: 0.3s all;
+}
+
+/* Inline form */
+
+form.inline input {
+  width: 15em;
+  margin-right: 2em;
+}
+
+/* Buttons */
+
+.btn {
+  text-transform: uppercase;
+  color: $blue;
+  border: 1px solid $blue;
+  background: none;
+  border-radius: 0.3em;
+  padding: 0.5em 2em;
+}
+
+.btn.btn-primary {
+  background: $blue;
+  color: #fff;
+}
+
+
+/* jQuery UI */
+
+#ui-datepicker-div {
+  display: none;
+  background: #fff;
+  width: 18em;
+  padding: 1em 0.5em;
+  margin-top: 1px;
+  text-align: center;
+  box-shadow: 0 2px 7px 0  rgba(0,0,0,0.1);
+}
+
+.ui-datepicker-calendar {
+  width: 100%;
+  margin: 1em 0;
+  line-height: 1.5;
+}
+
+.ui-datepicker-prev { float: left; margin-left: 2em;}
+.ui-datepicker-next { float: right; margin-right: 2em;}
+
+.ui-datepicker-calendar .ui-state-default {
+  display: inline-block;
+  width: 1.6em;
+  height: 1.6em;
+  text-align: center;
+}
+
+.ui-datepicker-calendar a { text-decoration: none; }
+
+.ui-datepicker-calendar a:hover,
+.ui-datepicker-calendar .ui-state-active {
+  background: $blue;
+  color: #fff;
+  border-radius: 100%;
+}

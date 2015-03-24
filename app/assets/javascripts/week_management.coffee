@@ -3,8 +3,14 @@ $ ->
     prevText: "<"
     nextText: ">"
     minDate: 0
+    dateFormat: 'dd-mm-yy'
     onSelect: (d) ->
-      d = new Date(d)
+      parts = d.split('-')
+      d = new Date(
+        parts[2],
+        parts[1] - 1,
+        parts[0]
+      )
       d.setDate(d.getDate() + 2)
       $(this).parent().next('.form-field').children('.date-field').datepicker("setDate", d)
   })
