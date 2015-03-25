@@ -1,9 +1,10 @@
 /* Text Fields */
 
-input {
+input, textarea {
   padding: 0.5em;
   border: 1px solid $mid-grey;
   border-radius: 0.3em;
+  font-size: 0.9em;
 }
 
 input:focus, textarea:focus {
@@ -13,6 +14,11 @@ input:focus, textarea:focus {
 
 /* Big forms */
 
+.form-group { margin-bottom: 1em; }
+
+.form-field input:focus, textarea:focus {
+  background: #fafafa;
+}
 
 .form-field {
   position: relative;
@@ -25,20 +31,19 @@ input:focus, textarea:focus {
 
 .form-field.top { border-top: 1px solid $mid-grey; }
 .form-field.right { border-left: none; }
-.gr50 { width: 50%; float: left;}
 
 .form-field label {
   position: absolute;
   padding: 1em 0 0 2.4em;
   display: inline-block;
   font-size: 0.7em;
-  color: #bbb;
+  color: $mid-grey;
   text-transform: uppercase;
   font-weight: bold;
   cursor-events: none;
 }
 
-.form-field input {
+.form-field input, textarea {
   height: 100%;
   width: 100%;
   border: none;
@@ -47,12 +52,61 @@ input:focus, textarea:focus {
   transition: 0.3s all;
 }
 
+.form-field textarea {
+  resize: none;
+}
+
+.form-field.overview {
+  height: 15em;
+}
+
+.poster-field { 
+  height: 15em; 
+  text-align: center;
+
+  img {
+    margin-top: 0.4em;
+    width: 80%; 
+    height: auto
+  }
+}
+
+.form-field.extra { height: 9em; }
+
+.md:after {
+  width: 95.7%;
+  font-size: 0.7em;
+  color: $mid-grey;
+  text-transform: uppercase;
+  font-weight: bold;
+  content: "\f006     Markdown Allowed";
+  font-family: FontAwesome, 'Open Sans';
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0 1em 2.4em;
+  background: #fff;
+
+}
+
+.collapsed { display: none; }
+
+
+/* Loading */
+
+.loading {
+  height: 2px;
+  background: $green;
+  width: 0;
+}
+
 /* Inline form */
 
 form.inline input {
   width: 15em;
   margin-right: 2em;
 }
+
+form.inline .btn { display: inline; }
 
 /* Buttons */
 
@@ -63,13 +117,20 @@ form.inline input {
   background: none;
   border-radius: 0.3em;
   padding: 0.5em 2em;
+  display: block;
 }
 
-.btn.btn-primary {
+.btn-primary {
+  border: none;
   background: $blue;
   color: #fff;
 }
 
+.btn-submit {
+  border: none;
+  background: $green;
+  color: #fff;
+}
 
 /* jQuery UI */
 
@@ -106,4 +167,20 @@ form.inline input {
   background: $blue;
   color: #fff;
   border-radius: 100%;
+}
+
+.ui-autocomplete {
+  font-family: $sans-serif;
+  border: 1px solid $mid-grey;
+  background: #fff;
+  list-style: none;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.1);
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  li {
+    padding: 0.7em 0.3em;
+    &:hover {
+      background: #fafafa; }
+  }
 }

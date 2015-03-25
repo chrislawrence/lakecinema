@@ -14,6 +14,40 @@ $ ->
       d.setDate(d.getDate() + 2)
       $(this).parent().next('.form-field').children('.date-field').datepicker("setDate", d)
   })
+
+
+  collapseFields = ->
+    timeoutID = null
+
+    checkDelay = (fields) ->
+      timeoutID[fields] = setTimeout( ->
+        # Do this if moving outside of the field group
+        console.log('yes')
+        unless $(fields).is(':hover')
+          fields.children('.collapsed').slideUp()
+      , 1 )
+
+    $('.movie-fields').each( ->
+      $(this).focusin ->
+        $(this).children('.collapsed').slideDown()
+        # cancel the action if still within form group
+        if timeoutID[$this]
+          clearTimeout(timeoutID[$this])
+          timeoutID[$this] = null
+    )
+
+    $('.movie-fields').each( ->
+      $(this).focusout ->
+        # start action when moving out of a field
+        checkDelay($(this))
+    )
+
+  # Start this when document ready and when nested field added
+  collapseFields()
+  $(document).on('nested:fieldAdded', ->
+    collapseFields()
+  )
+
     
   toggleFields = ->
     if $('#week_category_standard').is(':checked')
@@ -29,16 +63,3 @@ $ ->
       $('#holiday_fields').hide()
       $('#announcement_fields').show()
 
-  $('#week_category_standard, #week_category_holiday, #week_category_announcement').change ->
-    toggleFields()
-
-  $(document).ready ->
-    toggleFields()
-
-  $('.toggle-overview').each ->
-    $(this).click (e)->
-      e.preventDefault()
-      link = $(this)
-      $(this).parent().nextAll('.movie-overview').slideToggle(400, 'easeInQuint', ->
-        link.text(if link.text() is 'More info...' then 'Less..' else 'More info...')
-      )

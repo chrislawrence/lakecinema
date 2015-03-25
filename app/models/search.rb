@@ -11,6 +11,8 @@ class Search
       'overview' => @overview,
       'poster_thumb' => @poster_thumb,
       'backdrop_path' => @backdrop_path,
+      'cast' => @cast,
+      'director' => @director
     }
   end
 

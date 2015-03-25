@@ -1,51 +1,32 @@
-<div class="clearfix">
-  <%= f.hidden_field :view_index, value: f.object.view_index %>
+<div class="form-group clearfix movie-fields">
 
-  <div class="movie_title">
+  <div class="form-field top left gr70">
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'movie_title_input' %>
+    <%= f.text_field :title, class: 'movie-title' %>
   </div>
-
-  <div class="movie_rating">
+  <div class="form-field top right gr30">
     <%= f.label :rating %>
-    <%= f.text_field :rating, class: 'rating' %>
-  </div>
-  
-
-
-  <div class="movie_details">
-    <%= f.hidden_field :tmdb_id, class: 'tmdb_id', value: f.object.tmdb_id %>
-
-    <%= f.label :overview %>
-    <%= f.text_area :overview, class: 'overview' %>
-
-    <%= f.label :poster_url %>
-    <%= f.text_field :poster_url, class: 'poster_url' %>
+    <%= f.text_field :rating %>
   </div>
 
-
-  <div class="poster_preview ">
-    <%= label_tag "Poster" %>
+  <div class="form-field md left gr80 overview collapsed">
+    <%= f.label :overview, "Synopsis" %>
+    <%= f.text_area :overview %>
+  </div>
+  <div class="form-field right gr20 poster-field collapsed">
     <%= image_tag f.object.poster.url(:normal) %>
+    <%= f.hidden_field :poster_url %>
   </div>
-</div>
-
-  <%= f.label :extra %>
-  <%= f.text_field :extra %>
-
-<div class="showing_details">
-  <h5>Sessions</h5>
-  <%= f.fields_for :showings do |s| %>
-    <div class="showing_field">
-      <%= s.hidden_field :day, value: s.object.day %>
-      <%= s.hidden_field :view_index, value: s.object.view_index %>
-      <%= s.label :times, s.object.day %>
-      <%= s.text_field :times %>
-    </div>
-  <% end %>
-</div>
-
-<div class="after">
-  <%= f.label :after %>
-  <%= f.text_area :after %>
+  <div class="form-field left gr50 director collapsed">
+    <%= f.label :director %>
+    <%= f.text_field :director %>
+  </div>
+  <div class="form-field right gr50 cast collapsed">
+    <%= f.label :cast %>
+    <%= f.text_field :cast %>
+  </div>
+  <div class="form-field md gr100 extra collapsed">
+    <%= f.label :extra, "Extra Information" %>
+    <%= f.text_area :extra %>
+  </div>
 </div>

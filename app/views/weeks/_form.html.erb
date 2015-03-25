@@ -1,15 +1,15 @@
 <h2>New Programme</h2>
 
-<%= form_for @week do |f| %>
+<%= nested_form_for @week do |f| %>
   <h3>Frontmatter</h3>
-  <div class="form-group">
+  <div class="form-group clearfix">
 
     <div class="form-field top">
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: "Leave blank to set automatically" %>
     </div>
 
-    <div class="form-field gr50">
+    <div class="form-field left gr50">
     <%= f.label :start_date %>
     <%= f.text_field :start_date, class: 'date-field'%>
     </div>
@@ -20,57 +20,14 @@
     </div>
   </div>
 
+  <h3>Movies</h3>
+
+  <%= f.fields_for :movies do |movie_fields| %>
+    <%= render 'movie_fields', f: movie_fields %>
+  <% end %>
+
+  <%= f.link_to_add "Add movie", :movies %>
+
+  <%= f.submit "Save", class: 'btn btn-submit' %>
+
 <% end %>
-
-
-<!-- 
-<%= form_for @week do |f| %>
-  <div class="date_fields clearfix">
-    <div class="input_date">
-      <%= f.label :start_date %>
-      <%= f.text_field :start_date, placeholder: "YYYY-MM-DD" %>
-    </div>
-    <div class="input_date">
-      <%= f.label :end_date %>
-      <%= f.text_field :end_date, placeholder: "YYYY-MM-DD" %>
-    </div>
-  </div>
-
-
-  <%= f.label :title %>
-  <%= f.text_field :title, placeholder: "Leave blank to set automatically" %>
-
-  <%= label_tag "Programme Type" %>
-
-  <div class="week_type">
-    <%= f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize  %>
-  </div>
-
-  <hr />
-
-  <div id="movie_fields" class="clearfix">
-    <h4>Movies</h4>
-    <%= f.fields_for :movies do |movie_fields| %>
-      <div class="movie <%= cycle 'one', 'two' %>">
-        <%= render 'movie_fields', f: movie_fields %>
-      </div>
-    <% end %>
-  </div>
-
-    <%= f.fields_for :holiday do |holiday_fields| %>
-      <div id="holiday_fields">
-        <%= holiday_fields.label :preamble %>
-        <%= holiday_fields.text_area :preamble %>
-        <%= holiday_fields.label :body %>
-        <%= holiday_fields.text_area :body %>
-      </div>
-    <% end %>
-
-  <div id="announcement_fields" %>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
-  <%= f.submit "Save" %>
-<% end %>
--->
