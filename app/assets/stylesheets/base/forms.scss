@@ -106,18 +106,20 @@ form.inline input {
   margin-right: 2em;
 }
 
-form.inline .btn { display: inline; }
+.btn.btn-inline { display: inline; margin-left: 2em;}
 
 /* Buttons */
 
 .btn {
   text-transform: uppercase;
+  text-decoration: none;
   color: $blue;
   border: 1px solid $blue;
   background: none;
   border-radius: 0.3em;
   padding: 0.5em 2em;
   display: block;
+  &:hover { background: $light-grey - 10}
 }
 
 .btn-primary {
@@ -130,6 +132,12 @@ form.inline .btn { display: inline; }
   border: none;
   background: $green;
   color: #fff;
+}
+
+.btn-form {
+  width: 100%;
+  border-radius: 0 0 0.3em 0.3em;
+  &:hover { background: $blue + 15; }
 }
 
 /* jQuery UI */

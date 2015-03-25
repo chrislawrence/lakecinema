@@ -2,7 +2,7 @@
 
 <%= nested_form_for @week do |f| %>
   <h3>Frontmatter</h3>
-  <div class="form-group clearfix">
+  <div class="form-group clearfix"> 
 
     <div class="form-field top">
       <%= f.label :title %>
@@ -20,13 +20,16 @@
     </div>
   </div>
 
-  <h3>Movies</h3>
+  <h3>Movies 
+    <small><%= f.link_to_add "Add movie", :movies, class: 'btn btn-default btn-inline', data: {:target => "#movie-fields"}%></small>
+</h3>
 
-  <%= f.fields_for :movies do |movie_fields| %>
-    <%= render 'movie_fields', f: movie_fields %>
-  <% end %>
+  <div id="movie-fields">
+    <%= f.fields_for :movies do |movie_fields| %>
+      <%= render 'movie_fields', f: movie_fields %>
+    <% end %>
+  </div>
 
-  <%= f.link_to_add "Add movie", :movies %>
 
   <%= f.submit "Save", class: 'btn btn-submit' %>
 

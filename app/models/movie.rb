@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
     default_url: ActionController::Base.helpers.asset_path('missing.png')
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
   before_save :get_metadata
+  after_initialize :build_showings
 
   def tmdb_url
     "http://themoviedb.org/movie/#{self.tmdb_id}"
@@ -19,6 +20,12 @@ class Movie < ActiveRecord::Base
 
   def backdrop_url
     "http://image.tmdb.org/t/p/w780#{backdrop}"
+  end
+
+  def build_showings
+    self.showings.build(day: 'Friday')
+    self.showings.build(day: 'Saturday')
+    self.showings.build(day: 'Sunday')
   end
 
 

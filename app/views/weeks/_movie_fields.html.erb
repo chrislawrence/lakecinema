@@ -1,4 +1,4 @@
-<div class="form-group clearfix movie-fields">
+<div class="form-group clearfix movie-fields" id="fields_<%=cycle('1','2')%>" >
 
   <div class="form-field top left gr70">
     <%= f.label :title %>
@@ -28,5 +28,22 @@
   <div class="form-field md gr100 extra collapsed">
     <%= f.label :extra, "Extra Information" %>
     <%= f.text_area :extra %>
+  </div>
+
+  <div id="showing-fields">
+    <%= f.fields_for :showings do |s| %>
+      <div> 
+        <%= s.hidden_field :day, value: s.object.day %>
+        <%= s.hidden_field :view_index, value: s.object.view_index %>
+        <%= s.label :times, s.object.day %>
+        <%= s.text_field :times %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="showing-list">
+    <% ['Monday', 'Tuesday', 'Wednesday', 'Thursday'].each do |d| %>
+      <%= f.link_to_add d, :showings, model_object: Showing.new(day: d), class: 'btn', data: {:target => '#showing-fields'} %>
+    <% end %>
   </div>
 </div>

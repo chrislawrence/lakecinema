@@ -17,12 +17,11 @@ $ ->
 
 
   collapseFields = ->
-    timeoutID = null
+    timeoutID = []
 
     checkDelay = (fields) ->
-      timeoutID[fields] = setTimeout( ->
+      timeoutID[fields.attr('id')] = setTimeout( ->
         # Do this if moving outside of the field group
-        console.log('yes')
         unless $(fields).is(':hover')
           fields.children('.collapsed').slideUp()
       , 1 )
@@ -31,9 +30,9 @@ $ ->
       $(this).focusin ->
         $(this).children('.collapsed').slideDown()
         # cancel the action if still within form group
-        if timeoutID[$this]
-          clearTimeout(timeoutID[$this])
-          timeoutID[$this] = null
+        if timeoutID[$(this).attr('id')]
+          clearTimeout(timeoutID[$(this).attr('id')])
+          timeoutID[$(this).attr('id')] = null
     )
 
     $('.movie-fields').each( ->
