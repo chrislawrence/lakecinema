@@ -36,7 +36,7 @@
       <%= s.hidden_field :view_index, value: s.object.view_index %>
       <div class="form-field left gr30">
         <label>Day</label>
-        <p class='day-label'><%= s.object.day %></p>
+        <p class='day-label'></p>
       </div>
       <div class="form-field right gr70">
         <%= s.label :times %>

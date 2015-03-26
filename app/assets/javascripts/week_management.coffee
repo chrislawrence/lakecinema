@@ -62,3 +62,11 @@ $ ->
       $('#holiday_fields').hide()
       $('#announcement_fields').show()
 
+
+  $(".showing-fields").on('nested:fieldAdded', (event)->
+    day = $(event.link).data('predefined-day')
+    field = event.field.find('.day-field')
+    label = event.field.find('.day-label')
+    $(field).val(day)
+    $(label).text(day)
+  )
