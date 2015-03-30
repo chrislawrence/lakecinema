@@ -51,8 +51,10 @@
   <div class="modal" id="modal<%=f.object.id%>">
     <div class="content">
       <%= f.file_field :poster %>
-      <%= f.text_field :poster_url, class: 'poster_url' %>
+      <%= f.text_field :poster_url, class: 'poster-url' %>
     </div>
   </div>
+
+  <%= f.hidden_field :tmdb_id, class: 'tmdb-id' %>
 
 </div>

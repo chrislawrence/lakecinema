@@ -11,7 +11,7 @@ class Movie < ActiveRecord::Base
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
     default_url: ActionController::Base.helpers.asset_path('missing.png')
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  before_save :get_metadata
+  before_save :download_poster
   after_initialize :build_showings
 
   def tmdb_url
@@ -32,16 +32,6 @@ class Movie < ActiveRecord::Base
 
 
   private
-
-  def get_metadata
-    if self.tmdb_id
-      @search = Search.movie_by_id(self.tmdb_id)
-      download_poster
-      self.backdrop ||= @search.backdrop_path
-      self.director ||= @search.director
-      self.cast ||= @search.cast
-    end
-  end
 
   def download_poster
     save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?

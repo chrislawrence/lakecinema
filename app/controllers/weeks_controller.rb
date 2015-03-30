@@ -37,7 +37,7 @@ class WeeksController < ApplicationController
 
   def destroy
     @week = Week.destroy(params[:id])
-    redirect_to dashboard_url
+    redirect_to admin_path
   end
 
   private

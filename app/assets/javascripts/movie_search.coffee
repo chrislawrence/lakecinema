@@ -19,10 +19,10 @@ autoComplete = ->
               fields.children('.overview').children('textarea').val(data.overview)
               fields.children('.director').children('input').val(data.director)
               fields.children('.cast').children('input').val(data.cast)
-              fields.children('.tmdb_id').val(data.id)
-              fields.find('.poster-field').children('img').attr('src', data.poster_thumb)
               debugger
-              fields.find('.poster_url').val(data.poster_url)
+              fields.find('.tmdb-id').val(data.id)
+              fields.find('.poster-field').children('img').attr('src', data.poster_thumb)
+              fields.find('.poster-url').val(data.poster_url)
 
       load = (item)->
         $(item).after("<div class='loading'></div>").nextAll('.loading').animate({width: '80%'}, 5000)
