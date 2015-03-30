@@ -1,0 +1,10 @@
+.week {
+  text-align: center;
+}
+
+.movie {
+  display: inline-block;
+}
+
+.movie:first-of-type:not(:only-of-type) { float: left; }
+.movie:last-of-type:not(:only-of-type) { float: right; }

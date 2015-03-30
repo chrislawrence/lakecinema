@@ -1,4 +1,7 @@
 $ ->
+
+  $("a[rel*=leanModal]").leanModal()
+
   $('.date-field').datepicker({
     prevText: "<"
     nextText: ">"

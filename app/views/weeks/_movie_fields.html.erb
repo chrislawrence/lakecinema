@@ -15,7 +15,6 @@
   </div>
   <div class="form-field right gr20 poster-field collapsed">
     <%= image_tag f.object.poster.url(:normal) %>
-    <%= f.hidden_field :poster_url %>
   </div>
   <div class="form-field left gr50 director collapsed">
     <%= f.label :director %>
@@ -46,6 +45,14 @@
     <% ['Monday', 'Tuesday', 'Wednesday', 'Thursday'].each do |d| %>
       <%= f.link_to_add d, :showings, :'data-predefined-day' => d %>
     <% end %>
+  </div>
+
+  <a rel='leanModal' href="#modal<%=f.object.id%>">launch</a>
+  <div class="modal" id="modal<%=f.object.id%>">
+    <div class="content">
+      <%= f.file_field :poster %>
+      <%= f.text_field :poster_url, class: 'poster_url' %>
+    </div>
   </div>
 
 </div>

@@ -1,18 +1,6 @@
 <% cache week do %>
-  <div class="week">
-    <% if week.announcement? %>
-      <h2><div class="content">Announcement</div></h2>
-      <div class="announcement">
-        <div class="content">
-          <%= week.body %>
-        </div>
-      </div>
-    <% else %>
-      <h2><div class="content"><%= raw week.title %></div></h2>
-      <div class="content">
-        <%= render week.nested_partial_path, week: week %>
-      </div>
-    <% end %>
-    <div class="clear"></div>
+  <div class="week clearfix">
+    <%= content_tag :h2, sanitize(markdown(week.title)) %>
+    <%= render week.nested_partial_path, week: week %>
   </div>
 <% end %>

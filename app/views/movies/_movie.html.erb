@@ -1,13 +1,13 @@
-<div class="film <%=cycle 'one', 'two', name: 'divs' %>">
+<div class="movie">
   <%= image_tag asset_host_url(movie.poster.url(:normal)), class: 'poster', 'data-at2x' => asset_host_url(movie.poster.url(:retina)) %>
   <h3><%= movie.title %> (<%=movie.rating=%>)</h3>
 
-  <%= content_tag :p, movie.extra, class: 'extra' %>
-
   <% movie.showings.each do |s| %>
     <p><b><%= s.day %>:</b> <%= s.times %></p>
- <% end %>
- <% if movie.after %>
-  <%= content_tag :p, sanitize(markdown(movie.after)) %>
- <% end %>
+  <% end %>
+
+  <% if movie.extra %>
+    <%= content_tag :p, sanitize(markdown(movie.extra)) %>
+  <% end %>
+
 </div>

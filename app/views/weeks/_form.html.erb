@@ -1,6 +1,6 @@
 <h2>New Programme</h2>
 
-<%= nested_form_for @week do |f| %>
+<%= nested_form_for @week, :html => { :multipart => true } do |f| %>
   <h3>Frontmatter</h3>
   <div class="form-group clearfix"> 
 

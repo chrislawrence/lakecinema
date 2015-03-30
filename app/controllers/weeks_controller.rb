@@ -43,6 +43,6 @@ class WeeksController < ApplicationController
   private
 
   def week_params
-    params.require(:week).permit(:title, :start_date, :end_date, :category, :body, movies_attributes: [:id, :tmdb_id, :title, :extra, :after, :rating, :overview, :poster_url, :view_index, showings_attributes: [:id, :day, :times, :view_index]], holiday_attributes: [:id, :preamble, :body])
+    params.require(:week).permit(:title, :start_date, :end_date, :category, :body, movies_attributes: [:id, :tmdb_id, :title, :extra, :after, :rating, :overview, :poster_url, :poster, :view_index, showings_attributes: [:id, :day, :times, :view_index]], holiday_attributes: [:id, :preamble, :body])
   end
 end
