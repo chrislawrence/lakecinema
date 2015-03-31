@@ -6,5 +6,7 @@
   display: inline-block;
 }
 
+.poster { border: 3px solid #fff; }
+
 .movie:first-of-type:not(:only-of-type) { float: left; }
 .movie:last-of-type:not(:only-of-type) { float: right; }
