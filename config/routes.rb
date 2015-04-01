@@ -1,6 +1,6 @@
 Lakecinema::Application.routes.draw do
 
-  scope '/admin' do
+  scope '/a' do
     get '/' => 'dashboard#index', as: 'admin'
     resources :weeks
     resources :newsletters

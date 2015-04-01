@@ -1,6 +1,6 @@
+<div class="small-links">
+<%= link_to "Edit", edit_week_path(@week) %>
+<%= link_to "Delete", @week, method: :delete, data: { confirm: 'Remove week?'} %>
+</div>
+
 <%= render @week %>
-  <div class="content">
-    <%= link_to "Write Newsletter", edit_newsletter_path(@week) %> | 
-    <%= link_to "Edit", edit_week_path(@week) %> | 
-    <%= link_to "Destroy", @week, method: :delete, data: { confirm: 'Remove week?'} %>
-  </div>

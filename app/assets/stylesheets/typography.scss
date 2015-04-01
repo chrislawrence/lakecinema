@@ -23,6 +23,8 @@ h2 {
   font-weight: 600;
   font-size: 1.3em;
   text-align: center;
+  margin: 0 0 1.5em 0;
+  p { margin: 0; } /* For markdown */
 }
 
 h3 {
