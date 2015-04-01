@@ -1,6 +1,6 @@
-<ul class="week-list clearfix">
+<ul class="week-list">
   <% @weeks.each do |week| %>
-    <li>
+    <li class="clearfix">
       <div class="week-details">
         <h3><%= link_to week.title, week_path(week) %></h3>
         <%= content_tag :p, week.movie_titles %>

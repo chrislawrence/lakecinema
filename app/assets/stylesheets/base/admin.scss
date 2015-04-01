@@ -12,17 +12,25 @@
 .week-list {
   list-style: none;
   margin: 0;
+  padding: 0;
   a { 
     font-weight: bold;
     text-decoration: none;
   }
+
+  li { padding: 2em 0; }
+
+  li:not(:last-of-type) {
+    border-bottom: 1px solid $mid-grey;
+  }
+
 
 }
 
 .week-details {
   float: left;
   p {
-    margin-top: -1em;
+    margin: -1em 0 0 0;
     font-size: 0.9em;
   }
 }

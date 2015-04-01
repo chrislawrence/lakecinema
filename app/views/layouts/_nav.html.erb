@@ -1,7 +1,11 @@
-<ul class="nav-list">
-  <%= content_tag :li, link_to('Session Times', root_path) %>
-  <%= content_tag :li, link_to('About', about_path) %>
-  <%= content_tag :li, link_to('Contact', contact_path) %>
-  <%= content_tag :li, link_to('Newsletter', subscribe_path) %>
-  <%= content_tag :li, link_to('Facebook', 'http://facebook.com/lakecinema', target: :blank) %>
-</ul>
+<% if request.path.include?('/a') %>
+  <%= render 'layouts/admin_nav' %>
+<% else %>
+  <ul class="nav-list">
+    <%= content_tag :li, link_to('Session Times', root_path) %>
+    <%= content_tag :li, link_to('About', about_path) %>
+    <%= content_tag :li, link_to('Contact', contact_path) %>
+    <%= content_tag :li, link_to('Newsletter', subscribe_path) %>
+    <%= content_tag :li, link_to('Facebook', 'http://facebook.com/lakecinema', target: :blank) %>
+  </ul>
+<% end %>
