@@ -9,16 +9,32 @@
   }
 }
 
+.week-list {
+  list-style: none;
+  margin: 0;
+  a { 
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+}
+
+.week-details {
+  float: left;
+  p {
+    margin-top: -1em;
+    font-size: 0.9em;
+  }
+}
+
+.controls { float: right; }
+
 .controls, .dropdown-menu {
   width: 180px;
   font-size: 0.8em;
-  a {
-    font-weight: bold;
-    text-decoration: none;
-    &:hover {
-      background: $mid-grey - 50;
-      color: $blue;
-    }
+  a:hover { 
+    color: $blue;
+    background: $mid-grey - 10; 
   }
 }
 

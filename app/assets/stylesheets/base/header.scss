@@ -4,6 +4,7 @@ header {
   background: $blue;
   @include radial-gradient($blue 40%, adjust_hue($blue, -15));
   color: $light-blue;
+  margin-bottom: 3em;
 }
 
 header.small { background: $blue;}

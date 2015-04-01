@@ -1,10 +1,12 @@
-<ul class="week-list">
+<ul class="week-list clearfix">
   <% @weeks.each do |week| %>
     <li>
-      <h3><%= link_to week.title, week_path(week) %></h3>
-      <%= content_tag :p, week.movie_titles, class: 'week-details' %>
+      <div class="week-details">
+        <h3><%= link_to week.title, week_path(week) %></h3>
+        <%= content_tag :p, week.movie_titles %>
+      </div>
 
-      <div class="controls clearfix">
+      <div class="controls">
         <%= link_to "Edit", edit_week_path(week), class: 'primary' %>
         <a class="secondary" href="#" data-dropdown="#dropdown-<%=week.id%>"><%= fa_icon 'chevron-down' %></a>
       </div>
