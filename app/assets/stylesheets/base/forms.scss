@@ -89,7 +89,7 @@ input:focus, textarea:focus {
 }
 
 
-.hidden { display: none; }
+.hidden, .collapsed { display: none; }
 
 .day-label {
   margin: 2em 1.7em;
