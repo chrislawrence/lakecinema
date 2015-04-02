@@ -1,5 +1,12 @@
 $ ->
 
+  $('.showing-fields').sortable({
+    axis: 'y'
+    update: ->
+      $(this).children().each ->
+        $(this).find('.position-field').val($(this).index())
+  })
+
   $("a[rel*=leanModal]").leanModal()
 
   $('.date-field').datepicker({
@@ -45,10 +52,10 @@ $ ->
     )
 
   # Start this when document ready and when nested field added
-  collapseFields()
-  $(document).on('nested:fieldAdded', ->
-    collapseFields()
-  )
+  #collapseFields()
+  #$(document).on('nested:fieldAdded', ->
+  #  collapseFields()
+  #)
 
   addDayToggle = (button) ->
     button.slideToggle(80)

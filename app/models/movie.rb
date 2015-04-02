@@ -1,8 +1,8 @@
 class Movie < ActiveRecord::Base
   belongs_to :week, touch: true
   belongs_to :newsletter
-  has_many :showings, -> { order "view_index ASC"}, dependent: :destroy
-  accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}
+  has_many :showings, dependent: :destroy
+  accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}, allow_destroy: true
   has_attached_file :poster, styles: {
     normal: ["200x296#", :jpg],
     retina: ["400x592#", :jpg]
@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
     default_url: ActionController::Base.helpers.asset_path('missing.png')
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
   before_save :download_poster
+  before_save :reject_showings
   after_initialize :build_showings
 
   def tmdb_url
@@ -22,6 +23,8 @@ class Movie < ActiveRecord::Base
     "http://image.tmdb.org/t/p/w780#{backdrop}"
   end
 
+  private
+
   def build_showings
    if self.showings.count == 0
       self.showings.build(day: 'Friday')
@@ -30,8 +33,13 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def reject_showings
+    self.showings.each do |s|
+      Rails.logger.debug(s)
+      s.delete if s.times.blank?
+    end
 
-  private
+  end
 
   def download_poster
     save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
