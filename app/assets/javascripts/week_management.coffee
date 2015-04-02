@@ -50,6 +50,15 @@ $ ->
     collapseFields()
   )
 
+  addDayToggle = (button) ->
+    button.slideToggle(80)
+    button.next('.form-field').slideToggle(80)
+
+  $('.add-button').click ->
+    addDayToggle($(this))
+  $('.day-link').click ->
+    addDayToggle($(this).parent().prev('.add-button'))
+
     
   toggleFields = ->
     if $('#week_category_standard').is(':checked')

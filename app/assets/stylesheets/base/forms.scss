@@ -92,6 +92,22 @@ input:focus, textarea:focus {
 
 .hidden { display: none; }
 
+.day-label {
+  margin: 2em 1.7em;
+}
+
+.tooltip {
+  color: $mid-grey;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  position: absolute;
+  top: 2.5em;
+  right: 1em;
+  z-index: 99999;
+  }
+
 
 /* Loading */
 

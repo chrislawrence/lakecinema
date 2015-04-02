@@ -29,22 +29,32 @@
     <%= f.text_area :extra %>
   </div>
 
-  <div class="showing-fields collapsed">
+  <div class="showing-fields collapsed" id="showing-fields-<%=f.object.id%>">
     <%= f.fields_for :showings do |s| %>
       <%= s.hidden_field :day, value: s.object.day, class: 'day-field' %>
       <%= s.hidden_field :view_index, value: s.object.view_index %>
       <div class="form-field left gr30">
         <label>Day</label>
         <p class='day-label'><%= s.object.day %></p>
+        <%= s.link_to_remove fa_icon('minus-square'), class: 'tooltip' %>
       </div>
       <div class="form-field right gr70">
         <%= s.label :times %>
         <%= s.text_field :times %>
       </div>
     <% end %>
-    <% ['Monday', 'Tuesday', 'Wednesday', 'Thursday'].each do |d| %>
-      <%= f.link_to_add d, :showings, :'data-predefined-day' => d %>
-    <% end %>
+  </div>
+
+  <div class="collapsed">
+    <div class="form-field gr100 add-button">
+      <p><%= fa_icon 'plus' %> Add Day</p>
+    </div>
+    <div class="form-field gr100 hidden">
+      <% ['Monday', 'Tuesday', 'Wednesday', 'Thursday'].each do |d| %>
+        <%= f.link_to_add d, :showings, :'data-predefined-day' => d, :'data-target' => "#showing-fields-#{f.object.id}", class: 'day-link' %>
+      <% end %>
+      <a class="cancel day-link">Cancel</a>
+    </div>
   </div>
 
   <a rel='leanModal' href="#modal<%=f.object.id%>">launch</a>

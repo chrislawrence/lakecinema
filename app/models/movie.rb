@@ -23,7 +23,7 @@ class Movie < ActiveRecord::Base
   end
 
   def build_showings
-    unless self.showings
+   if self.showings.count == 0
       self.showings.build(day: 'Friday')
       self.showings.build(day: 'Saturday')
       self.showings.build(day: 'Sunday')
