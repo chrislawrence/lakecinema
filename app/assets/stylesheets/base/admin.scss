@@ -40,9 +40,10 @@
 .controls, .dropdown-menu {
   width: 180px;
   font-size: 0.8em;
+  background: $dark-grey;
   a:hover { 
     color: $blue;
-    background: $mid-grey - 10; 
+    background: $mid-grey;  
   }
 }
 
@@ -51,8 +52,6 @@
   width: 65%;
   float: left;
   padding: 1em 0;
-  border-radius: 3px 0 0 3px;
-  background: $mid-grey;
   box-sizing: border-box;
   border-right: 1px solid $light-grey;
 }
@@ -62,8 +61,6 @@
   padding: 1em 0;
   float: right;
   text-align: center;
-  background: $mid-grey;
-  border-radius: 0 3px 3px 0;
 }
 
 .dropdown {

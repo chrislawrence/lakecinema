@@ -6,14 +6,13 @@ form {
 
 input, textarea {
   padding: .5em;
-  border: 1px solid $mid-grey;
-  border-radius: .3em;
+  border: 1px solid $dark-grey;
 }
 
 input:focus, textarea:focus {
   outline: 0;
   border-color: $blue;
-  background: #fdfdfd;
+  background: $light-grey - 2;
 }
 
 textarea {
@@ -29,11 +28,11 @@ textarea {
   position: relative;
   height: 4.5em;
   background: #fff;
-  border: 1px solid $mid-grey;
+  border: 1px solid $dark-grey;
   border-top: 0;
   box-sizing: border-box;
 
-  &.top { border-top: 1px solid $mid-grey; }
+  &.top { border-top: 1px solid $dark-grey; }
   &.right { border-left: 0; }
   &.overview { height: 15em; }
   &.extra { height: 9em; }
@@ -43,7 +42,7 @@ textarea {
     padding: 1em 0 0 2.4em;
     display: inline-block;
     font-size: .7em;
-    color: $mid-grey;
+    color: $dark-grey;
     text-transform: uppercase;
     font-weight: bold;
     cursor-events: none;
@@ -75,7 +74,7 @@ textarea {
     display: block;
     text-align: center;
     font-size: 0.8em;
-    color: $mid-grey;
+    color: $dark-grey;
     font-weight: bold;
     text-transform: uppercase;
 
@@ -87,7 +86,7 @@ textarea {
 .md:after {
   width: 95.7%;
   font-size: .7em;
-  color: $mid-grey;
+  color: $dark-grey;
   text-transform: uppercase;
   font-weight: bold;
   content: '\f006     Markdown Allowed';
@@ -107,7 +106,7 @@ textarea {
 }
 
 .tooltip {
-  color: $mid-grey;
+  color: $dark-grey;
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
@@ -144,13 +143,13 @@ textarea {
     font-size: 0.8em;
     text-decoration: none;
     font-weight: bold;
-    background: $mid-grey;
+    background: $dark-grey;
     color: #fff;
     padding: 0.3em 1.5em;
     margin-right: 0.7em;
     border-radius: 12px;
     &:hover {
-      background: $mid-grey - 50; }
+      background: $dark-grey - 50; }
   }
   
   .cancel {
@@ -199,8 +198,8 @@ form.inline input {
 }
 
 .btn-secondary {
-  background: $mid-grey;
-  color: $mid-grey - 80;
+  background: $dark-grey;
+  color: $dark-grey - 50;
 
   &:hover {
     background: $blue;
