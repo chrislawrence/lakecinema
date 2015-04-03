@@ -1,5 +1,10 @@
 <h2>New Programme</h2>
 
+<div class="btn-group clearfix">
+  <%= button_tag 'Week', class: 'btn' %>
+  <%= button_tag 'Holidays', class: 'btn btn-holiday' %>
+</div>
+
 <%= nested_form_for @week, :html => { :multipart => true } do |f| %>
   <h3>Frontmatter</h3>
   <div class="form-group clearfix"> 
@@ -20,13 +25,20 @@
     </div>
   </div>
 
-  <h3>Movies</h3>
+  <div id="movie-week">
+    <h3>Movies</h3>
 
-  <div id="movie-fields">
-    <%= f.fields_for :movies do |movie_fields| %>
-      <%= render 'movie_fields', f: movie_fields %>
-    <% end %>
+    <div id="movie-fields">
+      <%= f.fields_for :movies do |movie_fields| %>
+        <%= render 'movie_fields', f: movie_fields %>
+      <% end %>
+    </div>
   </div>
+
+  <div id="holiday-week">
+    holiday
+  </div>
+
 
 
   <%= f.button class: 'btn btn-submit' do %><%= fa_icon 'check' %> Save<% end %>
