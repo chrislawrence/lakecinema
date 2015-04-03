@@ -1,63 +1,64 @@
-/* Text Fields */
+// Standard inputs
+
+form {
+  font-size: .9em;
+}
 
 input, textarea {
-  padding: 0.5em;
+  padding: .5em;
   border: 1px solid $mid-grey;
-  border-radius: 0.3em;
-  font-size: 0.9em;
+  border-radius: .3em;
 }
 
 input:focus, textarea:focus {
   outline: 0;
   border-color: $blue;
+  background: #fdfdfd;
 }
 
-/* Big forms */
+textarea {
+  resize: none;
+}
+
+// Big forms
 
 .form-group { margin-bottom: 1em; }
 
-.form-field input:focus, textarea:focus {
-  background: #fafafa;
-}
 
 .form-field {
   position: relative;
   height: 4.5em;
   background: #fff;
   border: 1px solid $mid-grey;
-  border-top: none;
+  border-top: 0;
   box-sizing: border-box;
-}
 
-.form-field.top { border-top: 1px solid $mid-grey; }
-.form-field.right { border-left: none; }
+  &.top { border-top: 1px solid $mid-grey; }
+  &.right { border-left: 0; }
+  &.overview { height: 15em; }
+  &.extra { height: 9em; }
 
-.form-field label {
-  position: absolute;
-  padding: 1em 0 0 2.4em;
-  display: inline-block;
-  font-size: 0.7em;
-  color: $mid-grey;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor-events: none;
-}
+  label {
+    position: absolute;
+    padding: 1em 0 0 2.4em;
+    display: inline-block;
+    font-size: .7em;
+    color: $mid-grey;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor-events: none;
+  }
 
-.form-field input, textarea {
-  height: 100%;
-  width: 100%;
-  border: none;
-  box-sizing: border-box;
-  padding: 2em 2em 0 2em;
-  transition: 0.3s all;
-}
+  input, textarea {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+    padding: 2em 2em 0;
+    transition: .3s all;
+  }
 
-.form-field textarea {
-  resize: none;
-}
 
-.form-field.overview {
-  height: 15em;
 }
 
 .poster-field { 
@@ -66,20 +67,30 @@ input:focus, textarea:focus {
 
   img {
     margin-top: 0.4em;
-    width: 80%; 
-    height: auto
+    width: 75%; 
+    height: auto;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+    color: $mid-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover { color: $blue; }
+
   }
 }
 
-.form-field.extra { height: 9em; }
-
 .md:after {
   width: 95.7%;
-  font-size: 0.7em;
+  font-size: .7em;
   color: $mid-grey;
   text-transform: uppercase;
   font-weight: bold;
-  content: "\f006     Markdown Allowed";
+  content: '\f006     Markdown Allowed';
   font-family: FontAwesome, 'Open Sans';
   position: absolute;
   bottom: 0;
@@ -88,8 +99,8 @@ input:focus, textarea:focus {
 
 }
 
-
-.hidden, .collapsed { display: none; }
+.hidden, 
+.collapsed { display: none; }
 
 .day-label {
   margin: 2em 1.7em;
@@ -100,15 +111,57 @@ input:focus, textarea:focus {
   text-decoration: none;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 0.7em;
+  font-size: .7em;
   position: absolute;
   top: 2.5em;
   right: 1em;
   z-index: 99999;
+  &:hover { color: $red; }
+}
+
+.add-button {
+  border-radius: 0 0 5px 5px;
+  height: 3em;
+  line-height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: $blue;
+  color: #fff;
+  border: 0;
+  padding-left: 2em;
+
+  &:hover { background: $blue + 20; }
+  i { margin-right: 0.5em; }
+}
+
+.day-list {
+  height: 3em;
+  border-radius: 0 0 5px 5px;
+  padding-left: 2em;
+  line-height: 3em;
+
+  .day.day-link {
+    font-size: 0.8em;
+    text-decoration: none;
+    font-weight: bold;
+    background: $mid-grey;
+    color: #fff;
+    padding: 0.3em 1.5em;
+    margin-right: 0.7em;
+    border-radius: 12px;
+    &:hover {
+      background: $mid-grey - 50; }
+  }
+  
+  .cancel {
+    font-weight: bold;
+    text-decoration: none;
   }
 
+}
 
-/* Loading */
+
+// Loading
 
 .loading {
   height: 2px;
@@ -116,96 +169,50 @@ input:focus, textarea:focus {
   width: 0;
 }
 
-/* Inline form */
+// Inline Forms
 
 form.inline input {
   width: 15em;
   margin-right: 2em;
 }
 
-.btn.btn-inline { display: inline; margin-left: 2em;}
+.btn.btn-inline { 
+  display: inline; 
+  margin-left: 2em;
+}
 
-/* Buttons */
+// Buttons
 
 .btn {
   text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
   text-decoration: none;
-  color: $blue;
-  border: 1px solid $blue;
-  background: none;
-  border-radius: 0.3em;
-  padding: 0.5em 2em;
-  display: block;
-  &:hover { background: $light-grey - 10}
+  padding: 1em 2em;
+
+  i { margin-right: 0.5em; }
 }
 
 .btn-primary {
-  border: none;
   background: $blue;
   color: #fff;
+}
+
+.btn-secondary {
+  background: $mid-grey;
+  color: $mid-grey - 80;
+
+  &:hover {
+    background: $blue;
+    color: #fff;
+  }
 }
 
 .btn-submit {
-  border: none;
+  border: 0;
   background: $green;
   color: #fff;
+
+  &:hover { background: $green - 30; }
 }
 
-.btn-form {
-  width: 100%;
-  border-radius: 0 0 0.3em 0.3em;
-  &:hover { background: $blue + 15; }
-}
-
-/* jQuery UI */
-
-#ui-datepicker-div {
-  display: none;
-  background: #fff;
-  width: 18em;
-  padding: 1em 0.5em;
-  margin-top: 1px;
-  text-align: center;
-  box-shadow: 0 2px 7px 0  rgba(0,0,0,0.1);
-}
-
-.ui-datepicker-calendar {
-  width: 100%;
-  margin: 1em 0;
-  line-height: 1.5;
-}
-
-.ui-datepicker-prev { float: left; margin-left: 2em;}
-.ui-datepicker-next { float: right; margin-right: 2em;}
-
-.ui-datepicker-calendar .ui-state-default {
-  display: inline-block;
-  width: 1.6em;
-  height: 1.6em;
-  text-align: center;
-}
-
-.ui-datepicker-calendar a { text-decoration: none; }
-
-.ui-datepicker-calendar a:hover,
-.ui-datepicker-calendar .ui-state-active {
-  background: $blue;
-  color: #fff;
-  border-radius: 100%;
-}
-
-.ui-autocomplete {
-  font-family: $sans-serif;
-  border: 1px solid $mid-grey;
-  background: #fff;
-  list-style: none;
-  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.1);
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  li {
-    padding: 0.7em 0.3em;
-    &:hover {
-      background: #fafafa; }
-  }
-}

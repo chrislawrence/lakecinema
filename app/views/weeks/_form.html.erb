@@ -20,9 +20,7 @@
     </div>
   </div>
 
-  <h3>Movies 
-    <small><%= f.link_to_add "Add movie", :movies, class: 'btn btn-default btn-inline', data: {:target => "#movie-fields"}%></small>
-</h3>
+  <h3>Movies</h3>
 
   <div id="movie-fields">
     <%= f.fields_for :movies do |movie_fields| %>
@@ -31,6 +29,7 @@
   </div>
 
 
-  <%= f.submit "Save", class: 'btn btn-submit' %>
+  <%= f.button class: 'btn btn-submit' do %><%= fa_icon 'check' %> Save<% end %>
+  <%= f.link_to_add :movies, class: 'btn btn-secondary', data: {:target => "#movie-fields"} do %><%= fa_icon 'th-list' %> Add Movie <% end %>
 
 <% end %>

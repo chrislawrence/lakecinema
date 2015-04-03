@@ -1,11 +1,11 @@
 $ ->
   collapseMovieFields()
-  toggleAddDay()
+  toggleAddDay($(this))
   makeDaysSortable()
 
-  $('#movie-fields').on('nested:fieldAdded', (event) ->
+  $(document).on('nested:fieldAdded:movies', (event) ->
     collapseMovieFields()
-    toggleAddDay()
+    toggleAddDay(event.field)
     makeDaysSortable()
   )
 
@@ -60,10 +60,12 @@ collapseMovieFields = ->
       checkDelay($(this))
   )
 
-toggleAddDay = ->
-  $('.add-button').click ->
+toggleAddDay = (field) ->
+  field.find('.add-button').click ->
+    console.log('add clicked')
     $(this).slideToggle(80).next('.form-field').slideToggle(80)
-  $('.day-link').click ->
+  field.find('.day-link').click ->
+    console.log('link clicked')
     $(this).parent().slideToggle(80).prev('.add-button').slideToggle(80)
 
 makeDaysSortable = ->
