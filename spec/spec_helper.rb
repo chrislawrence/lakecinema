@@ -8,12 +8,14 @@ WebMock.disable_net_connect!(allow_localhost: true)
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+# ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
+
   config.include FactoryGirl::Syntax::Methods
+
   config.before(:each) do
     stub_request(:any, /api.themoviedb.org/).to_rack(FakeTmdb)
     stub_request(:any, /us2.api.mailchimp.com/).to_rack(FakeMailchimp)

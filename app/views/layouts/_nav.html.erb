@@ -1,4 +1,4 @@
-<% if request.path.include?('/a/') %>
+<% if request.path =~ %r[^/admin] %>
   <%= render 'layouts/admin_nav' %>
 <% else %>
   <ul class="nav-list">
