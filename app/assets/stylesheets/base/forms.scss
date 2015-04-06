@@ -83,6 +83,9 @@ textarea {
   }
 }
 
+.preamble-field { height: 15em; }
+.body-field { height: 30em; }
+
 .md:after {
   width: 95.7%;
   font-size: .7em;
@@ -95,8 +98,14 @@ textarea {
   bottom: 0;
   padding: 1em 0 1em 2.4em;
   background: #fff;
-
 }
+
+.md textarea {
+  padding-top: 3em;
+  font-family: $mono;
+  font-size: 0.8em;
+}
+
 
 .hidden, 
 .collapsed { display: none; }
@@ -200,7 +209,7 @@ form.inline input {
 
 .btn-secondary {
   background: $dark-grey;
-  color: $dark-grey - 50;
+  color: $dark-grey - 100;
 
   &:hover {
     background: $blue;
@@ -216,15 +225,33 @@ form.inline input {
   &:hover { background: $green - 30; }
 }
 
-// Button Group
 
-.btn-group .btn {
-  margin: 0;
-  padding: 0.7em 1em;
-  background: $mid-grey;
-  color: $dark-grey - 50;
-  float: left;
 
-  &.active { background: $dark-grey; color: #444; }
+// Radio Buttons
+
+.btn-group {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 1em;
+
+  label {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1em 2em;
+    background: $mid-grey;
+    color: $dark-grey - 60;
+    border-right: 1px solid $light-grey;
+  }
+
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked + label { 
+      font-weight: bold; 
+      background: $dark-grey;
+      color: $dark-grey - 100;
+    }
+  }
 }
-

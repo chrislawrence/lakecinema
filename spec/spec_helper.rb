@@ -14,7 +14,6 @@ Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.before(:each) do
     stub_request(:any, /api.themoviedb.org/).to_rack(FakeTmdb)
     stub_request(:any, /us2.api.mailchimp.com/).to_rack(FakeMailchimp)
@@ -29,19 +28,19 @@ RSpec.configure do |config|
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
-
+ 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
   end
-
-  config.before(:each, :js => true) do
+ 
+  config.before(:each, js: true) do
     DatabaseCleaner.strategy = :truncation
   end
-
+ 
   config.before(:each) do
     DatabaseCleaner.start
   end
-
+ 
   config.after(:each) do
     DatabaseCleaner.clean
   end

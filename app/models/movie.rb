@@ -3,9 +3,10 @@ class Movie < ActiveRecord::Base
   belongs_to :newsletter
   has_many :showings, dependent: :destroy
   accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}, allow_destroy: true
-  has_attached_file :poster, styles: {
-    normal: ["200x296#", :jpg],
-    retina: ["400x592#", :jpg]
+  has_attached_file :poster, 
+    styles: {
+      normal: ["200x296#", :jpg],
+      retina: ["400x592#", :jpg]
     },
     url: "/assets/posters/:id/:style/:basename.:extension",
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",

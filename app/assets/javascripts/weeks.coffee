@@ -35,6 +35,24 @@ $ ->
       $(this).parent().next('.form-field').children('.date-field').datepicker("setDate", d)
   })
 
+  toggleWeekCategory()
+  $("input[name='week[category]']").change ->
+    toggleWeekCategory()
+
+toggleWeekCategory = ->
+  if $('#week_category_standard').is(':checked')
+    $('#movie-week').show()
+    $('#holiday-week').hide()
+    $('#announcement-week').hide()
+  else if $('#week_category_holiday').is(':checked')
+    $('#movie-week').hide()
+    $('#holiday-week').show()
+    $('#announcement-week').hide()
+  else
+    $('#movie-week').hide()
+    $('#holiday-week').hide()
+    $('#announcement-week').show()
+
 collapseMovieFields = ->
   timeoutID = []
 

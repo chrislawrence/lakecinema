@@ -1,11 +1,11 @@
 <h2>New Programme</h2>
 
-<div class="btn-group clearfix">
-  <%= button_tag 'Week', class: 'btn' %>
-  <%= button_tag 'Holidays', class: 'btn btn-holiday' %>
-</div>
-
 <%= nested_form_for @week, :html => { :multipart => true } do |f| %>
+
+  <div class="btn-group">
+    <%= f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize, id: 'week_radio' %>
+  </div>
+
   <h3>Frontmatter</h3>
   <div class="form-group clearfix"> 
 
@@ -36,7 +36,9 @@
   </div>
 
   <div id="holiday-week">
-    holiday
+    <%= f.fields_for :holiday do |holiday_fields| %>
+      <%= render 'holiday_fields', f: holiday_fields %>
+    <% end %>
   </div>
 
 
