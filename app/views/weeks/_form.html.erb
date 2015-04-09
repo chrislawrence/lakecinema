@@ -1,10 +1,9 @@
-<h2>New Programme</h2>
-
 <%= nested_form_for @week, :html => { :multipart => true } do |f| %>
 
-  <div class="btn-group">
-    <%= f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize, id: 'week_radio' %>
-  </div>
+  <div class="btn-group <%= 'hidden' unless @week.new_record? %>">
+      <%= f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize, id: 'week_radio' %>
+    </div>
+
 
   <h3>Frontmatter</h3>
   <div class="form-group clearfix"> 
