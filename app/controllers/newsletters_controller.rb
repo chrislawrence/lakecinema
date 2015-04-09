@@ -1,5 +1,4 @@
 class NewslettersController < ApplicationController
-  layout 'newsletter'
   
   def index
     @newsletters = Newsletter.all
@@ -7,9 +6,6 @@ class NewslettersController < ApplicationController
 
   def new
     @newsletter = Newsletter.new
-    2.times do |x|
-      @newsletter.movies.build(view_index: x)
-    end
   end
 
   def create
