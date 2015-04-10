@@ -1,0 +1,31 @@
+= nested_form_for @week do |f|
+  .btn-group
+    = f.collection_radio_buttons :category, ['standard', 'holiday', 'announcement'], :to_s, :humanize, id: 'week_radio'
+
+  %h3 Frontmatter
+
+  .form-group.clearfix
+    .form-field.top
+      = f.label :title
+      = f.text_field :title, placeholder: 'Leave blank to set automatically'
+    .form-field.left.gr50
+      = f.label :start_date
+      = f.text_field :start_date, class: 'date-field'
+    .form-field.right.gr50
+      = f.label :end_date
+      = f.text_field :end_date, class: 'date-field'
+    #movie-week
+      %h3 Movies
+      = f.fields_for :movies do |movie_fields|
+        = render 'movie_fields', f: movie_fields
+    #holiday-week
+      = f.fields_for :holiday do |holiday_fields|
+        = render 'holiday_fields', f: holiday_fields
+    
+  = f.button class: 'btn btn-submit' do
+    = fa_icon 'check'
+    Save
+    
+  = f.link_to_add :movies, class: 'btn btn-secondary', data: {:target => "#movie-week"} do
+    = fa_icon 'th-list'
+    Add Movie

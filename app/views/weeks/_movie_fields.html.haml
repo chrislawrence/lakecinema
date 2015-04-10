@@ -1,0 +1,57 @@
+.form-group.clearfix.movie-fields
+
+  .form-field.top.left.gr70
+    = f.label :title
+    = f.text_field :title, class: 'movie-title'
+
+  .form-field.top.right.gr30
+    = f.label :rating
+    = f.text_field :rating
+
+  .form-field.md.left.gr80.overview.collapsed
+    = f.label :overview, 'Synopsis'
+    = f.text_area :overview
+
+  .form-field.right.gr20.poster-field.collapsed
+    = image_tag f.object.poster.url(:normal)
+    %a(rel='leanModal' href="#modal") Edit
+
+  .form-field.left.gr50.director.collapsed
+    = f.label :director
+    = f.text_field :director
+
+  .form-field.right.gr50.cast.collapsed
+    = f.label :cast
+    = f.text_field :cast
+
+  .form-field.md.gr100.extra.collapsed
+    = f.label :extra, "Extra Information"
+    = f.text_area :extra
+  
+  %div{id: ['showing_fields', f.options[:child_index]], class: ['showing-fields', 'collapsed']}
+
+    = f.fields_for :showings do |s|
+      .showing-row.clearfix
+        = s.hidden_field :position, value: s.object.position, class: 'position-field'
+        = s.hidden_field :day, value: s.object.day, class: 'day-field'
+
+        .form-field.left.gr30
+          = s.label :day
+          = s.text_field :day, disabled: true
+          = s.link_to_remove fa_icon('minus-square'), class: 'tooltip'
+
+        .form-field.right.gr70
+          = s.label :times
+          = s.text_field :times
+
+  .collapsed
+    .form-field.gr100.add-button
+      %p
+        = fa_icon 'plus'
+        Add Day
+    .form-field.gr100.day-list.hidden
+      - ['Monday', 'Tuesday', 'Wednesday', 'Thursday'].each do |day|
+        = f.link_to_add day, :showings, :'data-predefined-day' => day, :'data-target' => "#showing_fields_#{f.options[:child_index]}", class: 'day-link day'
+      %a.day-link.cancel
+        Cancel
+
