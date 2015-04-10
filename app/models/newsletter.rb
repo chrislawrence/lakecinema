@@ -1,6 +1,7 @@
 class Newsletter < ActiveRecord::Base
   belongs_to :week
-  has_many :movies
+  has_many :movies, dependent: :destroy
+  accepts_nested_attributes_for :movies, reject_if: :all_blank
   default_scope { order(:start_date) }
 
   def set_content start_date = self.week.start_date, end_date = self.week.end_date, movies = self.week.movies

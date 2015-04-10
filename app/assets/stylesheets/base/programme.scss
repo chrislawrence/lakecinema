@@ -1,0 +1,15 @@
+.week {
+  text-align: center;
+}
+
+.movie {
+  display: inline-block;
+}
+
+.poster { 
+  border: 3px solid #fff; 
+  width: 200px;
+}
+
+.movie:first-of-type:not(:only-of-type) { float: left; }
+.movie:last-of-type:not(:only-of-type) { float: right; }

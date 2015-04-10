@@ -1,26 +1,32 @@
-<div class="nav clearfix">
-  <%= render 'layouts/nav' %>
-</div>
-<div class="title">
-<%= retina_image_tag 'header.png', alt: 'Lake Cinema' %>
-</div>
-<div class="info">
+<header class="clearfix">
   <div class="content">
-    <div class="info_panel">
-      <%= retina_image_tag "phone.png" %> 
-      (02) 4958-5810
+    <div class="nav clearfix">
+      <div class="logo">
+        <%= image_tag 'logo-50x42.svg', width: '50' %>
+      </div>
+  
+      <%= render 'layouts/nav' %>
     </div>
-    <div class="info_panel">
-      <%= retina_image_tag "map.png" %>
-      62 Main Road<br />Boolaroo NSW
+    
+    <div class="big-header">
+      <h1>Lake Cinema</h1>
+      <p class="subtitle">The independent cinema in Boolaroo, New South Wales</p>
+      
+      <ul class="details">
+        <li>
+          <p class="small">Phone</p>
+          <p class="big">(02) 4958 5810</p>
+        </li>
+        <li>
+          <p class="small">Address</p>
+          <p class="big">62 Main Road,<br />Boolaroo</p>
+        </li>
+        <li>
+          <p class="small">Cost</p>
+          <p class="big">$7 Tickets</p>
+        </li>
+      </ul>
     </div>
-    <div class="info_panel">
-      <%= retina_image_tag "ticket.png" %>
-      All tickets:<br />$7
-    </div>
+      
   </div>
-</div>
-
-<div class="facebook">
-<div class="content"><p>Follow us on <a href="http://facebook.com/lakecinema" target="_blank">Facebook</a></p></div>
-</div>
+</header>

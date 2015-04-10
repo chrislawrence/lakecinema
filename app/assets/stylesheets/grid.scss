@@ -1,0 +1,26 @@
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	content: "";
+	clear: both;
+	height: 0;
+}
+
+main {
+  margin-bottom: 3em;
+}
+
+.gr50 { width: 50%; }
+.gr70 { width: 70%; }
+.gr80 { width: 80%; }
+.gr20 { width: 20%; }
+.gr30 { width: 30%; }
+.gr100 { width: 100%; clear: both; }
+
+.left { float: left; }
+.right {float: right; }

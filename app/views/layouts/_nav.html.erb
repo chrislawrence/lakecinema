@@ -1,9 +1,11 @@
-<%= content_tag :div, retina_image_tag("hamburger.png"), class: 'nav-toggle' %>
-
-<ul class="nav-list">
-  <%= nav_link 'Session Times', root_path %>
-  <%= nav_link 'About', about_path %>
-  <%= nav_link 'Contact', contact_path %>
-  <%= nav_link 'Newsletter', subscribe_path, class: 'last' %>
-</ul>
-
+<% if request.path =~ %r[^/admin] %>
+  <%= render 'layouts/admin_nav' %>
+<% else %>
+  <ul class="nav-list">
+    <%= content_tag :li, link_to('Session Times', root_path) %>
+    <%= content_tag :li, link_to('About', about_path) %>
+    <%= content_tag :li, link_to('Contact', contact_path) %>
+    <%= content_tag :li, link_to('Newsletter', subscribe_path) %>
+    <%= content_tag :li, link_to('Facebook', 'http://facebook.com/lakecinema', target: :blank) %>
+  </ul>
+<% end %>

@@ -1,0 +1,79 @@
+.week-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  a { 
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  li { padding: 2em 0; }
+
+  li:not(:last-of-type) {
+    border-bottom: 1px solid $mid-grey;
+  }
+
+
+}
+
+.week-details {
+  float: left;
+  p {
+    margin: -1em 0 0 0;
+    font-size: 0.9em;
+  }
+}
+
+.controls { float: right; }
+
+.controls, .dropdown-menu {
+  width: 180px;
+  font-size: 0.8em;
+  background: $dark-grey;
+  a:hover { 
+    color: $blue;
+    background: $mid-grey;  
+  }
+}
+
+.controls .primary {
+  text-align: center;
+  width: 65%;
+  float: left;
+  padding: 1em 0;
+  box-sizing: border-box;
+  border-right: 1px solid $light-grey;
+}
+
+.controls .secondary {
+  width: 35%;
+  padding: 1em 0;
+  float: right;
+  text-align: center;
+}
+
+.dropdown {
+	position: absolute;
+	z-index: 9999999;
+	display: none;
+  margin-top: 0.5em;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu {
+  background: #fff;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a:hover li { background: $mid-grey; }
+
+  li {
+    padding: 1.3em 0.8em;
+    border-bottom: 1px solid $mid-grey;
+  }
+}
+
+// Form Switcher
+
+#holiday-week { display: none; }

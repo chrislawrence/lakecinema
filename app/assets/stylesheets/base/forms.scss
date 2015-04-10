@@ -1,0 +1,287 @@
+// Standard inputs
+
+.day-field {
+  width: auto;
+  height: auto;
+}
+
+form {
+  font-size: .9em;
+}
+
+input, textarea {
+  padding: .5em;
+  border: 1px solid $dark-grey;
+}
+
+input:focus, textarea:focus, button:focus {
+  outline: 0;
+  border-color: $blue;
+  background: $light-grey - 2;
+}
+
+textarea {
+  resize: none;
+}
+
+// Big forms
+
+.form-group { margin-bottom: 1em; }
+
+
+.form-field {
+  position: relative;
+  height: 4.5em;
+  background: #fff;
+  border: 1px solid $dark-grey;
+  border-top: 0;
+  box-sizing: border-box;
+
+  &.top { border-top: 1px solid $dark-grey; }
+  &.right { border-left: 0; }
+  &.overview { height: 15em; }
+  &.extra { height: 9em; }
+
+  label {
+    position: absolute;
+    padding: 1em 0 0 2.4em;
+    display: inline-block;
+    font-size: .7em;
+    color: $dark-grey;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor-events: none;
+  }
+
+  input, textarea {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    box-sizing: border-box;
+    padding: 2em 2em 0;
+    transition: .3s all;
+  }
+
+
+}
+
+.poster-field { 
+  height: 15em; 
+  text-align: center;
+
+  img {
+    margin-top: 0.4em;
+    width: 75%; 
+    height: auto;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    font-size: 0.8em;
+    color: $dark-grey;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &:hover { color: $blue; }
+
+  }
+}
+
+.preamble-field { height: 15em; }
+.body-field { height: 30em; }
+
+.md:after {
+  width: 95.7%;
+  font-size: .7em;
+  color: $dark-grey;
+  text-transform: uppercase;
+  font-weight: bold;
+  content: '\f006     Markdown Allowed';
+  font-family: FontAwesome, 'Open Sans';
+  position: absolute;
+  bottom: 0;
+  padding: 1em 0 1em 2.4em;
+  background: #fff;
+}
+
+.md textarea {
+  padding-top: 3em;
+  font-family: $mono;
+  font-size: 0.8em;
+}
+
+
+.hidden { display: none; }
+
+.day-label {
+  margin: 2em 1.7em;
+}
+
+.tooltip {
+  color: $dark-grey;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: .7em;
+  position: absolute;
+  top: 2.5em;
+  right: 1em;
+  z-index: 99999;
+  &:hover { color: $red; }
+}
+
+.add-button {
+  border-radius: 0 0 5px 5px;
+  height: 3em;
+  line-height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: $blue;
+  color: #fff;
+  border: 0;
+  padding-left: 2em;
+
+  &:hover { background: $blue + 20; }
+  i { margin-right: 0.5em; }
+}
+
+.day-list {
+  height: 3em;
+  border-radius: 0 0 5px 5px;
+  padding-left: 2em;
+  line-height: 3em;
+
+  .day.day-link {
+    font-size: 0.8em;
+    text-decoration: none;
+    font-weight: bold;
+    background: $dark-grey;
+    color: #fff;
+    padding: 0.3em 1.5em;
+    margin-right: 0.7em;
+    border-radius: 12px;
+    &:hover {
+      background: $dark-grey - 50; }
+  }
+  
+  .cancel {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+}
+
+
+// Loading
+
+.loading {
+  height: 2px;
+  background: $green;
+  width: 0;
+}
+
+// Inline Forms
+
+form.inline input {
+  width: 15em;
+  margin-right: 2em;
+}
+
+.btn.btn-inline { 
+  display: inline; 
+  margin-left: 2em;
+}
+
+// Buttons
+
+.btn {
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 0;
+
+  i { margin-right: 0.5em; }
+}
+
+.btn-primary {
+  background: $blue;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: $dark-grey;
+  color: $dark-grey - 100;
+
+  &:hover {
+    background: $blue;
+    color: #fff;
+  }
+}
+
+.btn-submit {
+  background: $green;
+  color: #fff;
+
+  &:hover { 
+    background: $green - 30; 
+    color: #fff;
+  }
+}
+
+.btn-delete {
+  background: $red;
+  color: #fff;
+  &:hover {
+    background: $red - 30; 
+    color: #fff;
+  }
+}
+
+
+
+// Radio Buttons
+
+.btn-group {
+  font-size: 0.8em;
+  text-align: center;
+  margin-bottom: 1em;
+
+  label {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 1em 2em;
+    background: $mid-grey;
+    color: $dark-grey - 60;
+    border-right: 1px solid $light-grey;
+  }
+
+
+  input[type="radio"] {
+    display: none;
+
+    &:checked + label { 
+      font-weight: bold; 
+      background: $dark-grey;
+      color: $dark-grey - 100;
+    }
+  }
+}
+
+// Draggable
+
+.draggable:before {
+  content: '\f0dc';
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  z-index: 10000;
+  line-height: 4.5em;
+  padding-left: 0.5em;
+  height: 4.5em;
+  color: $dark-grey;
+}
+

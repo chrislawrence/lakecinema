@@ -1,0 +1,4 @@
+= render @week
+
+= link_to "Edit", edit_week_path(@week), class: 'btn btn-primary'
+= link_to "Delete", @week, method: :delete, data: {confirm: 'Remove week?'}, class: 'btn btn-delete'

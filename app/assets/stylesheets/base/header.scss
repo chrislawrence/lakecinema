@@ -1,0 +1,68 @@
+header {
+  padding-top: 1em; 
+  border-top: 8px solid $yellow;
+  background: $blue;
+  @include radial-gradient($blue 40%, adjust_hue($blue, -15));
+  color: $light-blue;
+  margin-bottom: 3em;
+}
+
+header.small { background: $blue;}
+
+.nav { margin-bottom: 3.5em; }
+
+.nav-list {
+	float: right;
+	list-style: none;
+	li {
+		display: inline-block;
+		margin-left: 1em;
+	}
+	
+	a {
+		color: $light-blue;
+		font-weight: bold;
+		text-decoration: none;
+    &:hover { color: #fff; };
+	}
+}
+
+header.small .nav-list { font-size: 0.9em; }
+
+.logo { 
+	float: left;
+  margin-top: 8px;
+}
+
+.subtitle {
+  font-family: $slab-serif;
+  font-weight: 100;
+  color: $yellow;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 3.5em;
+}
+
+.details {
+  list-style: none;
+  margin-bottom: 1em;
+  font-size: 0.8em;
+  text-align: center;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+    text-align: center;
+  }
+  .small {
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: #fff;
+  }
+  .big {
+    font-size: 1.5em;
+    color: $light-blue + 50;
+  }
+}

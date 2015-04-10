@@ -1,21 +1,27 @@
-<div class="margin content">
-  <h4>Dashboard</h4>
-  <%= link_to "New Newsletter", new_newsletter_path %>
-  <ul class="admin_week_list">
-<% @weeks.each do |week| %>
-  <li>
-    <h3><%= link_to week.title, week_path(week) %></h3>
-    <div class="details">
-      <%= week.movie_titles %>
-    </div>
-    <%= link_to "Newsletter", newsletter_path(week), target: '_blank' %>
-    <%= link_to "Edit", edit_week_path(week) %>
-    <%= link_to "Destroy", week, method: :delete, data: { confirm: 'Remove week?'} %>
-    <% if week.newsletter %>
-      <%= content_tag :div, "Newsletter scheduled: #{week.newsletter.send_time.strftime('%a %b %-d %Y, 8%P')}", class: 'newsletter_details' %>
-    <% end %>
-      
+<ul class="week-list">
+  <% @weeks.each do |week| %>
+    <li class="clearfix">
+      <div class="week-details">
+        <h3><%= link_to week.title, week_path(week) %></h3>
+        <%= content_tag :p, week.movie_titles %>
+      </div>
+
+      <div class="controls">
+        <%= link_to "Edit", edit_week_path(week), class: 'primary' %>
+        <a class="secondary" href="#" data-dropdown="#dropdown-<%=week.id%>"><%= fa_icon 'chevron-down' %></a>
+      </div>
+
+      <div class="dropdown dropdown-anchor-right" id="dropdown-<%=week.id%>">
+        <ul class="dropdown-menu">
+          <%= link_to content_tag(:li, 'Edit Newsletter'), edit_newsletter_path(week) %>
+          <%= link_to content_tag(:li, 'Remove Week'), week, method: :delete, data: {confirm: 'Remove week?'} %>
+        </ul>
+      </div>
+
+
+      <% if week.newsletter %>
+        <%= content_tag :div, "Newsletter scheduled: #{week.newsletter.send_time.strftime('%a %b %-d %Y, 8%P')}", class: 'newsletter_details' %>
+      <% end %>
     </li>
-<% end %>
+  <% end %>
 </ul>
-</div>
