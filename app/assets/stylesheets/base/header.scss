@@ -59,9 +59,10 @@ header.small .nav-list { font-size: 0.9em; }
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.4em;
+    color: #fff;
   }
   .big {
     font-size: 1.5em;
-    color: #fff;
+    color: $light-blue + 50;
   }
 }

@@ -12,6 +12,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'haml-rails'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'pry-rails'
