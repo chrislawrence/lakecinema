@@ -1,10 +1,9 @@
 $ ->
-  collapseMovieFields()
-  toggleAddDay($(this))
+  #collapseMovieFields()
   makeDaysSortable()
 
   $(document).on('nested:fieldAdded:movies', (event) ->
-    collapseMovieFields()
+    # collapseMovieFields()
     toggleAddDay(event.field)
     makeDaysSortable()
   )
@@ -12,9 +11,7 @@ $ ->
   $('.showing-fields').on('nested:fieldAdded', (event) ->
     day = $(event.link).data('predefined-day')
     field = event.field.find('.day-field')
-    label = event.field.find('.day-label')
     $(field).val(day)
-    $(label).text(day)
   )
   
   $("a[rel*=leanModal]").leanModal()
@@ -54,6 +51,7 @@ toggleWeekCategory = ->
     $('#announcement-week').show()
 
 collapseMovieFields = ->
+  $('.collapsed').hide()
   timeoutID = []
 
   checkDelay = (fields) ->

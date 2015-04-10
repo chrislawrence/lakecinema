@@ -27,7 +27,7 @@ class Movie < ActiveRecord::Base
   private
 
   def build_showings
-   if self.showings.count == 0
+    if self.showings.count == 0
       self.showings.build(day: 'Friday')
       self.showings.build(day: 'Saturday')
       self.showings.build(day: 'Sunday')
@@ -36,7 +36,6 @@ class Movie < ActiveRecord::Base
 
   def reject_showings
     self.showings.each do |s|
-      Rails.logger.debug(s)
       s.delete if s.times.blank?
     end
 

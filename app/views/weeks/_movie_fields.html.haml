@@ -31,13 +31,12 @@
   %div{id: ['showing_fields', f.options[:child_index]], class: ['showing-fields', 'collapsed']}
 
     = f.fields_for :showings do |s|
-      .showing-row.clearfix
+      .showing-row.clearfix.draggable
         = s.hidden_field :position, value: s.object.position, class: 'position-field'
-        = s.hidden_field :day, value: s.object.day, class: 'day-field'
 
         .form-field.left.gr30
           = s.label :day
-          = s.text_field :day, disabled: true
+          = s.text_field :day, readonly: true, class: 'day-field'
           = s.link_to_remove fa_icon('minus-square'), class: 'tooltip'
 
         .form-field.right.gr70

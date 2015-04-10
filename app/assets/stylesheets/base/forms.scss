@@ -1,5 +1,10 @@
 // Standard inputs
 
+.day-field {
+  width: auto;
+  height: auto;
+}
+
 form {
   font-size: .9em;
 }
@@ -107,8 +112,7 @@ textarea {
 }
 
 
-.hidden, 
-.collapsed { display: none; }
+.hidden { display: none; }
 
 .day-label {
   margin: 2em 1.7em;
@@ -255,3 +259,18 @@ form.inline input {
     }
   }
 }
+
+// Draggable
+
+.draggable:before {
+  content: '\f0dc';
+  font-family: FontAwesome;
+  display: inline-block;
+  position: absolute;
+  z-index: 10000;
+  line-height: 4.5em;
+  padding-left: 0.5em;
+  height: 4.5em;
+  color: $dark-grey;
+}
+

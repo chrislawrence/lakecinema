@@ -14,13 +14,15 @@
     .form-field.right.gr50
       = f.label :end_date
       = f.text_field :end_date, class: 'date-field'
-    #movie-week
-      %h3 Movies
-      = f.fields_for :movies do |movie_fields|
-        = render 'movie_fields', f: movie_fields
-    #holiday-week
-      = f.fields_for :holiday do |holiday_fields|
-        = render 'holiday_fields', f: holiday_fields
+
+  #movie-week
+    %h3 Movies
+    = f.fields_for :movies do |movie_fields|
+      = render 'movie_fields', f: movie_fields
+
+  #holiday-week
+    = f.fields_for :holiday do |holiday_fields|
+      = render 'holiday_fields', f: holiday_fields
     
   = f.button class: 'btn btn-submit' do
     = fa_icon 'check'
