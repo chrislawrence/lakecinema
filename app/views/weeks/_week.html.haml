@@ -1,0 +1,5 @@
+- cache week do
+  .week.clearfix
+    %h2
+      = raw(markdown(week.title))
+    = render week.nested_partial_path, week: week

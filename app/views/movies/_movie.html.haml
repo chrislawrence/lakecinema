@@ -1,0 +1,14 @@
+.movie
+  = image_tag asset_host_url(movie.poster.url(:normal)), 
+    class: 'poster', 
+    srcset: "#{asset_host_url(movie.poster.url(:retina))} 2x"
+
+  %h3 #{movie.title} (#{movie.rating})
+
+  - movie.showings.each do |s|
+    %p
+      %b #{s.day}&colon; 
+      #{s.times}
+
+  - if movie.extra
+    %p #{sanitize(markdown(movie.extra))}

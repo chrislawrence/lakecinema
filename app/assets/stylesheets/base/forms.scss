@@ -222,11 +222,22 @@ form.inline input {
 }
 
 .btn-submit {
-  border: 0;
   background: $green;
   color: #fff;
 
-  &:hover { background: $green - 30; }
+  &:hover { 
+    background: $green - 30; 
+    color: #fff;
+  }
+}
+
+.btn-delete {
+  background: $red;
+  color: #fff;
+  &:hover {
+    background: $red - 30; 
+    color: #fff;
+  }
 }
 
 

@@ -1,6 +1,0 @@
-<% cache week do %>
-  <div class="week clearfix">
-    <%= content_tag :h2, raw(markdown(week.title)) %>
-    <%= render week.nested_partial_path, week: week %>
-  </div>
-<% end %>
