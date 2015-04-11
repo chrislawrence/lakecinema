@@ -1,0 +1,9 @@
+- if request.path.include?('/admin')
+  = render 'layouts/admin_nav'
+- else
+  %ul.nav-list
+    %li #{link_to 'Session Times', root_path}
+    %li #{link_to 'About', about_path}
+    %li #{link_to 'Contact', contact_path}
+    %li #{link_to 'Newsletter', subscribe_path}
+    %li #{link_to 'Facebook', 'http:/facebook.com/lakecinema', target: :blank}

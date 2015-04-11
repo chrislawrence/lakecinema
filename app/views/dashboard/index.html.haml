@@ -1,0 +1,17 @@
+%ul{class: 'week-list'}
+  - @weeks.each do |week|
+    %li{class: 'clearfix'}
+      .week-details
+        %h3 #{link_to week.title, week_path(week)}
+        %p #{week.movie_titles}
+
+      .controls
+        = link_to "Edit", edit_week_path(week), class: 'primary'
+        %a{class: 'secondary', href: "#", 'data-dropdown':"#dropdown-#{week.id}"}
+          = fa_icon 'chevron-down'
+
+      .dropdown.dropdown-anchor-right{id: "dropdown-#{week.id}"}
+        %ul{class: 'dropdown-menu'}
+          = link_to content_tag(:li, 'Edit Newsletter'), edit_newsletter_path(week)
+          = link_to content_tag(:li, 'Remove Week'), week, method: :delete, 'data-confirm': 'Remove week?'
+

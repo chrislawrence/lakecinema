@@ -1,0 +1,20 @@
+%header.clearfix
+  .content
+    .nav.clearfix
+      = image_tag 'logo-50x42.svg', width: '50', class: 'logo'
+      = render 'layouts/nav'
+
+    .big-header
+      %h1 Lake Cinema
+      %p.subtitle The independent cinema in Boolaroo, New South Wales
+      
+      .details
+        %li
+          %p.small Phone
+          %p.big (02) 4958 5810
+        %li
+          %p.small Address
+          %p.big 62 Main Road,<br />Boolaroo
+        %li
+          %p.small Cost
+          %p.big $7 Tickets

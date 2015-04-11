@@ -1,0 +1,36 @@
+main.sessions {
+  background: rgba(0,0,0,0.7);
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  display: table;
+  &:after {
+    content: '';
+    background-image: asset_url('login.jpg');
+    background-size: cover;
+    opacity: 0.4;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+
+  .content { 
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+}
+
+.sessions ~ footer { display: none; }
+
+.login-form {
+  width: 200px;
+  margin: 0 auto;
+  input { 
+    width: 100%; 
+  }
+}

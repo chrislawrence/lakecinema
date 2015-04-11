@@ -1,9 +1,9 @@
 $ ->
-  #collapseMovieFields()
+  collapseMovieFields()
   makeDaysSortable()
 
   $(document).on('nested:fieldAdded:movies', (event) ->
-    # collapseMovieFields()
+    collapseMovieFields()
     toggleAddDay(event.field)
     makeDaysSortable()
   )
