@@ -1,3 +1,26 @@
+* { margin: 0; }
+html, body { height: 100%; }
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -150px;
+  &:after {
+    content: '';
+    display: block;
+  }
+}
+
+footer, .page-wrap:after {
+  height: 150px;
+  line-height: 150px;
+}
+
+main {
+  padding-bottom: 3em;
+}
+
+
+
 .content {
   max-width: 900px;
   margin: 0 auto;

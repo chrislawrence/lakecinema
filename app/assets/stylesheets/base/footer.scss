@@ -1,19 +1,7 @@
 footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 150px;
-  width: 100%;
+  text-align: center;
   background: $mid-grey;
   color: $dark-grey - 10;
   font-size: 0.8em;
   font-weight: bold;
-  display: table;
-}
-
-.footer-inner {
-  width: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
 }

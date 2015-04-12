@@ -14,20 +14,21 @@
     %meta{name: 'apple-mobile-web-app-status-bar-style', content: 'black'}
 
   %body
-    - flash.each do |name, msg|
-      %div{class: "flash #{name}"}
-        .content msg
+    .page-wrap
+      - flash.each do |name, msg|
+        %div{class: "flash #{name}"}
+          .content msg
 
-    - if request.path == '/'
-      = render 'layouts/header'
-    - else
-      = render 'layouts/header_small' unless request.path == '/login'
+      - if request.path == '/'
+        = render 'layouts/header'
+      - else
+        = render 'layouts/header_small' unless request.path == '/login'
 
-    %main{class: params[:controller]}
-      .content #{yield}
+      %main{class: params[:controller]}
+        .content #{yield}
 
     %footer
-      .footer-inner
+      %p.footer-inner
         &copy; #{Date.today.strftime("%Y")} Lake Cinema.
 
     = javascript_include_tag 'application'
