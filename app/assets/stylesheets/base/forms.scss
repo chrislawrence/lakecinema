@@ -201,6 +201,7 @@ form.inline input {
   font-weight: bold;
   text-decoration: none;
   padding: 1em 2em;
+  margin-right: 1em;
   border: 0;
 
   i { margin-right: 0.5em; }
@@ -209,6 +210,11 @@ form.inline input {
 .btn-primary {
   background: $blue;
   color: #fff;
+  
+  &:hover {
+    background: $blue + 50;
+    color: #fff;
+  }
 }
 
 .btn-secondary {
@@ -232,10 +238,10 @@ form.inline input {
 }
 
 .btn-delete {
-  background: $red;
-  color: #fff;
+  background: $dark-grey;
+  color: $dark-grey - 100;
   &:hover {
-    background: $red - 30; 
+    background: $red;
     color: #fff;
   }
 }
