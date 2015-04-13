@@ -19,7 +19,6 @@ autoComplete = ->
               fields.children('.overview').children('textarea').val(data.overview)
               fields.children('.director').children('input').val(data.director)
               fields.children('.cast').children('input').val(data.cast)
-              debugger
               fields.find('.tmdb-id').val(data.id)
               fields.find('.poster-field').children('img').attr('src', data.poster_thumb)
               fields.find('.poster-url').val(data.poster_url)

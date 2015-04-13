@@ -1,5 +1,6 @@
 .week {
   text-align: center;
+  margin-bottom: 4em;
 }
 
 .movie {
@@ -9,6 +10,7 @@
 .poster { 
   border: 3px solid #fff; 
   width: 200px;
+  margin-bottom: 0.8em;
 }
 
 .movie:first-of-type:not(:only-of-type) { float: left; }

@@ -14,7 +14,11 @@
 
   .form-field.right.gr20.poster-field.collapsed
     = image_tag f.object.poster.url(:normal)
-    %a(rel='leanModal' href="#modal") Edit
+    %a{rel: 'leanModal', href: "#modal-#{f.options[:child_index]}"} Edit
+
+  .modal{id: "modal-#{f.options[:child_index]}"}
+    = f.file_field :poster
+    = f.text_field :poster_url, class: 'poster-url'
 
   .form-field.left.gr50.director.collapsed
     = f.label :director

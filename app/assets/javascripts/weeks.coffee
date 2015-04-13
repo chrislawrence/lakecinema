@@ -6,6 +6,7 @@ $ ->
     collapseMovieFields()
     toggleAddDay(event.field)
     makeDaysSortable()
+    $("a[rel*=leanModal]").leanModal()
   )
 
   $('.showing-fields').on('nested:fieldAdded', (event) ->

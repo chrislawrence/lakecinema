@@ -1,10 +1,11 @@
 header {
-  padding-top: 1em; 
   border-top: 8px solid $yellow;
   background: $blue;
   @include radial-gradient($blue 40%, adjust_hue($blue, -15));
   color: $light-blue;
   margin-bottom: 3em;
+  padding: 0.5em 0;
+  text-align: justify;
 }
 
 header.small { background: $blue;}
@@ -12,11 +13,12 @@ header.small { background: $blue;}
 .nav { margin-bottom: 3.5em; }
 
 .nav-list {
-	float: right;
 	list-style: none;
+  float: right;
+  margin: 1em 0;
 	li {
 		display: inline-block;
-		margin-left: 1em;
+    margin-left: 1em;
 	}
 	
 	a {
