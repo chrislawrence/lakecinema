@@ -15,7 +15,7 @@ end
 
   scenario "with a movie" do
     fill_week_fields
-    within('.movie.one') do
+    within('.movie-fields') do
       fill_in 'Title', with: 'The Godfather'
     end
     click_button 'Save'
@@ -25,13 +25,13 @@ end
 
   scenario "with session times" do
     fill_week_fields
-    within('.movie.one') do
+    within('.movie-fields') do
       fill_in 'Title', with: 'The Godfather'
-     fill_in 'Fri', with: '5pm'
+      fill_in 'Times', with: '5pm'
     end
     click_button 'Save'
     visit root_path
-    expect(page).to have_content('FRI: 5pm')
+    expect(page).to have_content('Friday: 5pm')
   end
 
   def fill_week_fields
