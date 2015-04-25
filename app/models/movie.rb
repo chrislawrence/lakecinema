@@ -14,7 +14,6 @@ class Movie < ActiveRecord::Base
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
   before_save :download_poster
   before_save :reject_showings
-  after_initialize :build_showings
 
   def tmdb_url
     "http://themoviedb.org/movie/#{self.tmdb_id}"
@@ -24,8 +23,6 @@ class Movie < ActiveRecord::Base
     "http://image.tmdb.org/t/p/w780#{backdrop}"
   end
 
-  private
-
   def build_showings
     if self.showings.count == 0
       self.showings.build(day: 'Friday')
@@ -33,6 +30,8 @@ class Movie < ActiveRecord::Base
       self.showings.build(day: 'Sunday')
     end
   end
+
+  private
 
   def reject_showings
     self.showings.each do |s|

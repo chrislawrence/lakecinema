@@ -1,7 +1,7 @@
 class WeeksController < ApplicationController
   def new
     @week = Week.new
-    @week.movies.build
+    @week.movies.build.build_showings
     @week.build_holiday
   end
 
