@@ -19,8 +19,7 @@ class NewslettersController < ApplicationController
   end
 
   def edit
-    week = Week.find(params[:id])
-    @newsletter = week.get_or_build_newsletter
+    @newsletter = Week.find(params[:id]).newsletter
   end
 
   def update

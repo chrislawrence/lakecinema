@@ -1,12 +1,10 @@
 class ProgrammeEditor
   def self.new week
-    if week.holiday? == false
-      week.build_newsletter unless week.newsletter
-      newsletter = week.newsletter
-      newsletter.set_content(week.start_date, week.end_date, week.movies)
-      newsletter.save
-      newsletter.send_to_mailchimp
-    end
+    week.build_newsletter unless week.newsletter
+    newsletter = week.newsletter
+    newsletter.set_content(week.start_date, week.end_date, week.movies)
+    newsletter.save
+    #newsletter.send_to_mailchimp
   end
 
   def self.send_to_mailchimp newsletter
