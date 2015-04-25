@@ -10,7 +10,7 @@ $ ->
     $("a[rel*=leanModal]").leanModal()
   )
 
-  $('.showing-fields').on('nested:fieldAdded', (event) ->
+  $(document).on('nested:fieldAdded:showings', (event) ->
     day = $(event.link).data('predefined-day')
     field = event.field.find('.day-field')
     $(field).val(day)
