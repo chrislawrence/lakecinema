@@ -4,10 +4,11 @@ class ProgrammeEditor
     newsletter = week.newsletter
     newsletter.set_content(week.start_date, week.end_date, week.movies)
     newsletter.save
-    #newsletter.send_to_mailchimp
+    newsletter.send_to_mailchimp
   end
 
   def self.send_to_mailchimp newsletter
+    Rails.logger.debug('Sending to mailchimp...')
     campaign_id = Chimp.new(
       title: newsletter.id, 
       body: ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: {newsletter: newsletter}),

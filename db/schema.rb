@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150412232012) do
+ActiveRecord::Schema.define(version: 20150425233309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,10 +53,10 @@ ActiveRecord::Schema.define(version: 20150412232012) do
     t.datetime "updated_at"
     t.string   "campaign_id",  limit: 255
     t.text     "introduction"
-    t.datetime "send_time"
     t.date     "start_date"
     t.date     "end_date"
     t.text     "body"
+    t.date     "send_date"
   end
 
   create_table "showings", force: :cascade do |t|

@@ -22,7 +22,6 @@ class Chimp
   end
 
   def create_campaign
-    Rails.logger.debug('Creating campaign...')
     response = @sender.campaigns.create(
       'regular',
       {
@@ -43,7 +42,6 @@ class Chimp
   end
 
   def update_campaign
-    Rails.logger.debug('Updating campaign...')
     begin
     @sender.campaigns.update(@campaign_id,'content', {sections: {std_content00: @body}})
     rescue
@@ -53,14 +51,12 @@ class Chimp
   end
 
   def schedule_campaign(scheduled=false)
-    Rails.logger.debug('Scheduling campaign...')
     @sender.campaigns.unschedule(@campaign_id) if scheduled
     @sender.campaigns.schedule(@campaign_id, @send_time.utc.strftime("%Y-%m-%d %H:%M:%S"))
     send_test
   end
 
   def send_test
-    Rails.logger.debug('Sending test email...')
     @sender.campaigns.send_test(@campaign_id, ['c@chrislawrence.co'], 'html')
   end
 end

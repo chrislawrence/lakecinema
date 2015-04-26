@@ -5,7 +5,7 @@ class Newsletter < ActiveRecord::Base
   default_scope { order(:start_date) }
 
   def set_content start_date = self.week.start_date, end_date = self.week.end_date, movies = self.week.movies
-    self.send_time = (start_date.to_time - 1.day) + 8.hours
+    self.send_date = start_date - 1.day
     self.start_date = start_date
     self.end_date = end_date
     self.movies << movies
@@ -13,10 +13,6 @@ class Newsletter < ActiveRecord::Base
 
   def sent
     true if self.send_time < Time.zone.now
-  end
-
-  def send_date
-    send_time.to_date
   end
 
   def dates
@@ -27,14 +23,15 @@ class Newsletter < ActiveRecord::Base
     ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: { newsletter: self })
   end
 
-  def update_send_time
-    if Time.now > self.send_time
-      self.send_time = 5.minutes.from_now
+  def send_time
+    if Date.today < send_date
+      send_date.to_datetime + 8.hours
+    else
+      5.minutes.from_now
     end
   end
 
   def send_to_mailchimp
-    update_send_time
     sender = Chimp.new(title: self.subject, body: self.sendable, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
     self.update(campaign_id: sender.campaign_id)
