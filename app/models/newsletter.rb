@@ -16,7 +16,9 @@ class Newsletter < ActiveRecord::Base
   end
 
   def dates
-    start_date.strftime("%B %-d") + "&mdash;" + end_date.strftime("%B %-d")
+    if start_date
+      start_date.strftime("%B %-d") + "&mdash;" + end_date.strftime("%B %-d")
+    end
   end
 
   def sendable

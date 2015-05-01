@@ -10,10 +10,14 @@
 
 <div id="preamble">
   <div class="content">
-    <h2>At the cinema this weekend</h2>
-    <p><%= raw newsletter.dates %></p>
+    <% if newsletter.dates %>
+      <h2>At the cinema this weekend</h2>
+      <p><%= raw newsletter.dates %></p>
+    <% end %>
+    <%= raw markdown newsletter.body if newsletter.body %>
   </div>
 </div>
+
 
 <% newsletter.movies.each do |movie| %>
   <div class="film">

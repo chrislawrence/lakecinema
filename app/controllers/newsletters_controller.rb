@@ -49,7 +49,7 @@ class NewslettersController < ApplicationController
   private
 
   def newsletter_params
-    params.require(:newsletter).permit(:introduction, :send_time, :start_date, :end_date, :movie_attributes => [:title, :rating, :overview, :cast, :director, :poster_url, :poster])
+    params.require(:newsletter).permit(:body, :send_date, :start_date, :end_date, :movie_attributes => [:title, :rating, :overview, :cast, :director, :poster_url, :poster])
   end
   
 end
