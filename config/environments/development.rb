@@ -1,7 +1,3 @@
-require 'webmock'
-require 'fake_mailchimp'
-include WebMock::API
-
 Lakecinema::Application.configure do
   config.asset_host = 'http://lakecinema.dev'
   config.cache_classes = false
@@ -12,6 +8,4 @@ Lakecinema::Application.configure do
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
   config.assets.debug = true
-
-  stub_request(:any, /us2.api.mailchimp.com/).to_rack(FakeMailchimp)
 end

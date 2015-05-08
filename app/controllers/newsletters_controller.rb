@@ -19,13 +19,13 @@ class NewslettersController < ApplicationController
   end
 
   def edit
-    @newsletter = Week.find(params[:id]).newsletter
+    @newsletter = Newsletter.find(params[:id])
   end
 
   def update
     @newsletter = Newsletter.find(params[:id])
     if @newsletter.update(newsletter_params)
-      send_to_mailchimp @newsletter
+      @newsletter.send_to_mailchimp
       redirect_to admin_path, notice: 'Newsletter sent to Mailchimp'
     else
       render action: edit
@@ -36,20 +36,10 @@ class NewslettersController < ApplicationController
     @newsletter = Newsletter.find(params[:id])
   end
 
-  def send_to_mailchimp newsletter
-    campaign_id = Chimp.new(
-      title: newsletter.id, 
-      body: render_to_string('newsletters/show', newsletter: newsletter),
-      campaign_id: newsletter.campaign_id, 
-      send_time: newsletter.send_time
-    ).send
-    newsletter.update(:campaign_id, campaign_id)
-  end
-
   private
 
   def newsletter_params
-    params.require(:newsletter).permit(:body, :send_date, :start_date, :end_date, :movie_attributes => [:title, :rating, :overview, :cast, :director, :poster_url, :poster])
+    params.require(:newsletter).permit(:body, :send_date, :start_date, :end_date, :movies_attributes => [:title, :rating, :overview, :cast, :director, :poster_url, :poster])
   end
   
 end
