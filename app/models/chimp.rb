@@ -21,6 +21,10 @@ class Chimp
     @campaign_id
   end
 
+  def delete
+    @sender.campaigns.delete(@campaign_id)
+  end
+
   def create_campaign
     response = @sender.campaigns.create(
       'regular',

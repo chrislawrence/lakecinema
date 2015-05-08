@@ -3,6 +3,7 @@ class Newsletter < ActiveRecord::Base
   has_many :movies, dependent: :destroy
   accepts_nested_attributes_for :movies
   default_scope { order(:start_date) }
+  before_destroy :remove_from_mailchimp
 
   def set_content start_date = self.week.start_date, end_date = self.week.end_date, movies = self.week.movies
     self.send_date = start_date - 1.day
@@ -39,4 +40,11 @@ class Newsletter < ActiveRecord::Base
     self.update(campaign_id: sender.campaign_id)
   end
 
+  def remove_from_mailchimp
+    begin
+      Chimp.new(campaign_id: self.campaign_id).delete
+    rescue
+      return
+    end
+  end
 end
