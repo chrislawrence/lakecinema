@@ -12,6 +12,6 @@
 
       .dropdown.dropdown-anchor-right{id: "dropdown-#{week.id}"}
         %ul{class: 'dropdown-menu'}
-          = link_to content_tag(:li, 'Edit Newsletter'), edit_newsletter_path(week)
+          = link_to content_tag(:li, 'Edit Newsletter'), edit_newsletter_path(week.newsletter)
           = link_to content_tag(:li, 'Remove Week'), week, method: :delete, 'data-confirm': 'Remove week?'
 

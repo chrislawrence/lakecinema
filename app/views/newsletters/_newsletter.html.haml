@@ -26,12 +26,12 @@
               %p
                 <b>#{showing.day}:</b> #{showing.times}
 
-    .overview #{movie.overview}
+      .overview #{movie.overview}
 
-    - if movie.director
-      .credits
-        %p{class: 'type'} Director
-        %p #{movie.director}
-    - if movie.cast.length > 0
-      %p{class: 'type'} Starring
-      %p #{movie.cast.to_sentence}
+      - if movie.director
+        .credits
+          %p{class: 'type'} Director
+          %p #{movie.director}
+      - if movie.cast.length > 0
+        %p{class: 'type'} Starring
+        %p #{movie.cast.to_sentence}
