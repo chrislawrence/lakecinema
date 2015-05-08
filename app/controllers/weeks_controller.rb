@@ -37,12 +37,13 @@ class WeeksController < ApplicationController
 
   def destroy
     @week = Week.destroy(params[:id])
+    flash[:notice] = 'Week deleted'
     redirect_to admin_path
   end
 
   private
 
   def week_params
-    params.require(:week).permit(:title, :start_date, :end_date, :category, :body, movies_attributes: [:id, :tmdb_id, :title, :extra, :after, :rating, :overview, :poster_url, :poster, :view_index, :cast, :director, showings_attributes: [:id, :day, :times, :position, :_destroy]], holiday_attributes: [:id, :preamble, :body])
+    params.require(:week).permit(:title, :start_date, :end_date, :category, :body, movies_attributes: [:id, :tmdb_id, :title, :extra, :rating, :overview, :poster_url, :poster, :view_index, :cast, :director, showings_attributes: [:id, :day, :times, :position, :_destroy]], holiday_attributes: [:id, :preamble, :body])
   end
 end

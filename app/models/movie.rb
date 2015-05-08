@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
   belongs_to :week, touch: true
-  belongs_to :newsletter
+  belongs_to :newsletter 
   has_many :showings, dependent: :destroy
   accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}, allow_destroy: true
   has_attached_file :poster, 

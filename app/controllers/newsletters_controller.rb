@@ -32,6 +32,13 @@ class NewslettersController < ApplicationController
     end
   end
 
+  def destroy
+    Newsletter.destroy(params[:id])
+    flash[:notice] = 'Newsletter deleted'
+    redirect_to admin_path
+
+  end
+
   def show
     @newsletter = Newsletter.find(params[:id])
   end
@@ -39,7 +46,7 @@ class NewslettersController < ApplicationController
   private
 
   def newsletter_params
-    params.require(:newsletter).permit(:body, :send_date, :start_date, :end_date, :movies_attributes => [:title, :rating, :overview, :cast, :director, :poster_url, :poster])
+    params.require(:newsletter).permit(:body, :send_date, :start_date, :end_date, movies_attributes: [:id, :tmdb_id, :title, :extra, :rating, :overview, :poster_url, :poster, :view_index, :cast, :director, showings_attributes: [:id, :day, :times, :position, :_destroy]])
   end
   
 end

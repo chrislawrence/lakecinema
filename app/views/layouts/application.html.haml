@@ -17,7 +17,7 @@
     .page-wrap
       - flash.each do |name, msg|
         %div{class: "flash #{name}"}
-          .content msg
+          .content #{msg}
 
       - if request.path == '/'
         = render 'layouts/header'

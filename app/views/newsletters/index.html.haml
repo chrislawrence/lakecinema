@@ -1,0 +1,12 @@
+%ul{class: 'week-list'}
+  - @newsletters.each do |newsletter|
+    %li 
+      #{link_to newsletter.send_date, newsletter}
+      .controls
+        = link_to "Edit", edit_newsletter_path(newsletter), class: 'primary'
+        %a{class: 'secondary', 'data-dropdown': "#dropdown-#{newsletter.id}"}
+          = fa_icon 'chevron-down'
+
+        .dropdown.dropdown-anchor-right{id: "dropdown-#{newsletter.id}"}
+          %ul{class: 'dropdown-menu'}
+            = link_to content_tag(:li, 'Delete Newsletter'), newsletter, method: :delete, 'data-confirm': 'Delete newsletter?'

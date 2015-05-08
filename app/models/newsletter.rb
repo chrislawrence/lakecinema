@@ -1,7 +1,7 @@
 class Newsletter < ActiveRecord::Base
   belongs_to :week
-  has_many :movies, dependent: :destroy
-  accepts_nested_attributes_for :movies
+  has_many :movies
+  accepts_nested_attributes_for :movies, reject_if: proc {|a| a['title'].blank?}
   default_scope { order(:start_date) }
   before_destroy :remove_from_mailchimp
 

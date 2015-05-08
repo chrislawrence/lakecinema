@@ -8,7 +8,7 @@
   .content
     - if newsletter.dates
       %h2 This weekend
-      %p #{raw newsletter.dates}
+      %p{class: 'date'} #{raw newsletter.dates}
 
     - if newsletter.body
       = raw markdown newsletter.body
