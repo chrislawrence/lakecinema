@@ -23,7 +23,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def sendable
-    ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: { newsletter: self })
+    ApplicationController.new.render_to_string('newsletters/_newsletter', layout: false, locals: { newsletter: self })
   end
 
   def send_time

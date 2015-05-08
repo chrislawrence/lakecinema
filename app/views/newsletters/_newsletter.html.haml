@@ -1,0 +1,37 @@
+.head
+  .content
+    %h1 Lake Cinema Newsletter
+    .date
+      = newsletter.send_date.strftime("%B %-d, %Y")
+
+.preamble
+  .content
+    - if newsletter.dates
+      %h2 This weekend
+      %p #{raw newsletter.dates}
+
+    - if newsletter.body
+      = raw markdown newsletter.body
+
+- newsletter.movies.each do |movie|
+  .film
+    .content
+      .column-one
+        = image_tag asset_host_url(movie.poster.url(:normal)), class: 'poster'
+      .column-two
+        %h3 #{movie.title} (#{movie.rating})
+        .times
+          %ul
+            - movie.showings.each do |showing|
+              %p
+                <b>#{showing.day}:</b> #{showing.times}
+
+    .overview #{movie.overview}
+
+    - if movie.director
+      .credits
+        %p{class: 'type'} Director
+        %p #{movie.director}
+    - if movie.cast.length > 0
+      %p{class: 'type'} Starring
+      %p #{movie.cast.to_sentence}
