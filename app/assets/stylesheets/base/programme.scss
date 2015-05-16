@@ -15,3 +15,39 @@
 
 .movie:first-of-type:not(:only-of-type) { float: left; }
 .movie:last-of-type:not(:only-of-type) { float: right; }
+
+/* Holidays */
+
+.holiday-week {
+  font-size: 0.9em;
+}
+
+table.holidays {
+  table-layout: fixed;
+  width:100%;
+	margin: 0 auto;
+	font-size: 0.8em;
+	clear: both;
+
+  tr td:first-child {
+    width: 5em;
+    font-weight: bold;
+  }
+		
+	.times {
+  	font-weight: bold;
+    background: $light-grey - 15;
+  	color: #82827d;
+	}
+	
+	td {
+  	padding: 1em 0.5em;
+  	border: 1px solid #cfcfcf;
+  	text-align: center
+	}
+	
+}
+
+@media(max-width: 500px) {
+  table.holidays { font-size: 0.7em; }
+}

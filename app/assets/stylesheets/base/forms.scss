@@ -9,7 +9,7 @@ form {
   font-size: .9em;
 }
 
-input, textarea {
+input, textarea{
   padding: .5em;
   border: 1px solid $dark-grey;
 }
@@ -88,27 +88,20 @@ textarea {
   }
 }
 
-.preamble-field { height: 15em; }
-.body-field { height: 30em; }
+.preamble-field { height: auto; textarea { height: 15em; }}
+.body-field { height: auto; textarea { height: 30em; }}
 
-.md:after {
-  width: 95.7%;
-  font-size: .7em;
-  color: $dark-grey;
-  text-transform: uppercase;
-  font-weight: bold;
-  content: '\f006     Markdown Allowed';
-  font-family: FontAwesome, 'Open Sans';
-  position: absolute;
-  bottom: 0;
-  padding: 1em 0 1em 2.4em;
-  background: #fff;
+.preamble-field label,
+.body-field label {
+  position: relative;
+  margin-bottom: 1em;
 }
 
+
 .md textarea {
-  padding-top: 3em;
   font-family: $mono;
   font-size: 0.8em;
+  padding: 0.5em;
 }
 
 
