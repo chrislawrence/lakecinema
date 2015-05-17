@@ -36,13 +36,13 @@ table.holidays {
 		
 	.times {
   	font-weight: bold;
-    background: $light-grey - 15;
-  	color: #82827d;
+    background: $mid-grey;
+  	color: $dark-grey - 50;
 	}
 	
 	td {
   	padding: 1em 0.5em;
-  	border: 1px solid #cfcfcf;
+  	border: 1px solid $dark-grey;
   	text-align: center
 	}
 	

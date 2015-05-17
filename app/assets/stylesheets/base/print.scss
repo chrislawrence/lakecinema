@@ -1,0 +1,21 @@
+@media print {
+  body {
+    font-size: 0.6em;
+  }
+  header,
+  .poster,
+  footer {
+    display: none;
+  }
+
+  .static:before {
+    content: 'Lake Cinema Programme';
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 2em 0;
+  }
+}
