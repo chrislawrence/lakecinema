@@ -33,12 +33,17 @@ end
 group :development do
   gem 'spring-commands-rspec'
   gem 'quiet_assets'
-  gem 'capistrano', '~>3.1.0'
-  gem 'capistrano-rails', '~>1.1'
-  gem 'capistrano-bundler', '~>1.1'
-  gem 'capistrano-rbenv', '~>2.0'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-puma'
   gem 'guard'
   gem 'guard-livereload'
+end
+
+group :production do
+  gem 'puma'
 end
 
 gem 'paperclip'

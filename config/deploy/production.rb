@@ -1,1 +1,4 @@
-server '128.199.215.71', user: 'chris', roles: %w{web app db}
+set :stage, :production
+set :rails_env, :production
+
+server '128.199.219.98', user: 'deploy', roles: %w{web app db}, primary: true
