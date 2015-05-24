@@ -1,6 +1,6 @@
 class Search
   include ActiveModel::Serializers::JSON
-  API_KEY = APP_CONFIG['tmdb_key']
+  API_KEY = Rails.application.secrets.tmdb_key
   attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb, :backdrop_path, :director, :cast
 
   def attributes

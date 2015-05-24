@@ -1,7 +1,7 @@
 class Chimp 
   require 'mailchimp'
   attr_accessor :title, :body, :send_time, :campaign_id, :sender
-  API_KEY = APP_CONFIG['mailchimp_key']
+  API_KEY = Rails.application.secrets.mailchimp_key
 
   def initialize attributes={}
     attributes.each do |key, value|
