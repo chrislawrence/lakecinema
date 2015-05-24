@@ -31,6 +31,10 @@ class Movie < ActiveRecord::Base
     end
   end
 
+  def self.default
+    Movie.new(showings: [Showing.new(day: 'Friday'), Showing.new(day: 'Saturday'), Showing.new(day: 'Sunday')])
+  end
+
   private
 
   def reject_showings

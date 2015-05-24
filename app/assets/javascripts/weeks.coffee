@@ -5,7 +5,7 @@ $ ->
 
   $(document).on('nested:fieldAdded:movies', (event) ->
     collapseMovieFields()
-    toggleAddDay(event.field)
+    toggleAddDay($(document))
     makeDaysSortable()
     $("a[rel*=leanModal]").leanModal()
   )
