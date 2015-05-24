@@ -1,5 +1,5 @@
 Lakecinema::Application.configure do
-  config.asset_host = 'http://lakecinema.dev'
+  #config.asset_host = 'http://lakecinema.dev'
   config.cache_classes = false
   config.eager_load = false
   config.consider_all_requests_local       = true
