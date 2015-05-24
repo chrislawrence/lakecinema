@@ -20,9 +20,6 @@ Lakecinema::Application.routes.draw do
     get :about
     get :subscribe
     get :announcement
+    get :contact
   end
-
-  resource :contact, only: [:new, :create]
-  get 'contact', to: 'contacts#new'
-
 end

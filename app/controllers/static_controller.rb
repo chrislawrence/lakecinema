@@ -14,4 +14,7 @@ class StaticController < ApplicationController
 
   def announcement
   end
+
+  def contact
+  end
 end
