@@ -48,6 +48,7 @@ gem 'griddler-mandrill'
 gem 'bourbon'
 gem 'nested_form'
 gem 'font-awesome-rails'
+gem 'aws-sdk'
 
 gem 'rails_12factor', group: :production
 
