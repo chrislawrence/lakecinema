@@ -10,7 +10,7 @@ class Movie < ActiveRecord::Base
     },
     url: "/assets/posters/:id/:style/:basename.:extension",
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
-    default_url: ActionController::Base.helpers.asset_path('missing.png')
+    default_url: ':placeholder'
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
