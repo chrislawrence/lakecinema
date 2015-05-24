@@ -8,8 +8,6 @@ class Movie < ActiveRecord::Base
       normal: ["200x296#", :jpg],
       retina: ["400x592#", :jpg]
     },
-    url: "/assets/posters/:id/:style/:basename.:extension",
-    path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
     default_url: ':placeholder'
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
