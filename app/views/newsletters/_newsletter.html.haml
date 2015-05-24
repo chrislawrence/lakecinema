@@ -17,7 +17,7 @@
   .film
     .content
       .column-one
-        = image_tag asset_host_url(movie.poster.url(:normal)), class: 'poster'
+        = image_tag movie.poster.url(:normal), class: 'poster'
       .column-two
         %h3 #{movie.title} (#{movie.rating})
         .times
