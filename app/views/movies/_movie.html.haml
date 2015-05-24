@@ -1,7 +1,8 @@
 .movie
-  = image_tag movie.poster.url(:normal), 
-    class: 'poster', 
-    srcset: "#{movie.poster.url(:retina)} 2x"
+  %a{rel: 'leanModal', href: "#modal-#{movie.id}", class: 'movie-link'}
+    = image_tag movie.poster.url(:normal), 
+      class: 'poster', 
+      srcset: "#{movie.poster.url(:retina)} 2x"
 
   %h3 #{movie.title} (#{movie.rating})
 
@@ -12,3 +13,21 @@
 
   - if movie.extra
     %p #{sanitize(markdown(movie.extra))}
+
+
+  .modal{id: "modal-#{movie.id}"}
+    .modal-close #{fa_icon('times')}
+    .backdrop{style:"background-image: url('#{movie.backdrop.url(:normal)}')"}
+      .overlay
+        %h3{class: 'title'} #{movie.title} (#{movie.rating})
+    .movie-details.clearfix
+      .overview
+        %h4 Overview
+        = movie.overview
+
+      .credits
+        %h4 Director
+        %p #{movie.director}
+        %h4 Cast
+        %p #{movie.cast}
+      

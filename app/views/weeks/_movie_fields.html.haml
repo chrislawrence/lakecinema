@@ -8,7 +8,7 @@
     = f.label :rating
     = f.text_field :rating
 
-  .form-field.md.left.gr80.overview.collapsed
+  .form-field.left.gr80.overview.collapsed
     = f.label :overview, 'Synopsis'
     = f.text_area :overview
 
@@ -19,6 +19,7 @@
   .modal{id: "modal-#{f.options[:child_index]}"}
     = f.file_field :poster
     = f.text_field :poster_url, class: 'poster-url'
+    = f.text_field :backdrop_url, class: 'backdrop-url'
 
   .form-field.left.gr50.director.collapsed
     = f.label :director
@@ -49,9 +50,8 @@
 
   .collapsed
     .form-field.gr100.add-button
-      %p
-        = fa_icon 'plus'
-        Add Day
+      = fa_icon 'plus'
+      Add Day
     .form-field.gr100.day-list.hidden
       - %w{Monday Tuesday Wednesday Thursday Friday Saturday Sunday}.each do |day|
         = f.link_to_add day, :showings, :'data-predefined-day' => day, :'data-target' => "#showing_fields_#{f.options[:child_index]}", class: 'day-link day'

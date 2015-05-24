@@ -16,7 +16,7 @@ $ ->
     $(field).val(day)
   )
   
-  $("a[rel*=leanModal]").leanModal()
+  $("a[rel*=leanModal]").leanModal({closeButton: '.modal-close'})
 
   $('.date-field').datepicker({
     prevText: "<"

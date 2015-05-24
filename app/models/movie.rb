@@ -11,16 +11,14 @@ class Movie < ActiveRecord::Base
     url: "/assets/posters/:id/:style/:basename.:extension",
     path: ":rails_root/public/assets/posters/:id/:style/:basename.:extension",
     default_url: ActionController::Base.helpers.asset_path('missing.png')
+  has_attached_file :backdrop,
+    styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  before_save :download_poster
+  before_save :download_images
   before_save :reject_showings
 
   def tmdb_url
     "http://themoviedb.org/movie/#{self.tmdb_id}"
-  end
-
-  def backdrop_url
-    "http://image.tmdb.org/t/p/w780#{backdrop}"
   end
 
   def build_showings
@@ -44,12 +42,17 @@ class Movie < ActiveRecord::Base
 
   end
 
-  def download_poster
+  def download_images
     save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
+    save_backdrop_from_url(self.backdrop_url) if self.backdrop_url_changed? && !self.backdrop_url.blank?
   end
 
   def save_poster_from_url url
     self.poster = URI.parse(url)
+  end
+  
+  def save_backdrop_from_url url
+    self.backdrop = URI.parse(url)
   end
 
 end

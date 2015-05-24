@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425233309) do
+ActiveRecord::Schema.define(version: 20150524110027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,25 +25,30 @@ ActiveRecord::Schema.define(version: 20150425233309) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string   "title",               limit: 255
-    t.string   "rating",              limit: 255
-    t.string   "poster_url",          limit: 255
-    t.string   "week_id",             limit: 255
+    t.string   "title",                 limit: 255
+    t.string   "rating",                limit: 255
+    t.string   "poster_url",            limit: 255
+    t.string   "week_id",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "poster_file_name",    limit: 255
-    t.string   "poster_content_type", limit: 255
+    t.string   "poster_file_name",      limit: 255
+    t.string   "poster_content_type",   limit: 255
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
     t.text     "overview"
-    t.string   "extra",               limit: 255
+    t.string   "extra",                 limit: 255
     t.integer  "view_index"
     t.integer  "tmdb_id"
-    t.string   "backdrop",            limit: 255
-    t.string   "cast",                            array: true
-    t.string   "director",            limit: 255
+    t.string   "backdrop",              limit: 255
+    t.string   "cast",                              array: true
+    t.string   "director",              limit: 255
     t.integer  "newsletter_id"
     t.text     "after"
+    t.string   "backdrop_file_name"
+    t.string   "backdrop_content_type"
+    t.integer  "backdrop_file_size"
+    t.datetime "backdrop_updated_at"
+    t.string   "backdrop_url"
   end
 
   create_table "newsletters", force: :cascade do |t|

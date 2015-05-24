@@ -1,7 +1,7 @@
 class Search
   include ActiveModel::Serializers::JSON
   API_KEY = Rails.application.secrets.tmdb_key
-  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb, :backdrop_path, :director, :cast
+  attr_accessor :id, :title, :release_date, :overview, :poster_path, :poster_url, :poster_thumb, :backdrop_path, :backdrop_url, :director, :cast
 
   def attributes
     {'id' => @id,
@@ -10,7 +10,7 @@ class Search
       'poster_url' => @poster_url,
       'overview' => @overview,
       'poster_thumb' => @poster_thumb,
-      'backdrop_path' => @backdrop_path,
+      'backdrop_url' => @backdrop_url,
       'cast' => @cast,
       'director' => @director
     }
@@ -59,6 +59,9 @@ class Search
     "http://image.tmdb.org/t/p/w154#{@poster_path}"
   end
   
+  def backdrop_url
+    "http://image.tmdb.org/t/p/original#{@backdrop_path}"
+  end
 
   def self.get url, options={}
     response = RestClient.get("http://api.themoviedb.org/3/" + url, params: options.merge({api_key: API_KEY}))
