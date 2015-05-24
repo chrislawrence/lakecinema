@@ -17,3 +17,6 @@
 /config/database.yml
 /config/secrets.yml
 public/assets/posters
+
+# dotenv
+/.env

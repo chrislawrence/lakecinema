@@ -24,6 +24,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'sinatra'
   gem 'timecop'
+  gem 'dotenv-rails'
 end
 
 group :test do
