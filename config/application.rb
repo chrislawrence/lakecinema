@@ -15,8 +15,6 @@ module Lakecinema
     config.i18n.enforce_available_locales = false
     config.time_zone = 'Sydney'
     config.assets.paths << Rails.root.join("app", "assets", "fonts") 
-    
-    config.admin_emails = ['c@chrislawrence.co', 'boblakec@hotmail.com']
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
