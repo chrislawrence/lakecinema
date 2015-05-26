@@ -53,30 +53,9 @@ toggleWeekCategory = ->
     $('#announcement-week').show()
 
 collapseMovieFields = ->
-  $('.collapsed').hide()
-  timeoutID = []
-
-  checkDelay = (fields) ->
-    timeoutID[fields.attr('id')] = setTimeout( ->
-      # Do this if moving outside of the field group
-      unless $(fields).is(':hover')
-        fields.children('.collapsed').slideUp()
-    , 1 )
-
-  $('.movie-fields').each( ->
-    $(this).focusin ->
-      $(this).children('.collapsed').slideDown()
-      # cancel the action if still within form group
-      if timeoutID[$(this).attr('id')]
-        clearTimeout(timeoutID[$(this).attr('id')])
-        timeoutID[$(this).attr('id')] = null
-  )
-
-  $('.movie-fields').each( ->
-    $(this).focusout ->
-      # start action when moving out of a field
-      checkDelay($(this))
-  )
+  $('.movie-fields').focusin ->
+    $(this).children('.collapsed').slideDown()
+    $('.movie-fields').not(this).children('.collapsed').slideUp()
 
 toggleAddDay = (field) ->
   field.find('.add-button').click ->

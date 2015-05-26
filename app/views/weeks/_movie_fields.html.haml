@@ -39,20 +39,20 @@
       .showing-row.clearfix.draggable
         = s.hidden_field :position, value: s.object.position, class: 'position-field'
 
-        .form-field.left.gr30
+        .form-field.left.gr30.collapsed
           = s.label :day
-          = s.text_field :day, readonly: true, class: 'day-field'
-          = s.link_to_remove fa_icon('minus-square'), class: 'tooltip'
+          = s.text_field :day, readonly: true, class: 'day-field', tabindex: -1
+          = s.link_to_remove fa_icon('minus-square'), class: 'tooltip', tabindex: -1  
 
-        .form-field.right.gr70
+        .form-field.right.gr70.collapsed
           = s.label :times
           = s.text_field :times
 
-  .collapsed
-    .form-field.gr100.add-button
+  
+    .form-field.gr100.add-button.collapsed
       = fa_icon 'plus'
       Add Day
-    .form-field.gr100.day-list.hidden
+    .form-field.gr100.day-list.hidden.collapsed
       - %w{Monday Tuesday Wednesday Thursday Friday Saturday Sunday}.each do |day|
         = f.link_to_add day, :showings, :'data-predefined-day' => day, :'data-target' => "#showing_fields_#{f.options[:child_index]}", class: 'day-link day'
       %a.day-link.cancel
