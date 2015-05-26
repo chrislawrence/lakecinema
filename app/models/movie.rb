@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
+  process_in_background :poster
   before_save :download_images
   before_save :reject_showings
 
