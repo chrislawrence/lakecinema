@@ -1,1 +1,1 @@
-resque: env TERM_CHILD=1 COUNT=2 bundle exec rake resque:workers QUEUE='*' -c='./.resque'
+resque: env TERM_CHILD=1 bundle exec rake resque:work QUEUE='*' 
