@@ -50,7 +50,6 @@ gem 'nested_form'
 gem 'font-awesome-rails'
 gem 'aws-sdk', '< 2.0'
 gem 'resque', '~> 1.22.0'
-gem 'resque-web', require: 'resque_web'
 
 gem 'rails_12factor', group: :production
 
