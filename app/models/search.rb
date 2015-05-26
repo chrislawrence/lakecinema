@@ -52,15 +52,21 @@ class Search
   end
 
   def poster_url
-    "http://image.tmdb.org/t/p/original#{@poster_path}"
+    if @poster_path
+      "http://image.tmdb.org/t/p/original#{@poster_path}"
+    end
   end
 
   def poster_thumb
-    "http://image.tmdb.org/t/p/w154#{@poster_path}"
+    if @poster_path
+      "http://image.tmdb.org/t/p/w154#{@poster_path}"
+    end
   end
   
   def backdrop_url
+    if @backdrop_path
     "http://image.tmdb.org/t/p/original#{@backdrop_path}"
+    end
   end
 
   def self.get url, options={}
