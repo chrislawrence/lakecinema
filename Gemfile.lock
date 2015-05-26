@@ -105,11 +105,6 @@ GEM
     formatador (0.2.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
-    griddler (1.1.1)
-      htmlentities
-      rails (>= 3.2.0)
-    griddler-mandrill (1.0.2)
-      griddler
     guard (2.12.5)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -137,7 +132,6 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    htmlentities (4.3.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     http_parser.rb (0.6.0)
@@ -331,8 +325,6 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   font-awesome-rails
-  griddler
-  griddler-mandrill
   guard
   guard-livereload
   haml-rails
