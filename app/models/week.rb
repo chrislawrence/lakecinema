@@ -4,7 +4,7 @@ class Week < ActiveRecord::Base
   validates :end_date, presence: true
   before_save :generate_title
 
-  has_many :movies, -> {order "view_index ASC"}, dependent: :destroy
+  has_many :movies, dependent: :destroy
   accepts_nested_attributes_for :movies, reject_if: proc {|a| a['title'].blank?}
 
   has_one :holiday, dependent: :destroy
