@@ -8,6 +8,7 @@ $ ->
     toggleAddDay($(document))
     makeDaysSortable()
     $("a[rel*=leanModal]").leanModal()
+    setMovieOrder()
   )
 
   $(document).on('nested:fieldAdded:showings', (event) ->
@@ -70,3 +71,8 @@ makeDaysSortable = ->
       $(this).children().each ->
         $(this).find('.position-field').val($(this).index())
   })
+
+setMovieOrder = ->
+  $('.movie-fields').each ->
+    index = $('.movie-fields').index(this)
+    $(this).children('.index-field').val(index)
