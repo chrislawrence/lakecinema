@@ -5,10 +5,7 @@ class ProgrammeEditor
       newsletter = week.newsletter
       newsletter.set_content(week.start_date, week.end_date, week.movies)
       newsletter.save
-      Thread.new do
-        newsletter.send_to_mailchimp
-        ActiveRecord::Base.connection.close
-      end
+      Resque.enqueue(NewsletterSender, newsletter.id)
     end
   end
 

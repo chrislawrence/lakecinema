@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524110027) do
+ActiveRecord::Schema.define(version: 20150526010022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150524110027) do
     t.integer  "backdrop_file_size"
     t.datetime "backdrop_updated_at"
     t.string   "backdrop_url"
+    t.boolean  "poster_processing"
   end
 
   create_table "newsletters", force: :cascade do |t|

@@ -12,6 +12,7 @@ class Movie < ActiveRecord::Base
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
+  process_in_background :poster
   before_save :download_images
   before_save :reject_showings
 
@@ -31,6 +32,12 @@ class Movie < ActiveRecord::Base
     Movie.new(showings: [Showing.new(day: 'Friday'), Showing.new(day: 'Saturday'), Showing.new(day: 'Sunday')])
   end
 
+  def download_images
+    Rails.logger.debug("Processing posters in background...")
+    save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
+    save_backdrop_from_url(self.backdrop_url) if self.backdrop_url_changed? && !self.backdrop_url.blank?
+  end
+
   private
 
   def reject_showings
@@ -40,17 +47,17 @@ class Movie < ActiveRecord::Base
 
   end
 
-  def download_images
-    save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
-    save_backdrop_from_url(self.backdrop_url) if self.backdrop_url_changed? && !self.backdrop_url.blank?
-  end
-
   def save_poster_from_url url
     self.poster = URI.parse(url)
   end
   
   def save_backdrop_from_url url
     self.backdrop = URI.parse(url)
+  end
+
+  def schedule_images
+    Rails.logger.debug("Downloading posters for movie #{self.id}")
+    Resque.enqueue(PosterDownloader, self.id)
   end
 
 end
