@@ -1,0 +1,17 @@
+.flash {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  padding: 2em 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.flash.notice {
+  background: $green;
+}
+
+.flash.alert {
+  background: $red;
+}

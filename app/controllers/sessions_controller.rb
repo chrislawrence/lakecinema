@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :authorise
+  layout :false
 
   def new
   end

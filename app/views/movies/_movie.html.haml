@@ -26,9 +26,11 @@
         = movie.overview
 
       .credits
-        %h4 Director
-        %p #{movie.director}
-        %h4 Cast
-        - movie.cast.each do |actor|
-          %li{class: 'cast'} #{actor}
+        - if movie.director.present?
+          %h4 Director
+          %p #{movie.director}
+        - if movie.cast.present?
+          %h4 Cast
+          - movie.cast.each do |actor| 
+            %li{class: 'cast'} #{actor}
       
