@@ -12,8 +12,7 @@ class Movie < ActiveRecord::Base
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  process_in_background :poster
-  before_save :download_images
+  before_save :download_images_later
   before_save :reject_showings
 
   def tmdb_url
@@ -30,6 +29,10 @@ class Movie < ActiveRecord::Base
 
   def self.default
     Movie.new(showings: [Showing.new(day: 'Friday'), Showing.new(day: 'Saturday'), Showing.new(day: 'Sunday')])
+  end
+
+  def download_images_later
+    Resque.enqueue(PosterDownloader,self.id)
   end
 
   def download_images
