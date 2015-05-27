@@ -25,8 +25,8 @@
     background: #000;
   }
 
-.movie:first-of-type:not(:only-of-type) { float: left; }
-.movie:last-of-type:not(:only-of-type) { float: right; }
+.movie:nth-child(even):not(:only-of-type) { float: left; }
+.movie:nth-child(odd):not(:only-of-type) { float: right; }
 
 /* Holidays */
 
