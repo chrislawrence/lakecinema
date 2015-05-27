@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   belongs_to :week, touch: true
   belongs_to :newsletter 
-  has_many :showings, dependent: :destroy
+  has_many :showings,-> {order(position: :asc) }, dependent: :destroy
   accepts_nested_attributes_for :showings, reject_if: proc {|a| a['times'].blank?}, allow_destroy: true
   has_attached_file :poster, 
     styles: {
@@ -22,9 +22,9 @@ class Movie < ActiveRecord::Base
 
   def build_showings
     if self.showings.count == 0
-      self.showings.build(day: 'Friday')
-      self.showings.build(day: 'Saturday')
-      self.showings.build(day: 'Sunday')
+      self.showings.build(day: 'Friday', position: 0)
+      self.showings.build(day: 'Saturday', position: 1)
+      self.showings.build(day: 'Sunday', position: 2)
     end
   end
 
@@ -33,12 +33,24 @@ class Movie < ActiveRecord::Base
   end
 
   def download_images
-    Rails.logger.debug("Processing posters in background...")
-    save_poster_from_url(self.poster_url) if self.poster_url_changed? && !self.poster_url.blank?
-    save_backdrop_from_url(self.backdrop_url) if self.backdrop_url_changed? && !self.backdrop_url.blank?
+    begin
+      self.poster = parse_image(self.poster_url) if self.poster_url_changed?
+    rescue => error
+      Rails.logger.debug("Poster failed to save, #{error}")
+    end
+
+    begin
+      self.backdrop = parse_image(self.backdrop_url) if self.backdrop_url_changed?
+    rescue => error
+      Rails.logger.debug("Backdrop failed to save, #{error}")
+    end
   end
 
   private
+
+  def parse_image url
+    URI.parse(url) unless url.blank?
+  end
 
   def reject_showings
     self.showings.each do |s|

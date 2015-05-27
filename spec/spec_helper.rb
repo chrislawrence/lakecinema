@@ -19,6 +19,7 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:any, /api.themoviedb.org/).to_rack(FakeTmdb)
     stub_request(:any, /us2.api.mailchimp.com/).to_rack(FakeMailchimp)
+    stub_request(:get, "http://no-image").to_return(status: 501)
   end
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

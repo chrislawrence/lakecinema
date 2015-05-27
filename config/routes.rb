@@ -17,8 +17,6 @@ Lakecinema::Application.routes.draw do
 
   root to: 'static#index'
 
-  mount_griddler
-
   controller :static do
     get :index
     get :about
