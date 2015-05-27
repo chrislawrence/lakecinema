@@ -8,6 +8,15 @@
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 
+@media(max-width: 800px) {
+  .modal { 
+    width: 100%;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+  }
+}
+
 .modal-close {
   position: absolute;
   top: 0;

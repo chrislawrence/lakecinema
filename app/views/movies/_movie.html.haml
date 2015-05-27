@@ -1,10 +1,10 @@
 .movie
   %a{rel: 'leanModal', href: "#modal-#{movie.id}", class: 'movie-link'}
-    = image_tag movie.poster.url(:normal), 
-      class: 'poster', 
-      srcset: "#{movie.poster.url(:retina)} 2x"
+    .poster
+      = image_tag movie.poster.url(:normal), 
+        srcset: "#{movie.poster.url(:retina)} 2x"
 
-  %h3 #{movie.title} (#{movie.rating})
+    %h3 #{movie.title} (#{movie.rating})
 
   - movie.showings.each do |s|
     %p

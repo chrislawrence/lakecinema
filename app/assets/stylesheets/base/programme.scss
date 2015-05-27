@@ -5,6 +5,7 @@
 
 .movie {
   display: inline-block;
+  position: relative;
   width: 50%;
   p {
     margin: 0;
@@ -12,21 +13,41 @@
 }
 
 .poster { 
-  border: 3px solid #fff; 
-  width: 200px;
   margin-bottom: 0.8em;
-  position: relative;
-}
-.poster:before {
-    content: '...';
-    position: absolute;
-    top: 0;
-    left: 0;
+  display: block;
+  img {
+    max-width: 200px;
     width: 100%;
-    height: 100%;
-    z-index: 50;
-    background: #000;
+    border: 3px solid #fff; 
   }
+  &:hover {
+    opacity: 0.3;
+  }
+}
+
+.movie-link:hover .poster {
+  transition: all 0.3s;
+  opacity: 0.3;
+  &:after {
+    content: 'More info';
+    display: block;
+    color: $blue;
+    z-index: 5000;
+    position:absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9em;
+  }
+
+}
+
+.movie-link{
+  color: #333;
+  text-decoration: none;
+  &:hover h3 { color: $blue;}
+}
 
 .movie:nth-child(even):not(:only-of-type) { float: left; }
 .movie:nth-child(odd):not(:only-of-type) { float: right; }
@@ -70,7 +91,4 @@ table.holidays {
 @media(max-width: 500px) {
   table.holidays { font-size: 0.7em; }
 }
-
-/* Movie Modals */
-
 
