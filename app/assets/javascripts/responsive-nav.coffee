@@ -1,6 +1,6 @@
 $ ->
-  $('.nav-toggle').click ->
-    if $('.nav-list').is(':visible')
-      $('.nav-list').slideUp()
+  $('.hamburger').click ->
+    if $('.nav').is(':visible')
+      $('.nav').slideUp()
     else
-      $('.nav-list').slideDown()
+      $('.nav').slideDown()

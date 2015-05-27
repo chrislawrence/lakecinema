@@ -4,21 +4,21 @@ header {
   @include radial-gradient($blue 40%, adjust_hue($blue, -15));
   color: $light-blue;
   margin-bottom: 3em;
-  padding: 0.5em 0;
-  text-align: justify;
 }
 
 header.small { background: $blue;}
 
 .nav { margin-bottom: 3.5em; }
 
-.nav-list {
-	list-style: none;
-  float: right;
-  margin: 1em 0;
+.nav {
+  list-style: none;
+  margin: 1em 0 3em;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 	li {
-		display: inline-block;
-    margin-left: 1em;
+    display: inline-block;
+    line-height: 42px; /* for logo */
 	}
 	
 	a {
@@ -31,10 +31,6 @@ header.small { background: $blue;}
 
 header.small .nav-list { font-size: 0.9em; }
 
-.logo { 
-  display: inline-block;
-  margin-top: 8px;
-}
 
 .subtitle {
   font-family: $slab-serif;
@@ -67,4 +63,40 @@ header.small .nav-list { font-size: 0.9em; }
     font-size: 1.5em;
     color: $light-blue + 50;
   }
+}
+
+.hamburger {
+  font-size: 2em;
+  color: #fff;
+  display: none;
+  width: 100%;
+  text-align: right;
+  margin: 0 0 1.5em;
+  padding: 0;
+  line-height: 0;
+}
+
+
+@media(max-width: 700px) {
+  li.logo { display: none; }
+}
+
+@media(max-width: 500px) {
+  .hamburger { display: block; }
+  .nav { 
+    display: none;
+    margin: 0;
+    li.logo {display: none; }
+    li {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: $yellow;
+      border-bottom: 1px solid $yellow - 20;
+      a { color: #555;}
+
+    }
+  }
+
+
 }

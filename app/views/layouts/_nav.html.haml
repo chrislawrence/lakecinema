@@ -1,9 +1,13 @@
 - if request.path.include?('/admin')
   = render 'layouts/admin_nav'
 - else
-  %ul.nav-list
+  %ul.nav
+    %li{class: 'logo'} #{image_tag 'logo-50x42.svg', width: '50'}
     %li #{link_to 'Session Times', root_path}
     %li #{link_to 'About', about_path}
     %li #{link_to 'Contact', contact_path}
     %li #{link_to 'Newsletter', subscribe_path}
     %li #{link_to 'Facebook', "http://facebook.com/lakecinema", target: :blank}
+
+.hamburger
+  = fa_icon 'bars'

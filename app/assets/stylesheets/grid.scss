@@ -43,3 +43,11 @@ main {
 
 .left { float: left; }
 .right {float: right; }
+
+@media(max-width: 900px) {
+  .content { 
+    width: 96%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
