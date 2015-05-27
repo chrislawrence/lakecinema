@@ -29,5 +29,6 @@
         %h4 Director
         %p #{movie.director}
         %h4 Cast
-        %p #{movie.cast}
+        - movie.cast.each do |actor|
+          %li{class: 'cast'} #{actor}
       

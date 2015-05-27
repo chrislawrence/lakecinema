@@ -59,6 +59,10 @@ table.holidays {
 	
 }
 
+.cast {
+  list-style: none;
+}
+
 @media(max-width: 500px) {
   table.holidays { font-size: 0.7em; }
 }
