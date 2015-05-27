@@ -1,7 +1,10 @@
 body {
   font-family: $sans-serif;
   background: $light-grey;
-  color: #565656;
+  color: $text-grey;
   -webkit-font-smoothing: antialiased;
 }
 
+a {
+  transition: all 0.3s;
+}

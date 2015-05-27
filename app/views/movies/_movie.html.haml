@@ -3,6 +3,8 @@
     .poster
       = image_tag movie.poster.url(:normal), 
         srcset: "#{movie.poster.url(:retina)} 2x"
+      .more
+        #{fa_icon 'info-circle'}
 
     %h3 #{movie.title} (#{movie.rating})
 

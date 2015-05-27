@@ -7,46 +7,52 @@
   display: inline-block;
   position: relative;
   width: 50%;
+
   p {
     margin: 0;
   }
 }
 
 .poster { 
-  margin-bottom: 0.8em;
+  margin: 0 auto 0.8em auto;
   display: block;
+  position: relative;
+  max-width: 200px;
+
   img {
-    max-width: 200px;
     width: 100%;
     border: 3px solid #fff; 
-  }
-  &:hover {
-    opacity: 0.3;
+    box-sizing: border-box;
   }
 }
 
-.movie-link:hover .poster {
+.poster .more {
   transition: all 0.3s;
-  opacity: 0.3;
-  &:after {
-    content: 'More info';
-    display: block;
-    color: $blue;
-    z-index: 5000;
-    position:absolute;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 0.9em;
-  }
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.2);
+  padding-top: 50%;
 
+  font-size: 3em;
+  color: #fff;
 }
 
-.movie-link{
-  color: #333;
+.movie-link {
+  color: $text-grey;
   text-decoration: none;
-  &:hover h3 { color: $blue;}
+
+  &:hover {
+    color: $text-grey + 40;
+    .more { 
+      visibility: visible; 
+      opacity: 1;
+    }
+  }
 }
 
 .movie:nth-child(even):not(:only-of-type) { float: left; }
