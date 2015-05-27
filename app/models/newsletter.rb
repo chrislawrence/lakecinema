@@ -35,9 +35,9 @@ class Newsletter < ActiveRecord::Base
   end
 
   def send_to_mailchimp
-    sender = Chimp.new(title: self.subject, body: self.sendable, campaign_id: self.campaign_id, send_time: self.send_time)
-    sender.send
-    self.update(campaign_id: sender.campaign_id)
+    #sender = Chimp.new(title: self.subject, body: self.sendable, campaign_id: self.campaign_id, send_time: self.send_time)
+    #sender.send
+    #self.update(campaign_id: sender.campaign_id)
   end
 
   def remove_from_mailchimp

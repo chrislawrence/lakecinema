@@ -39,4 +39,9 @@ describe Movie do
     expect{movie.destroy}.to change{Showing.count}
   end
 
+  it 'casts a string to array for cast' do
+    movie = Movie.create(cast: 'Bill,Ted')
+    expect(movie.cast).to eq(['Bill', 'Ted'])
+  end
+
 end

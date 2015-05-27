@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20150526010022) do
     t.integer  "view_index"
     t.integer  "tmdb_id"
     t.string   "backdrop",              limit: 255
-    t.string   "cast",                              array: true
     t.string   "director",              limit: 255
     t.integer  "newsletter_id"
     t.text     "after"
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150526010022) do
     t.datetime "backdrop_updated_at"
     t.string   "backdrop_url"
     t.boolean  "poster_processing"
+    t.string   "cast",                              array: true
   end
 
   create_table "newsletters", force: :cascade do |t|

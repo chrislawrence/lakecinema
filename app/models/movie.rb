@@ -12,7 +12,7 @@ class Movie < ActiveRecord::Base
   has_attached_file :backdrop,
     styles: { normal: ['650x', :jpg] }
   validates_attachment_content_type :poster, content_type: ["image/jpg", "image/jpeg", "image/png"]
-  before_save :download_images_later
+  after_save :download_images_later
   before_save :reject_showings
 
   def tmdb_url
@@ -32,21 +32,29 @@ class Movie < ActiveRecord::Base
   end
 
   def download_images_later
+    Rails.logger.debug('queing images')
     Resque.enqueue(PosterDownloader,self.id)
   end
 
   def download_images
+    Rails.logger.debug 'Donwnloading images now...'
     begin
-      self.poster = parse_image(self.poster_url) if self.poster_url_changed?
+      self.poster = parse_image(self.poster_url) 
     rescue => error
       Rails.logger.debug("Poster failed to save, #{error}")
     end
 
     begin
-      self.backdrop = parse_image(self.backdrop_url) if self.backdrop_url_changed?
+      self.backdrop = parse_image(self.backdrop_url) 
     rescue => error
       Rails.logger.debug("Backdrop failed to save, #{error}")
     end
+
+    self.save
+  end
+
+  def cast=(actors)
+    write_attribute(:cast, actors.split(','))
   end
 
   private
