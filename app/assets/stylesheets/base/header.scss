@@ -15,11 +15,17 @@ header.small {
 }
 
 .logo-small {
-  float: left;
+  display: inline-block;
   padding: 2em 0;
+  float: left;
 }
 
-.big-header { clear: both; }
+.big-header { 
+  clear: both; 
+}
+
+
+
 
 .nav {
   list-style: none;
@@ -28,7 +34,6 @@ header.small {
   padding: 0;
   @include display(flex);
   @include justify-content(space-between);
-
 	li {
     display: inline-block;
     line-height: 42px; /* for logo */
@@ -42,7 +47,12 @@ header.small {
 	}
 }
 
-header.small .nav-list { font-size: 0.9em; }
+header.small .nav {
+  float: right;
+  width: 60%;
+  margin: 0;
+  padding: 2em 0;
+}
 
 
 .subtitle {
@@ -109,12 +119,22 @@ header.small .nav-list { font-size: 0.9em; }
 
 @media(max-width: 700px) {
   li.logo { display: none; }
+  
 }
 
-@media(max-width: 500px) {
+@media(max-width: 750px) {
+  .logo-small h1 { display: none; }
+  header.small .nav {width: 80%}
+}
+
+
+@media(max-width: 580px) {
+  .logo-small h1 {display: inline; }
   .hamburger { display: block; }
+  .header.small.nav { width: 100%; }
   .nav { 
     display: none;
+    float: none;
     margin: 0;
     li.logo {display: none; }
     li {
