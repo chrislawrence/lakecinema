@@ -45,3 +45,9 @@ a {
   text-decoration: underline;
   &:hover { color: $light-blue; }
 }
+
+@media(max-width: 500px) {
+  body {
+    font-size: 0.9em;
+  }
+}

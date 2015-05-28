@@ -58,6 +58,12 @@
 .movie:nth-child(even):not(:only-of-type) { float: left; }
 .movie:nth-child(odd):not(:only-of-type) { float: right; }
 
+@media(max-width: 500px) {
+  .movie { width: 100%; }
+
+}
+
+
 /* Holidays */
 
 .holiday-week {

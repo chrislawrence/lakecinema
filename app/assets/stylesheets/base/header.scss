@@ -4,18 +4,31 @@ header {
   @include radial-gradient($blue 40%, adjust_hue($blue, -15));
   color: $light-blue;
   margin-bottom: 3em;
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
-header.small { background: $blue;}
+header.small { 
+  background: $blue;
+}
 
-.nav { margin-bottom: 3.5em; }
+.logo-small {
+  float: left;
+  padding: 2em 0;
+}
+
+.big-header { clear: both; }
 
 .nav {
   list-style: none;
+  clear: both;
   margin: 1em 0 3em;
   padding: 0;
-  display: flex;
-  justify-content: space-between;
+  @include display(flex);
+  @include justify-content(space-between);
+
 	li {
     display: inline-block;
     line-height: 42px; /* for logo */
@@ -65,14 +78,31 @@ header.small .nav-list { font-size: 0.9em; }
   }
 }
 
+@media(max-width: 500px) {
+  .subtitle {
+    margin-bottom: 1em;
+    font-size: 1.2em;
+  }
+  .details {
+    margin: 0;
+    li { 
+      width: 100%;
+      margin: 0 0 1em
+    }
+    .small, .big {
+      margin: 0 0 1em; 
+      line-height: 1;
+    }
+  }
+}
+
 .hamburger {
   font-size: 2em;
   color: #fff;
   display: none;
-  width: 100%;
   text-align: right;
-  margin: 0 0 1.5em;
-  padding: 0;
+  float: right;
+  padding: 1em 0;
   line-height: 0;
 }
 

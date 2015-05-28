@@ -188,6 +188,18 @@ form.inline input {
   margin-left: 2em;
 }
 
+@media(max-width: 500px) {
+  form.inline {
+    input { 
+      width: 60%; 
+      margin: 0;
+    }
+    .btn { 
+      width: 30%; 
+      margin: 0;
+    }
+  }
+}
 
 // Buttons
 

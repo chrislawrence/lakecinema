@@ -4,10 +4,6 @@
   %ul.nav
     - if request.path == '/'
       %li{class: 'logo'} #{image_tag 'logo-50x42.svg', width: '50'}
-    - else
-      = link_to header_link_path do
-        = image_tag 'logo-40x34.svg', width: '40', class: 'logo'
-        %h1 Lake Cinema
 
     %li #{link_to 'Session Times', root_path}
     %li #{link_to 'About', about_path}
