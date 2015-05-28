@@ -44,4 +44,9 @@ describe Movie do
     expect(movie.cast).to eq(['Bill', 'Ted'])
   end
 
+  it 'removes weird array stuff from cast string' do
+    movie = Movie.create(cast: "{\"Bill\"},{\"Ted\"}")
+    expect(movie.cast).to eq(['Bill', 'Ted'])
+  end
+
 end

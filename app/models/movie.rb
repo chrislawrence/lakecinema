@@ -51,9 +51,8 @@ class Movie < ActiveRecord::Base
   end
 
   def cast=(actors)
-    if actors[0] != '{'
-      write_attribute(:cast, actors.split(','))
-    end
+    actors = actors.gsub(/\"|\{|\}|\\/, "")
+    write_attribute(:cast, actors.split(','))
   end
 
   private
