@@ -12,9 +12,6 @@ class StaticController < ApplicationController
   def subscribe
   end
 
-  def announcement
-  end
-
   def contact
   end
 end

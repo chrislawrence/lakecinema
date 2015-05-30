@@ -1,8 +1,4 @@
-require 'resque/server'
-
 Lakecinema::Application.routes.draw do
-
-  mount Resque::Server => '/resque'
 
   scope '/admin' do
     get '/' => 'dashboard#index', as: 'admin'
@@ -22,7 +18,6 @@ Lakecinema::Application.routes.draw do
     get :index
     get :about
     get :subscribe
-    get :announcement
     get :contact
   end
 end
