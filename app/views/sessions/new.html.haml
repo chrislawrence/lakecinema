@@ -3,9 +3,13 @@
 %head
   = stylesheet_link_tag 'application'
 %body.login
+  - flash.each do |name, msg|
+    %div{class: "flash #{name}"}
+      .content #{msg}
   .body-wrap
     .inner
       = form_tag login_url, class: 'login-form' do
         = text_field_tag :email, nil, placeholder: 'Email', type: 'email'
         = password_field_tag :password, nil, placeholder: 'Password'
         = submit_tag "Login", class: 'btn btn-primary'
+    = javascript_include_tag 'application'

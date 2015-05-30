@@ -7,13 +7,13 @@ feature "Admin edits a programme" do
 
   scenario "with different times" do
     create(:week_with_movies_and_showings)
-    visit dashboard_url
-    within('.admin_week_list') do
-      click_link 'Edit'
-    end
-    fill_in "Sat", with: "10pm"
+    visit admin_path
+    first('.controls').click_link('Edit')
+
+    
+    fill_in "Saturday", with: "10pm"
     click_button 'Save'
-    expect(page).to have_content('FRI: 5pm SAT: 10pm')
+    expect(page).to have_content('Friday: 5pm Saturday: 10pm')
   end
 
   scenario "with different movie" do
