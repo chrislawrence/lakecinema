@@ -14,6 +14,7 @@ Lakecinema::Application.routes.draw do
   get :logout, to: 'sessions#destroy', action: :destroy
   
   resources :searches, only: [:index, :show]
+  resources :movies, only: :show
 
   root to: 'static#index'
 

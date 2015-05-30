@@ -7,7 +7,6 @@ $ ->
     collapseMovieFields()
     toggleAddDay($(document))
     makeDaysSortable()
-    $("a[rel*=leanModal]").leanModal()
     setMovieOrder()
   )
 
@@ -17,7 +16,6 @@ $ ->
     $(field).val(day)
   )
   
-  $("a[rel*=leanModal]").leanModal({closeButton: '.modal-close'})
 
   $('.date-field').datepicker({
     prevText: "<"
