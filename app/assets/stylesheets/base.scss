@@ -7,3 +7,9 @@ body {
 a {
   transition: all 0.3s;
 }
+
+/* Old IE Fixes */
+
+article, aside, figure, footer, header, hgroup, nav, section {
+    display: block;
+}

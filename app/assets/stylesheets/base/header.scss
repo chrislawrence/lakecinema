@@ -1,4 +1,4 @@
-header {
+.site-header {
   border-top: 8px solid $yellow;
   background: $blue;
   @include radial-gradient($blue 40%, adjust_hue($blue, -15));
@@ -10,7 +10,7 @@ header {
   }
 }
 
-header.small { 
+.site-header.small { 
   background: $blue;
 }
 
@@ -24,7 +24,7 @@ header.small {
   clear: both; 
 }
 
-
+.site-header a { text-decoration: none; }
 
 
 .nav {
@@ -47,7 +47,7 @@ header.small {
 	}
 }
 
-header.small .nav {
+.site-header.small .nav {
   float: right;
   width: 60%;
   margin: 0;
@@ -124,14 +124,14 @@ header.small .nav {
 
 @media(max-width: 750px) {
   .logo-small h1 { display: none; }
-  header.small .nav {width: 80%}
+  .site-header.small .nav {width: 80%}
 }
 
 
 @media(max-width: 580px) {
   .logo-small h1 {display: inline; }
   .hamburger { display: block; }
-  .header.small.nav { width: 100%; }
+  .site-header.small.nav { width: 100%; }
   .nav { 
     display: none;
     float: none;
