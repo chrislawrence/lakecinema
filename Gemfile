@@ -38,6 +38,7 @@ group :development do
   gem 'guard-livereload'
 end
 
+gem 'mailchimp-api'
 gem 'paperclip'
 gem 'delayed_paperclip'
 gem 'redcarpet'
