@@ -28,10 +28,10 @@
 
       .overview #{movie.overview}
 
-      - if movie.director
-        .credits
+      .credits
+        - if movie.director
           %p{class: 'type'} Director
           %p #{movie.director}
-      - if movie.cast.length > 0
-        %p{class: 'type'} Starring
-        %p #{movie.cast.to_sentence}
+        - if movie.cast.length > 0
+          %p{class: 'type'} Starring
+          %p #{movie.cast.to_sentence}
