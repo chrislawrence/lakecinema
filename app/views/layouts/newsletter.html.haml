@@ -1,0 +1,6 @@
+!!! html
+%head
+  %style
+    = Rails.application.assets.find_asset('newsletter').to_s
+%body
+  = yield

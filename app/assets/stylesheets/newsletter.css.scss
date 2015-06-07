@@ -1,0 +1,138 @@
+body {
+  font-family:'Open Sans', Helvetica, Arial, sans-serif;
+  background:#FCFDFF;
+  color:#565656;
+  text-align:center;
+}
+.content {
+  max-width:500px;
+  margin:0 auto;
+}
+a{
+  color:#334463;
+  text-decoration:underline;
+}
+a:hover{
+  color:#93A4C4;
+}
+p{
+  margin:0 0 1em 0;
+}
+.head{
+  color:#fff;
+  background-color:#334463;
+  padding-bottom:2em;
+}
+h1{
+  color:#fff;
+  font-size:2.4em;
+  margin:0;
+  padding-top:0.7em;
+}
+.preamble,#preamble{
+  padding:3em 0;
+  background:#EDF2FC;
+}
+.preamble p{
+  font-size:1.1em;
+}
+h2{
+  font-size:1.4em;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:#334463;
+  margin:0;
+  padding:0;
+}
+.preamble .date{
+  font-style:italic;
+  color:#888;
+}
+.film{
+  overflow:hidden;
+  position:relative;
+  border-bottom:1px solid #D3DAE8;
+  padding:1em 0;
+}
+.column-one,.column-two{
+  margin-top:2em;
+}
+.column-one{
+  width:35%;
+  float:left;
+}
+.column-one img{
+  width:100%;
+}
+.column-two{
+  width:60%;
+  float:right;
+  text-align:left;
+}
+.clear{
+  clear:both;
+}
+h3{
+  text-align:left;
+  font-weight:bold;
+  font-size:1.6em;
+  margin-top:0;
+}
+.times{
+  text-align:left;
+  font-size:1.2em;
+  line-height:1;
+  margin-bottom:2em;
+}
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+  width:100%;
+  text-align:left;
+}
+li{
+  margin-bottom:1.5em;
+}
+.credits{
+  color:#888;
+}
+.credits .type{
+  text-transform:uppercase;
+  font-weight:bold;
+  font-size:0.9em;
+  letter-spacing:0.3em;
+  margin-bottom:0.5em;
+}
+.overview{
+  clear:both;
+  margin:0 auto;
+  padding:1em 0;
+}
+footer{
+  background-color:#EDF2FC;
+  font-size:0.8em;
+  padding:2em 0;
+}
+@media only screen and (max-width: 500px){
+.content{
+  width:96% !important;
+}
+  }
+@media only screen and (max-width: 500px){
+.column-one,.column-two{
+  width:100% !important;
+  text-align:center !important;
+  margin:0 auto 1em auto !important;
+}
+
+}	@media only screen and (max-width: 500px){
+h3,ul,li{
+  text-align:center !important;
+}
+
+}	@media only screen and (max-width: 500px){
+.column-one img{
+  max-width:196px !important;
+}
+}
