@@ -12,17 +12,4 @@ class ProgrammeEditor
     end
   end
 
-  def self.send_to_mailchimp newsletter
-    Rails.logger.debug('Sending to mailchimp...')
-    campaign_id = Chimp.new(
-      title: newsletter.id, 
-      body: ApplicationController.new.render_to_string('newsletters/show', layout: false, locals: {newsletter: newsletter}),
-      campaign_id: newsletter.campaign_id, 
-      send_time: newsletter.send_time
-    ).send
-    newsletter.update_attribute(:campaign_id, campaign_id)
-
-
-  end
-
 end

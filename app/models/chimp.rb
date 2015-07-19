@@ -14,8 +14,10 @@ class Chimp
 
   def send 
     if !@campaign_id 
+      Rails.logger.debug("Mailchimp: Creating campaign...")
       self.create_campaign
     else
+      Rails.logger.debug("Mailchimp: Updating campaign...")
       self.update_campaign
     end
     @campaign_id
