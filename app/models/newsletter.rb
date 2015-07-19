@@ -35,6 +35,7 @@ class Newsletter < ActiveRecord::Base
   end
 
   def send_to_mailchimp
+    Rails.logger.debug("Creating sender for newsletter...")
     sender = Chimp.new(title: self.subject, body: self.sendable, campaign_id: self.campaign_id, send_time: self.send_time)
     sender.send
     self.update(campaign_id: sender.campaign_id)
