@@ -5,8 +5,6 @@ var title       =   '.modal-title',
     toolbar     =   'div.modal-footer',
     modal       =   '#ajax-modal';
 
-//i set the title through a helper function
-$(title).html('My Messages');
 //hides the modal and shows the ajax content
 $(content).html('<%= j render("modal") %>');
 $(modal).modal();
