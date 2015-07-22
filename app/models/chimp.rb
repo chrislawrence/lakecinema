@@ -63,6 +63,6 @@ class Chimp
   end
 
   def send_test
-    @sender.campaigns.send_test(@campaign_id, ['c@chrislawrence.co'], 'html')
+    @sender.campaigns.send_test(@campaign_id, ['admin@lakecinema.net.au'], 'html')
   end
 end
