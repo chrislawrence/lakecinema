@@ -7,6 +7,6 @@ module PhrasingHelper
   # end
 
   def can_edit_phrases?
-    User.find_by(token: cookies[:token])
+    User.find_by(token: cookies[:token]) && !request.path.include?('admin')
   end
 end
