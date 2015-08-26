@@ -3,16 +3,16 @@
     = render 'layouts/nav'
 
     .big-header
-      %h1 Lake Cinema
-      %p.subtitle The independent cinema in Boolaroo, New South Wales
+      %h1 #{phrase('header')}
+      %p.subtitle #{phrase('subtitle')}
       
       .details
         %li
           %p.small Phone
-          %p.big (02) 4958 5810
+          %p.big #{phrase('phone')}
         %li
           %p.small Address
-          %p.big 62 Main Road,<br />Boolaroo
+          %p.big #{phrase('address')}
         %li
           %p.small Cost
-          %p.big $7 Tickets
+          %p.big #{phrase('cost')}

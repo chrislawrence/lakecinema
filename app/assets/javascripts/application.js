@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require dropdown
 //= require bootstrap
+//= require phrasing
 //= require_tree .

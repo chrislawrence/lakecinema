@@ -48,6 +48,7 @@ gem 'nested_form'
 gem 'font-awesome-rails'
 gem 'aws-sdk', '< 2.0'
 gem 'resque'
+gem 'phrasing'
 
 gem 'rails_12factor', group: :production
 
