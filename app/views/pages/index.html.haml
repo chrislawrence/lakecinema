@@ -1,8 +1,0 @@
-%ul{class: 'page-list'}
-  - @pages.each do |page|
-    = link_to edit_page_path(page.id) do
-      %li
-        %h3 #{page.title}
-        %p #{page.content}
-
-
