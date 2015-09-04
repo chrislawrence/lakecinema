@@ -1,6 +1,6 @@
 %h2 Subscribe to Our Newsletter
 
-%p By subscribing to our newsletter, you will receive an email every week letting you know what is coming up at Lake Cinema for the weekend, as well as news and information. We will not share your information with anyone, and you can unsubscribe at any time.
+%p #{phrase('subscribe')}
 
 = form_tag 'http://lakecinema.us2.list-manage.com/subscribe/post?u=606cdcbda38c75409630739de&amp;id=36d417399b', class: 'inline' do
   = text_field_tag :EMAIL, nil, type: :email, placeholder: 'Email address'
