@@ -15,12 +15,19 @@
 
   .form-field.right.gr20.poster-field.collapsed
     = image_tag f.object.poster.url(:normal)
-    %a{rel: 'leanModal', href: "#modal-#{f.options[:child_index]}"} Edit
+    %a{'data-toggle': 'modal', 'data-target': "#modal-#{f.options[:child_index]}"} Edit
 
   .modal{id: "modal-#{f.options[:child_index]}"}
-    = f.file_field :poster
-    = f.text_field :poster_url, class: 'poster-url'
-    = f.text_field :backdrop_url, class: 'backdrop-url'
+    .modal-dialog
+      .modal-content
+        %h3 Poster
+        = f.label :poster, "Upload from computer"
+        = f.file_field :poster
+        = f.label :poster_url, "Upload from URL"
+        = f.text_field :poster_url, class: 'poster-url'
+        %h3 Backdrop
+        = f.label :backdrop_url, "Upload from URL"
+        = f.text_field :backdrop_url, class: 'backdrop-url'
 
   .form-field.left.gr50.director.collapsed
     = f.label :director
