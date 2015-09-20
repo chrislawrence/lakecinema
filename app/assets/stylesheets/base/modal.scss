@@ -1,6 +1,14 @@
 .modal-open {
   overflow: hidden;
 }
+.modal-backdrop {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
 .modal {
   display: none;
   overflow: hidden;
@@ -13,7 +21,7 @@
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
-.modal.fade .modal-dialog {
+.modal.fade .modal-inner{
   -webkit-transform: translate(0, -25%);
   -ms-transform: translate(0, -25%);
   -o-transform: translate(0, -25%);
@@ -22,7 +30,7 @@
   -o-transition: -o-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
 }
-.modal.in .modal-dialog {
+.modal.in .modal-inner{
   -webkit-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   -o-transform: translate(0, 0);
@@ -32,37 +40,22 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
-.modal-dialog {
+.modal-inner{
   position: relative;
   width: 100%;
   max-width: 800px;
-  margin: 10px auto;
+  margin: 2em auto;
 }
+
 .modal-content {
   background: #fff;
   position: relative;
   box-shadow: 0 3px 9px rgba(0,0,0,0.3);
   outline: 0;
 }
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000000;
-}
-.modal-backdrop.fade {
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-.modal-backdrop.in {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-}
+
 .modal-body {
-  position: relative;
+  padding: 2em;
 }
 
 .modal-scrollbar-measure {
@@ -74,9 +67,11 @@
 }
 
 /* MY styles */
+
 .close {
   position: absolute;
   top: 0;
+  right:0;
   font-size: 1.2em;
   line-height: 50px;
   background: #222;
@@ -88,7 +83,7 @@
 }
 
 
-.backdrop {
+.modal-header{
   background-size: cover;
   background-color: #888;
   height: 20em;
@@ -112,7 +107,7 @@
   }
 }
 
-.title {
+.modal.movie-title {
   text-align: center;
   color: #fff;
   font-size: 1.8em;
@@ -124,8 +119,5 @@
 }
 
 .movie-details {
-  padding: 2em;
   text-align: left;
 }
-.modal .overview { width: 70%; float: left; margin-bottom: 3em;}
-.modal .credits { width: 25%; float: right; margin-bottom: 3em;}

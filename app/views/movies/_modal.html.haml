@@ -1,12 +1,13 @@
-.backdrop{style:"background-image: url('#{@movie.backdrop.url(:normal)}')"}
+.modal-header{style:"background-image: url('#{@movie.backdrop.url(:normal)}')"}
   .overlay
-    %h3{class: 'title'} #{@movie.title} (#{@movie.rating})
+    %h3{class: 'movie-title'} #{@movie.title} (#{@movie.rating})
+.modal-body
   .movie-details.clearfix
-    .overview
+    .gr70.left
       %h4 Overview
       = @movie.overview
 
-    .credits
+    .gr20.right
       - if @movie.director.present?
         %h4 Director
         %p #{@movie.director}
@@ -14,4 +15,4 @@
         %h4 Cast
         - @movie.cast.each do |actor| 
           %li{class: 'cast'} #{actor}
-  
+

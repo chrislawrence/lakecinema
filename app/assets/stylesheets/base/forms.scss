@@ -303,3 +303,11 @@ form.inline input {
 .url-input {
   color: #333;
 }
+
+// Modal form
+
+.modal input { width: 100%; }
+.modal-field {
+  border-bottom: 1px solid $dark-grey;
+  padding: 2.5em 0;
+}
