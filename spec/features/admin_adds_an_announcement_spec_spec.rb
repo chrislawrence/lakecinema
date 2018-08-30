@@ -1,9 +1,12 @@
 require 'spec_helper'
 
-describe "Admin adds an announcement spec" do
-  it 'visits the admin page and adds an announcement' do
+feature "Admin adds an announcement spec" do
+  before do
     login
-    click_link 'New week'
+  end
+  scenario 'visits the admin page and adds an announcement' do
+    save_and_open_page
+    click_link 'New Programme'
     fill_in 'Start date', with: '2001-01-01'
     fill_in 'End date', with: '2001-01-02'
     choose 'Announcement'

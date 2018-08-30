@@ -35,22 +35,23 @@ ActiveRecord::Schema.define(version: 20150826110860) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.string   "title",                 limit: 255
-    t.string   "rating",                limit: 255
-    t.string   "poster_url",            limit: 255
-    t.string   "week_id",               limit: 255
+    t.string   "title"
+    t.string   "rating"
+    t.string   "poster_url"
+    t.string   "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "poster_file_name",      limit: 255
-    t.string   "poster_content_type",   limit: 255
+    t.string   "poster_file_name"
+    t.string   "poster_content_type"
     t.integer  "poster_file_size"
     t.datetime "poster_updated_at"
     t.text     "overview"
-    t.string   "extra",                 limit: 255
+    t.string   "extra"
     t.integer  "view_index"
     t.integer  "tmdb_id"
-    t.string   "backdrop",              limit: 255
-    t.string   "director",              limit: 255
+    t.string   "backdrop"
+    t.string   "cast",                  array: true
+    t.string   "director"
     t.integer  "newsletter_id"
     t.text     "after"
     t.string   "backdrop_file_name"
@@ -59,28 +60,19 @@ ActiveRecord::Schema.define(version: 20150826110860) do
     t.datetime "backdrop_updated_at"
     t.string   "backdrop_url"
     t.boolean  "poster_processing"
-    t.string   "cast",                              array: true
   end
 
   create_table "newsletters", force: :cascade do |t|
-    t.string   "subject",      limit: 255
+    t.string   "subject"
     t.integer  "week_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "campaign_id",  limit: 255
+    t.string   "campaign_id"
     t.text     "introduction"
     t.date     "start_date"
     t.date     "end_date"
     t.text     "body"
     t.date     "send_date"
-    t.boolean  "send_now"
-  end
-
-  create_table "pages", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "phrasing_phrase_versions", force: :cascade do |t|
@@ -101,8 +93,8 @@ ActiveRecord::Schema.define(version: 20150826110860) do
   end
 
   create_table "showings", force: :cascade do |t|
-    t.string   "day",        limit: 255
-    t.string   "times",      limit: 255
+    t.string   "day"
+    t.string   "times"
     t.integer  "movie_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -110,20 +102,20 @@ ActiveRecord::Schema.define(version: 20150826110860) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           limit: 255
-    t.string   "password_digest", limit: 255
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "token",           limit: 255
+    t.string   "token"
   end
 
   create_table "weeks", force: :cascade do |t|
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",   limit: 255, default: "standard"
+    t.string   "category",   default: "standard"
     t.text     "body"
   end
 

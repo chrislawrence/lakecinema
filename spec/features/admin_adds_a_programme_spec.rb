@@ -27,7 +27,7 @@ end
     fill_week_fields
     within('.movie-fields') do
       fill_in 'Title', with: 'The Godfather'
-      fill_in 'Times', with: '5pm'
+      fill_in 'week_movies_attributes_0_showings_attributes_0_times', with: '5pm'
     end
     click_button 'Save'
     visit root_path
