@@ -3,14 +3,15 @@ require 'spec_helper'
 describe Movie do
   it 'orders the showings by view index' do
     movie = create(:movie)
-    movie.showings << [Showing.new(position: 1), Showing.new(position: 0)]
-    expect(movie.showings.first.position).to eq(0)
+    movie.showings.create(position: 2)
+    movie.showings.create(position: 1)
+    expect(Movie.first.showings.first.position).to eq(1)
   end
 
-  it 'only downloads the poster if the url has changed' do
+  it 'downloads the poster with a new url' do
     movie = create(:movie)
     allow(movie).to receive(:parse_image).and_return(true)
-    expect(movie).to receive(:parse_image)
+    expect_any_instance_of(Movie).to receive(:parse_image)
     movie.update(poster_url: 'http://test.com/img.jpg')
   end
 
@@ -36,7 +37,7 @@ describe Movie do
   
   it 'destroys the showings when destroying the movie' do
     movie = create(:movie_with_showings)
-    expect{movie.destroy}.to change{Showing.count}
+    expect(movie).to have_many(:showings)
   end
 
   it 'casts a string to array for cast' do
