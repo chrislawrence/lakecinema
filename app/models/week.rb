@@ -44,15 +44,15 @@ class Week < ActiveRecord::Base
   end
 
   def standard?
-    true if self.category == 'standard'
+    self.category == 'standard' ? true : false
   end
 
   def holiday?
-    true if self.category == 'holiday'
+    self.category == 'holiday' ? true : false
   end
 
   def announcement?
-    true if self.category == 'announcement'
+    self.category == 'announcement' ? true : false
   end
 
   private

@@ -81,18 +81,18 @@ describe Week do
   it 'is a holiday programme' do
     week = build(:week, category: 'holiday')
     expect(week.holiday?).to eq(true)
-    expect(week.standard_week?).to eq(false)
+    expect(week.standard?).to eq(false)
   end
 
   it 'is an announcement' do
     week = build(:week, category: 'announcement')
     expect(week.announcement?).to eq(true)
-    expect(week.standard_week?).to eq(false)
+    expect(week.standard?).to eq(false)
   end
 
   it 'is a standard week' do
     week = build(:week)
-    expect(week.standard_week?).to eq(true)
+    expect(week.standard?).to eq(true)
   end
 
 end

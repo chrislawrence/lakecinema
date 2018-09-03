@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe Search do
+describe Search, :type => :request  do
   before(:each) do
-    ApplicationController.any_instance.stub(:authorise).and_return(true)
-    host! 'admin.example.com'
+    expect_any_instance_of(ApplicationController).to receive(:authorise).and_return(true)
   end
   it 'returns a JSON array of results' do
-    get 'searches', subdomain: 'admin',  params: {term: 'The Godfather'}
+    get '/searches', params: {term: 'The Godfather'}
     expect(response.body).to include({label: 'The Godfather (1972)', id: 238}.to_json)
   end
 
