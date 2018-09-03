@@ -41,15 +41,9 @@ toggleWeekCategory = ->
   if $('#week_category_standard').is(':checked')
     $('#movie-week').show()
     $('#holiday-week').hide()
-    $('#announcement-week').hide()
-  else if $('#week_category_holiday').is(':checked')
+  else 
     $('#movie-week').hide()
     $('#holiday-week').show()
-    $('#announcement-week').hide()
-  else
-    $('#movie-week').hide()
-    $('#holiday-week').hide()
-    $('#announcement-week').show()
 
 collapseMovieFields = ->
   $('.movie-fields').focusin ->

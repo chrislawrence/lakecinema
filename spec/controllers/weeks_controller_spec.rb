@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe WeeksController do
+describe WeeksController, type: :controller do
   before :each do
-    ApplicationController.any_instance.stub(:authorise).and_return(true)
+    expect_any_instance_of(ApplicationController).to receive(:authorise).and_return(true)
   end
 
   it 'accepts nested film attributes' do

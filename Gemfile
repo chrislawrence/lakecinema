@@ -29,6 +29,7 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'launchy'
 end
 
 group :development do

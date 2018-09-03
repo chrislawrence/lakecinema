@@ -8,13 +8,6 @@ describe Movie do
     expect(Movie.first.showings.first.position).to eq(1)
   end
 
-  it 'downloads the poster with a new url' do
-    movie = create(:movie)
-    allow(movie).to receive(:parse_image).and_return(true)
-    expect_any_instance_of(Movie).to receive(:parse_image)
-    movie.update(poster_url: 'http://test.com/img.jpg')
-  end
-
   it 'does not download the poster again if url has not changed' do
     movie = create(:movie)
     allow(movie).to receive(:parse_image).and_return(true)
@@ -37,7 +30,7 @@ describe Movie do
   
   it 'destroys the showings when destroying the movie' do
     movie = create(:movie_with_showings)
-    expect(movie).to have_many(:showings)
+    expect{Movie.first.destroy}.to change{Showing.count}
   end
 
   it 'casts a string to array for cast' do

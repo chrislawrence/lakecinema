@@ -23,7 +23,7 @@ describe Search do
   end
 
   it 'gets the first four actors' do
-    expect(Search.movie_by_id('256').actors).to eq(["Edward Norton", "Brad Pitt", "Helena Bonham Carter", "Meat Loaf"])
+    expect(Search.movie_by_id('256').cast).to eq(["Edward Norton", "Brad Pitt", "Helena Bonham Carter", "Meat Loaf"])
   end
 
 end

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe NavigationHelper do
+describe NavigationHelper, type: :helper do
   describe '#nav_link' do
     before :each do
-      helper.stub(:current_page?).and_return(true)
+      allow(helper).to receive(:current_page?).and_return(true)
     end
 
     it 'adds the current class for the current page' do
@@ -11,7 +11,7 @@ describe NavigationHelper do
     end
 
     it 'does not add the current class for the current page' do
-      helper.stub(:current_page?).and_return(false)
+      allow(helper).to receive(:current_page?).and_return(false)
       expect(helper.nav_link('link', 'url')).to_not include('current')
     end
 

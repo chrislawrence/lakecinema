@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe NewslettersController do
+describe NewslettersController, type: :controller do
   before :each do
     ApplicationController.any_instance.stub(:authorise).and_return(true)
   end
