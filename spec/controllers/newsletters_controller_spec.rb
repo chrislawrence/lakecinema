@@ -8,7 +8,7 @@ describe NewslettersController, type: :controller do
   it 'get newsletter that exists' do
     week = create(:week)
     newsletter = create(:newsletter, week_id: week.id)
-    get :edit, id: week.id
+    get :edit, id: newsletter.id
     expect(response.status).to eq(200)
   end
 end
