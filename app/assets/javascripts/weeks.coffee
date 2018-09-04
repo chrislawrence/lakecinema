@@ -41,7 +41,7 @@ toggleWeekCategory = ->
   if $('#week_category_standard').is(':checked')
     $('#movie-week').show()
     $('#holiday-week').hide()
-  else 
+  else
     $('#movie-week').hide()
     $('#holiday-week').show()
 

@@ -34,6 +34,16 @@ end
     expect(page).to have_content('Friday: 5pm')
   end
 
+  scenario "with an additional movie" do
+    fill_week_fields
+    within('.movie-fields') do
+      fill_in 'Title', with: 'The Godfather'
+      fill_in 'week_movies_attributes_0_showings_attributes_0_times', with: '5pm'
+    end
+    click_link 'Add Movie'
+    # Complete this test! error is due to simple_form
+  end
+
   def fill_week_fields
     visit new_week_path
     fill_in 'Start date', with: @week.start_date
