@@ -1,7 +1,6 @@
 .site-header {
   border-top: 8px solid $yellow;
-  background: $blue;
-  @include radial-gradient($blue 40%, adjust_hue($blue, -15));
+  background: radial-gradient($blue 40%, adjust_hue($blue, -15));
   color: $light-blue;
   margin-bottom: 3em;
   a {
@@ -32,8 +31,8 @@
   clear: both;
   margin: 1em 0 3em;
   padding: 0;
-  @include display(flex);
-  @include justify-content(space-between);
+  display: flex;
+  justify-content: space-between;
 	li {
     display: inline-block;
     line-height: 42px; /* for logo */

@@ -43,20 +43,20 @@ ActiveRecord::Schema.define(version: 20150826110860) do
     t.datetime "updated_at"
     t.string   "poster_file_name"
     t.string   "poster_content_type"
-    t.integer  "poster_file_size"
+    t.integer  "poster_file_size",      limit: 8
     t.datetime "poster_updated_at"
     t.text     "overview"
     t.string   "extra"
     t.integer  "view_index"
     t.integer  "tmdb_id"
     t.string   "backdrop"
-    t.string   "cast",                  array: true
+    t.string   "cast",                            array: true
     t.string   "director"
     t.integer  "newsletter_id"
     t.text     "after"
     t.string   "backdrop_file_name"
     t.string   "backdrop_content_type"
-    t.integer  "backdrop_file_size"
+    t.integer  "backdrop_file_size",    limit: 8
     t.datetime "backdrop_updated_at"
     t.string   "backdrop_url"
     t.boolean  "poster_processing"
