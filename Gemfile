@@ -53,6 +53,6 @@ gem 'phrasing'
 
 gem 'rails_12factor', group: :production
 
-ruby '2.2.2'
+ruby '2.7.4'
 
 gem 'puma'
