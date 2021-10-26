@@ -1,4 +1,4 @@
-$('[data-target=#ajax-modal]').on 'click', (e) ->
+$('[data-target="#ajax-modal"]').on 'click', (e) ->
   e.preventDefault()
   e.stopPropagation()
   $('body').modalmanager('loading')
