@@ -1,14 +1,3 @@
-GIT
-  remote: https://github.com/sd/paperclip
-  revision: 1d160793e3a511712245604efbe85f95989b81fd
-  branch: remove-mimemagic
-  specs:
-    paperclip (6.1.1)
-      activemodel (>= 4.2.0)
-      activesupport (>= 4.2.0)
-      mime-types
-      terrapin (~> 0.6.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -74,6 +63,8 @@ GEM
       capybara (>= 2.4, < 4.0)
       mail
     climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.3)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -194,6 +185,11 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    paperclip (4.2.4)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
     pg (0.21.0)
     phrasing (4.3.2)
       haml
@@ -317,8 +313,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     temple (0.8.2)
-    terrapin (0.6.0)
-      climate_control (>= 0.0.3, < 1.0)
     thor (1.1.0)
     thread_safe (0.3.6)
     tilt (2.0.10)
@@ -364,7 +358,7 @@ DEPENDENCIES
   launchy
   mailchimp-api
   nested_form
-  paperclip!
+  paperclip (~> 4.2.1)
   pg (~> 0.15)
   phrasing
   pry-rails

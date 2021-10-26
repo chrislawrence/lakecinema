@@ -39,7 +39,7 @@ group :development do
 end
 
 gem 'mailchimp-api'
-gem 'paperclip', git: 'https://github.com/sd/paperclip', branch: 'remove-mimemagic'
+gem 'paperclip', '~>4.2.1'
 gem 'delayed_paperclip'
 gem 'redcarpet'
 gem 'rest-client'
